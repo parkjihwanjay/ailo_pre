@@ -16,7 +16,7 @@ const routes = [
     component : Home,
   },
   {
-    path: '/',
+    path: '/pre/basic',
     name : 'PreBasic',
     component : PreBasic,
   },

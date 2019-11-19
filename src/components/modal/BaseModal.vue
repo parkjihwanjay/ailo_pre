@@ -123,7 +123,9 @@
 		<template name="마지막 버튼">
 			<div class="basic-button-box--big flex">
 				<input type="button" value="취소" class="big-button" />
-				<input type="button" value="적용하기" class="big-button" />
+				<router-link to="/pre/DragDrop">
+					<input type="button" value="적용하기" class="big-button" />
+				</router-link>
 			</div>
 		</template>
 	</div>
