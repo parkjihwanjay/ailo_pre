@@ -2,14 +2,14 @@
 	<div class="dragdrop-design-tool">
 		<div class="dragdrop-design-tool__buttons">
 			<div
-				:class="{ button_border: design }"
+				:class="{ button_click: design }"
 				class="dragdrop-design-tool__button"
 				@click="clickDesignBtn('design')"
 			>
 				디자인
 			</div>
 			<div
-				:class="{ button_border: sticker }"
+				:class="{ button_click: sticker }"
 				class="dragdrop-design-tool__button"
 				@click="clickDesignBtn('sticker')"
 			>
@@ -77,8 +77,9 @@ h2 {
 	text-align: center;
 	cursor: pointer;
 }
-.button_border {
+.button_click {
 	border-bottom: 1px solid $off-purple;
+	color: $off-purple;
 }
 .dragdrop-design-tool__design {
 	margin-top: 2rem;

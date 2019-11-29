@@ -7,28 +7,85 @@
 				<input type="button" value="두 페이지 보기" class="dragdrop-main__button__left" />
 			</div>
 			<div class="dragdrop-main__buttons__right">
-				<div class="dragdrop-main__button__right">설정</div>
+				<div class="dragdrop-main__button__right" @click="save()">설정</div>
 				<div class="dragdrop-main__button__right">구성편집</div>
 				<div class="dragdrop-main__button__right">미리보기</div>
 			</div>
 		</div>
-		<div class="dragdrop-main__page">
-			<div class="dragdrop-main__page__left"></div>
-			<div class="dragdrop-main__page__right"></div>
+		<div>
+			<canvas id="canvas" class="dragdrop-main__page" ref="dragdrop"></canvas>
+
+			<input type="button" value="저장" @click="save()" class="big-button dragdrop-save-button" />
+			<!-- <div class="dragdrop-main__page__left"></div>
+			<div class="dragdrop-main__page__right"></div> -->
 		</div>
 	</div>
 </template>
 
 <script>
+import jsPDF from 'jspdf';
+import AWS from 'aws-sdk';
+import html2canvas from 'html2canvas';
+
+import { aws_config, new_s3, s3_upload } from '../utils/AWS_S3/S3.js';
+import { interactInit } from '../utils/interact.js';
+
 export default {
 	name: 'DragdropMain',
+
+	created() {
+		interactInit('.dragdrop-main__page', this.$ga);
+	},
+	mounted() {
+		let canvas = document.getElementById('canvas');
+		console.log(canvas);
+		// console.log(this.$refs.dragdrop);
+		let ctx = canvas.getContext('2d');
+
+		canvas.style.width = '148mm';
+		canvas.style.height = '210mm';
+
+		const scale = window.devicePixelRatio;
+		canvas.width = 559.36 * scale;
+		canvas.height = 793.69 * scale;
+
+		ctx.scale(scale, scale);
+		// console.log(window.devicePixelRatio);
+		this.$ga.page('/pre/DragDrop');
+		aws_config();
+	},
+	methods: {
+		save() {
+			this.$store.commit('SET_LOADING', true);
+			const s3 = new_s3();
+			const canvas = document.getElementById('canvas');
+			window.scrollTo(0, 0);
+			html2canvas(canvas, {
+				width: 559.36,
+				height: 793.69,
+			}).then(canvas => {
+				const doc = new jsPDF('p', 'mm', 'a5');
+				//
+				const a = document.createElement('a');
+				a.download = 'asdf';
+				a.href = canvas.toDataURL('image/png');
+				a.click();
+				//
+				// doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
+				// const file = doc.output('arraybuffer');
+				// const photoKey = `pre-pdf/test/${this.$route.params.id}`;
+
+				// const result = s3_upload(s3, file, photoKey);
+				// console.log(result);
+			});
+		},
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
-
 .dragdrop-main {
 	width: 1023px;
 	height: 860px;
@@ -86,26 +143,37 @@ export default {
 	cursor: pointer;
 }
 .dragdrop-main__page {
-	padding-right: 1rem;
-	margin-top: 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.dragdrop-main__page__left {
-	width: 473px;
-	height: 668px;
+	width: 420px;
+	height: 596px;
 	object-fit: contain;
 	border-radius: 3px;
 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
-	background-color: $off-white;
+	background-color: $off-purple;
 }
-.dragdrop-main__page__right {
-	width: 473px;
-	height: 668px;
-	object-fit: contain;
-	border-radius: 3px;
-	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
-	background-color: $off-white;
+.dragdrop-save-button {
+	margin: 19.6px 65.5px 19.6px 802px;
 }
+// .dragdrop-main__page {
+// 	padding-right: 1rem;
+// 	margin-top: 1rem;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+// .dragdrop-main__page__left {
+// 	width: 473px;
+// 	height: 668px;
+// 	object-fit: contain;
+// 	border-radius: 3px;
+// 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
+// 	background-color: $off-white;
+// }
+// .dragdrop-main__page__right {
+// 	width: 473px;
+// 	height: 668px;
+// 	object-fit: contain;
+// 	border-radius: 3px;
+// 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
+// 	background-color: $off-white;
+// }
 </style>

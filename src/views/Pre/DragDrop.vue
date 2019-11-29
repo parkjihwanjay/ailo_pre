@@ -5,7 +5,7 @@
 			<dragdrop-main />
 			<dragdrop-design />
 		</div>
-		<foo-ter></foo-ter>
+		<Footer />
 	</div>
 </template>
 
@@ -13,14 +13,14 @@
 import NavBar from '@/components/NavBar.vue';
 import DragdropMain from '@/components/DragdropMain.vue';
 import DragdropDesign from '@/components/DragdropDesign.vue';
-import FooTer from '@/components/FooTer.vue';
+import Footer from '@/components/FooTer.vue';
 
 export default {
 	components: {
 		NavBar,
 		DragdropMain,
 		DragdropDesign,
-		FooTer,
+		Footer,
 	},
 };
 </script>

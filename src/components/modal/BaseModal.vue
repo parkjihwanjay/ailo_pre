@@ -53,7 +53,13 @@
 				<div class="basic-template--select">
 					<div class="basic-template--book object-contain"></div>
 					<div class="basic--title basic-template--name">심플 다이어리</div>
-					<input type="button" value="선택" class="small-button" />
+					<input
+						type="button"
+						value="선택"
+						@click="template_click('심플')"
+						class="small-button"
+						:class="{ button_clicked: basic_customizing.template === '심플' }"
+					/>
 					<!-- <div class="basic-template--button object-contain flex">
 						<div class="basic-template--button-text">선택</div>
 					</div> -->
@@ -134,6 +140,11 @@
 <script>
 export default {
 	name: 'BaseModal',
+	methods: {
+		template_click(value) {
+			this.basic_customizing.template = value;
+		},
+	},
 	data() {
 		return {
 			basic_customizing: {
@@ -162,6 +173,7 @@ export default {
 				array: '',
 				startDate: '',
 				endDate: '',
+				template: '',
 				basic_component: [
 					{
 						name: 'dailyPlanner',
@@ -217,6 +229,10 @@ export default {
 }
 .flex {
 	display: flex;
+}
+.button_clicked {
+	background-color: $off-purple;
+	color: $off-white;
 }
 .basic-modal {
 	margin: auto auto;
