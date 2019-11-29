@@ -21,7 +21,7 @@ const routes = [
     component : PreBasic,
   },
   {
-    path : '/pre/DragDrop',
+    path : '/pre/dragdrop',
     name : 'PreDragDrop',
     component : PreDragDrop,
   }

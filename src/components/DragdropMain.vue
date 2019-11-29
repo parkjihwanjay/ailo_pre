@@ -13,7 +13,11 @@
 			</div>
 		</div>
 		<div>
-			<canvas id="canvas" class="dragdrop-main__page" ref="dragdrop"></canvas>
+			<div id="canvas" class="dragdrop-main__page" ref="dragdrop">
+				<div color="white">asfsadf</div>
+				<div color="black">asdfasdf</div>
+				<div color="blue">asdfasdf</div>
+			</div>
 
 			<input type="button" value="저장" @click="save()" class="big-button dragdrop-save-button" />
 			<!-- <div class="dragdrop-main__page__left"></div>
@@ -37,19 +41,19 @@ export default {
 		interactInit('.dragdrop-main__page', this.$ga);
 	},
 	mounted() {
-		let canvas = document.getElementById('canvas');
-		console.log(canvas);
-		// console.log(this.$refs.dragdrop);
-		let ctx = canvas.getContext('2d');
+		// let canvas = document.getElementById('canvas');
+		// console.log(canvas);
+		// // console.log(this.$refs.dragdrop);
+		// let ctx = canvas.getContext('2d');
 
-		canvas.style.width = '148mm';
-		canvas.style.height = '210mm';
+		// canvas.style.width = '148mm';
+		// canvas.style.height = '210mm';
 
-		const scale = window.devicePixelRatio;
-		canvas.width = 559.36 * scale;
-		canvas.height = 793.69 * scale;
+		// const scale = window.devicePixelRatio;
+		// canvas.width = 559.36 * scale;
+		// canvas.height = 793.69 * scale;
 
-		ctx.scale(scale, scale);
+		// ctx.scale(scale, scale);
 		// console.log(window.devicePixelRatio);
 		this.$ga.page('/pre/DragDrop');
 		aws_config();
@@ -61,17 +65,28 @@ export default {
 			const canvas = document.getElementById('canvas');
 			window.scrollTo(0, 0);
 			html2canvas(canvas, {
-				width: 559.36,
-				height: 793.69,
+				width: 420,
+				height: 596,
 			}).then(canvas => {
+				document.body.appendChild(canvas);
+				console.log(canvas);
 				const doc = new jsPDF('p', 'mm', 'a5');
+				doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+				// , 148, 210);
+				doc.save('sample-file.pdf');
+				// const b = document.createElement('b');
+				// b.download = 'asdf';
+				// b.href = doc;
+				// b.click();
+
+				// canvas.width = '559.36px';
+				// canvas.height = '793.69px';
+
+				// const a = document.createElement('a');
+				// a.download = 'asdf';
+				// a.href = canvas.toDataURL('image/png');
+				// a.click();
 				//
-				const a = document.createElement('a');
-				a.download = 'asdf';
-				a.href = canvas.toDataURL('image/png');
-				a.click();
-				//
-				// doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
 				// const file = doc.output('arraybuffer');
 				// const photoKey = `pre-pdf/test/${this.$route.params.id}`;
 
