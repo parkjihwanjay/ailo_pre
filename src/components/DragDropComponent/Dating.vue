@@ -13,9 +13,9 @@ export default {};
 #dating {
 	width: 163px;
 	height: 50px;
-	font-family: NanumSquareRoundOTFB;
+	font-family: $font-nanum;
 	font-size: 5rem;
 	line-height: 1.14;
-	color: #707070;
+	color: $off-brown;
 }
 </style>

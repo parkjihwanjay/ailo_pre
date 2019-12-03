@@ -1,5 +1,5 @@
 <template>
-	<div id="daily-record">
+	<div class="daily-record">
 		<div class="header">
 			<div class="header-text">오늘의 기분은 어떤가요?</div>
 			<img class="header-img" src="@/assets/face-imoticon.png" alt="표정" />
@@ -13,11 +13,11 @@ export default {};
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
-#daily-record {
+.daily-record {
 	width: 300px;
 	height: 200px;
 	border-radius: 10px;
-	border: solid 1px #707070;
+	border: solid 1px $off-brown;
 	background-color: $off-gray;
 }
 .header {
@@ -31,7 +31,7 @@ export default {};
 .header-text {
 	// width: 303px;
 	// height: 34px;
-	font-family: NanumSquareRoundOTFL;
+	font-family: $font-nanum;
 	font-size: 1.6rem;
 	line-height: 1.17;
 	color: $off-black;

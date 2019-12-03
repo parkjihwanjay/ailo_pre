@@ -14,11 +14,17 @@
 		</div>
 		<div>
 			<div id="canvas" class="dragdrop-main__page" ref="dragdrop">
-				<img id="weather-icon" class="drag" src="../assets/weather.png" alt="weather" />
-				<Memo class="dragResize" id="memo" />
-				<Dday class="drag" />
-				<daily-record class="dragResize"></daily-record>
-				<Dating class="drag" />
+				<img
+					id="weather-icon"
+					class="drag"
+					src="../assets/weather.png"
+					alt="weather"
+					ref="weather"
+				/>
+				<Memo class="dragresize" ref="memo" />
+				<Dday class="drag" ref="Dday" />
+				<daily-record class="dragresize" ref="dailyrecord" />
+				<Dating class="drag" ref="dating" />
 				<!-- <img class="dragdrop" src="../assets/daily.png" alt="" /> -->
 				<!-- <img class="dragdrop" src="../assets/dailySvg.svg" width="177px" height="143px" alt="" /> -->
 			</div>
@@ -55,10 +61,23 @@ export default {
 		//only for drag
 		interactDragInit('.drag', this.$ga);
 		//both for drag and resize
-		interactDragInit('.dragResize', this.$ga);
-		interactResizeInit('.dragResize', this.$ga);
+		interactDragInit('.dragresize', this.$ga);
+		interactResizeInit('.dragresize', this.$ga);
 	},
 	mounted() {
+		//처음 위치 조정
+		const weather = this.$refs.weather;
+		const memo = this.$refs.memo.$el;
+		const Dday = this.$refs.Dday.$el;
+		const dailyRecord = this.$refs.dailyrecord.$el;
+		const dating = this.$refs.dating.$el;
+
+		this.setPosition(weather, 382, 12);
+		this.setPosition(memo, 341, 136);
+		this.setPosition(Dday, 227, -111);
+		this.setPosition(dailyRecord, 17, -1);
+		this.setPosition(dating, 30, -342);
+
 		// let canvas = document.getElementById('canvas');
 		// console.log(canvas);
 		// // console.log(this.$refs.dragdrop);
@@ -77,6 +96,12 @@ export default {
 		aws_config();
 	},
 	methods: {
+		setPosition(target, x, y) {
+			target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+
+			target.setAttribute('data-x', x);
+			target.setAttribute('data-y', y);
+		},
 		save() {
 			this.$store.commit('SET_LOADING', true);
 			const s3 = new_s3();

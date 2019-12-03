@@ -22,7 +22,7 @@ export default {};
 	// width: 45px;
 	// height: 44px;
 	margin-left: 12px;
-	font-family: NanumSquareRoundOTFB;
+	font-family: $font-nanum;
 	font-size: 1.6rem;
 	line-height: 1.13;
 	color: $off-black;
