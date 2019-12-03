@@ -14,9 +14,13 @@
 		</div>
 		<div>
 			<div id="canvas" class="dragdrop-main__page" ref="dragdrop">
-				<div color="white">asfsadf</div>
-				<div color="black">asdfasdf</div>
-				<div color="blue">asdfasdf</div>
+				<img id="weather-icon" class="drag" src="../assets/weather.png" alt="weather" />
+				<Memo class="dragResize" id="memo" />
+				<Dday class="drag" />
+				<daily-record class="dragResize"></daily-record>
+				<Dating class="drag" />
+				<!-- <img class="dragdrop" src="../assets/daily.png" alt="" /> -->
+				<!-- <img class="dragdrop" src="../assets/dailySvg.svg" width="177px" height="143px" alt="" /> -->
 			</div>
 
 			<input type="button" value="저장" @click="save()" class="big-button dragdrop-save-button" />
@@ -32,13 +36,27 @@ import AWS from 'aws-sdk';
 import html2canvas from 'html2canvas';
 
 import { aws_config, new_s3, s3_upload } from '../utils/AWS_S3/S3.js';
-import { interactInit } from '../utils/interact.js';
+import { interactDragInit, interactResizeInit } from '../utils/interact.js';
+
+import Memo from './DragDropComponent/Memo.vue';
+import Dday from './DragDropComponent/Dday.vue';
+import DailyRecord from './DragDropComponent/DailyRecord.vue';
+import Dating from './DragDropComponent/Dating.vue';
 
 export default {
 	name: 'DragdropMain',
-
+	components: {
+		Memo,
+		Dday,
+		DailyRecord,
+		Dating,
+	},
 	created() {
-		interactInit('.dragdrop-main__page', this.$ga);
+		//only for drag
+		interactDragInit('.drag', this.$ga);
+		//both for drag and resize
+		interactDragInit('.dragResize', this.$ga);
+		interactResizeInit('.dragResize', this.$ga);
 	},
 	mounted() {
 		// let canvas = document.getElementById('canvas');
@@ -65,13 +83,13 @@ export default {
 			const canvas = document.getElementById('canvas');
 			window.scrollTo(0, 0);
 			html2canvas(canvas, {
-				width: 420,
-				height: 596,
+				width: 559.36,
+				height: 793.69,
 			}).then(canvas => {
 				document.body.appendChild(canvas);
 				console.log(canvas);
 				const doc = new jsPDF('p', 'mm', 'a5');
-				doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+				doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
 				// , 148, 210);
 				doc.save('sample-file.pdf');
 				// const b = document.createElement('b');
@@ -101,6 +119,10 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
+#weather-icon {
+	width: 42mm;
+	height: 5.669mm;
+}
 .dragdrop-main {
 	width: 1023px;
 	height: 860px;
@@ -158,10 +180,11 @@ export default {
 	cursor: pointer;
 }
 .dragdrop-main__page {
-	width: 420px;
-	height: 596px;
+	width: 148mm;
+	height: 210mm;
+	margin-left: 20px;
 	object-fit: contain;
-	border-radius: 3px;
+	// border-radius: 3px;
 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
 	background-color: $off-purple;
 }
