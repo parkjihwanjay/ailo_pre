@@ -14,6 +14,8 @@
 		</div>
 		<div>
 			<div id="canvas" class="dragdrop-main__page" ref="dragdrop">
+				<Dating class="drag" ref="dating" />
+				<Dday class="drag" ref="Dday" />
 				<img
 					id="weather-icon"
 					class="drag"
@@ -21,10 +23,10 @@
 					alt="weather"
 					ref="weather"
 				/>
-				<Memo class="dragresize" ref="memo" />
-				<Dday class="drag" ref="Dday" />
-				<daily-record class="dragresize" ref="dailyrecord" />
-				<Dating class="drag" ref="dating" />
+				<Memo class="drag" ref="memo" />
+				<daily-record class="drag" ref="dailyrecord" />
+				<Schedule class="drag" id="schedule-big" />
+				<Schedule class="drag" id="schedule-small" />
 				<!-- <img class="dragdrop" src="../assets/daily.png" alt="" /> -->
 				<!-- <img class="dragdrop" src="../assets/dailySvg.svg" width="177px" height="143px" alt="" /> -->
 			</div>
@@ -48,6 +50,7 @@ import Memo from './DragDropComponent/Memo.vue';
 import Dday from './DragDropComponent/Dday.vue';
 import DailyRecord from './DragDropComponent/DailyRecord.vue';
 import Dating from './DragDropComponent/Dating.vue';
+import Schedule from './DragDropComponent/Schedule.vue';
 
 export default {
 	name: 'DragdropMain',
@@ -56,6 +59,7 @@ export default {
 		Dday,
 		DailyRecord,
 		Dating,
+		Schedule,
 	},
 	created() {
 		//only for drag
@@ -72,11 +76,11 @@ export default {
 		const dailyRecord = this.$refs.dailyrecord.$el;
 		const dating = this.$refs.dating.$el;
 
-		this.setPosition(weather, 382, 12);
-		this.setPosition(memo, 341, 136);
-		this.setPosition(Dday, 227, -111);
-		this.setPosition(dailyRecord, 17, -1);
-		this.setPosition(dating, 30, -342);
+		// this.setPosition(weather, 382, 12);
+		// this.setPosition(memo, 341, 136);
+		// this.setPosition(Dday, 227, -111);
+		// this.setPosition(dailyRecord, 17, -1);
+		// this.setPosition(dating, 30, -342);
 
 		// let canvas = document.getElementById('canvas');
 		// console.log(canvas);
@@ -144,6 +148,13 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
+
+#schedule-big {
+	width: 502px;
+}
+#schedule-small {
+	width: 251px;
+}
 #weather-icon {
 	width: 42mm;
 	height: 5.669mm;

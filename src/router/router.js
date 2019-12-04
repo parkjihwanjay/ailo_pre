@@ -12,6 +12,8 @@ const Memo = () => import('../components/DragDropComponent/Memo.vue');
 const Dday = () => import('../components/DragDropComponent/Dday.vue');
 
 const DailyRecord = () => import('../components/DragDropComponent/DailyRecord.vue');
+
+const Schedule = () => import('../components/DragDropComponent/Schedule.vue');
 Vue.use(Router);
 
 const routes = [
@@ -44,6 +46,11 @@ const routes = [
     path : '/pre/dailyrecord',
     name : 'dailyrecord',
     component : DailyRecord,
+  },
+  {
+    path : '/pre/schedule',
+    name : 'schedule',
+    component : Schedule,
   },
 ]
 

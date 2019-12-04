@@ -235,7 +235,7 @@ export default {
 	color: $off-white;
 }
 .basic-modal {
-	margin: auto auto;
+	margin: 40px auto;
 	width: 1240px;
 	height: 1397px;
 	border-radius: 3px;

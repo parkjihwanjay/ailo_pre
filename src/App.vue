@@ -34,6 +34,6 @@ body {
 }
 #app {
 	width: 1440px;
-	height: 1527px;
+	// height: 1527px;
 }
 </style>

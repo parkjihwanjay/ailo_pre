@@ -32,5 +32,6 @@ export default {
 .main-box {
 	display: flex;
 	flex-direction: row;
+	margin-bottom: 30px;
 }
 </style>
