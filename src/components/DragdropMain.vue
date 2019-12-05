@@ -8,32 +8,56 @@
 			</div>
 			<div class="dragdrop-main__buttons__right">
 				<div class="dragdrop-main__button__right" @click="save()">설정</div>
-				<div class="dragdrop-main__button__right">구성편집</div>
+				<div class="dragdrop-main__button__right" @click="changeEditing()">구성편집</div>
 				<div class="dragdrop-main__button__right">미리보기</div>
 			</div>
 		</div>
-		<div>
-			<div id="canvas" class="dragdrop-main__page" ref="dragdrop">
-				<Dating class="drag" ref="dating" />
-				<Dday class="drag" ref="Dday" />
-				<img
-					id="weather-icon"
-					class="drag"
-					src="../assets/weather.png"
-					alt="weather"
-					ref="weather"
-				/>
-				<Memo class="drag" ref="memo" />
-				<daily-record class="drag" ref="dailyrecord" />
-				<Schedule class="drag" id="schedule-big" />
-				<Schedule class="drag" id="schedule-small" />
-				<!-- <img class="dragdrop" src="../assets/daily.png" alt="" /> -->
-				<!-- <img class="dragdrop" src="../assets/dailySvg.svg" width="177px" height="143px" alt="" /> -->
+		<div class="dragdrop-main__body">
+			<div id="canvas" class="dragdrop-main__page">
+				<div class="dragdrop-main__canvas" ref="dragdrop">
+					<div class="dragdrop-main__header">
+						<Dating ref="dating" />
+						<Dday ref="Dday" />
+						<img id="weather-icon" src="../assets/weather.png" alt="weather" ref="weather" />
+					</div>
+					<daily-record class="drag" ref="dailyrecord" v-show="componentShow[0].checked" />
+					<Memo class="drag" ref="memo" v-show="componentShow[1].checked" />
+					<Schedule class="drag" id="schedule-big" v-show="componentShow[2].checked" />
+					<Schedule class="drag" id="schedule-small" v-show="componentShow[3].checked" />
+					<account-book
+						@accountDelete="componentShowDelete(4)"
+						class="drag"
+						v-if="componentShow[4].checked"
+						:editing="editing"
+					></account-book>
+					<!-- todo-list 색깔 있는 버전 -->
+					<todo-list
+						class="drag"
+						todoV="one"
+						@todoDelete="componentShowDelete(5)"
+						:editing="editing"
+						v-if="componentShow[5].checked"
+					></todo-list>
+					<!-- todo-list 색깔 없는 버전 -->
+					<todo-list
+						class="drag"
+						todoV="two"
+						@todoDelete="componentShowDelete(6)"
+						:editing="editing"
+						v-if="componentShow[6].checked"
+					></todo-list>
+				</div>
 			</div>
-
-			<input type="button" value="저장" @click="save()" class="big-button dragdrop-save-button" />
-			<!-- <div class="dragdrop-main__page__left"></div>
-			<div class="dragdrop-main__page__right"></div> -->
+			<div>
+				<span v-for="(component, index) in componentShow" :key="index">
+					<input type="checkbox" :id="index" v-model="component.checked" />
+					<label :for="index">{{ component.name }}</label>
+					<br />
+				</span>
+			</div>
+			<!-- <input type="button" value="저장" @click="save()" class="big-button dragdrop-save-button" /> -->
+			<!-- <div class="dragdrop-main__canvas__left"></div>
+			<div class="dragdrop-main__canvas__right"></div> -->
 		</div>
 	</div>
 </template>
@@ -44,13 +68,15 @@ import AWS from 'aws-sdk';
 import html2canvas from 'html2canvas';
 
 import { aws_config, new_s3, s3_upload } from '../utils/AWS_S3/S3.js';
-import { interactDragInit, interactResizeInit } from '../utils/interact.js';
+import { interactDragInit, interactResizeInit, interactDropInit } from '../utils/interact.js';
 
 import Memo from './DragDropComponent/Memo.vue';
 import Dday from './DragDropComponent/Dday.vue';
 import DailyRecord from './DragDropComponent/DailyRecord.vue';
 import Dating from './DragDropComponent/Dating.vue';
 import Schedule from './DragDropComponent/Schedule.vue';
+import AccountBook from './DragDropComponent/AccountBook.vue';
+import TodoList from './DragDropComponent/TodoList.vue';
 
 export default {
 	name: 'DragdropMain',
@@ -60,13 +86,51 @@ export default {
 		DailyRecord,
 		Dating,
 		Schedule,
+		AccountBook,
+		TodoList,
 	},
 	created() {
 		//only for drag
 		interactDragInit('.drag', this.$ga);
+		// interactDropInit('.dragdrop-main__canvas');
 		//both for drag and resize
 		interactDragInit('.dragresize', this.$ga);
 		interactResizeInit('.dragresize', this.$ga);
+	},
+	data() {
+		return {
+			componentShow: [
+				{
+					name: 'Daily Record',
+					checked: false,
+				},
+				{
+					name: 'Memo',
+					checked: false,
+				},
+				{
+					name: 'Schedule(큰 버전)',
+					checked: false,
+				},
+				{
+					name: 'Schedule(작은 버전)',
+					checked: false,
+				},
+				{
+					name: '가계부',
+					checked: false,
+				},
+				{
+					name: 'Todo-List(색깔 있음)',
+					checked: false,
+				},
+				{
+					name: 'Todo-List(색깔 없음)',
+					checked: false,
+				},
+			],
+			editing: false,
+		};
 	},
 	mounted() {
 		//처음 위치 조정
@@ -100,11 +164,17 @@ export default {
 		aws_config();
 	},
 	methods: {
+		changeEditing() {
+			this.editing = !this.editing;
+		},
 		setPosition(target, x, y) {
 			target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px,' + y + 'px)';
 
 			target.setAttribute('data-x', x);
 			target.setAttribute('data-y', y);
+		},
+		componentShowDelete(index) {
+			this.componentShow[index].checked = false;
 		},
 		save() {
 			this.$store.commit('SET_LOADING', true);
@@ -149,6 +219,18 @@ export default {
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
 
+.dragdrop-page__header {
+	padding-top: 10px;
+	margin: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.drag {
+	margin-top: 10px;
+	touch-action: none;
+	user-select: none;
+}
 #schedule-big {
 	width: 502px;
 }
@@ -169,6 +251,9 @@ export default {
 .dragdrop-main__heading {
 	padding: 20px 0;
 	font-size: $s-size;
+}
+.dragdrop-main__body {
+	display: flex;
 }
 .dragdrop-main__buttons {
 	display: flex;
@@ -218,23 +303,35 @@ export default {
 .dragdrop-main__page {
 	width: 148mm;
 	height: 210mm;
-	margin-left: 20px;
-	object-fit: contain;
-	// border-radius: 3px;
 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	object-fit: contain;
+	margin-left: 20px;
 	background-color: $off-purple;
+}
+.dragdrop-main__canvas {
+	width: 142mm;
+	height: 204mm;
+	// border-radius: 3px;
+}
+.dragdrop-main__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 .dragdrop-save-button {
 	margin: 19.6px 65.5px 19.6px 802px;
 }
-// .dragdrop-main__page {
+// .dragdrop-main__canvas {
 // 	padding-right: 1rem;
 // 	margin-top: 1rem;
 // 	display: flex;
 // 	justify-content: center;
 // 	align-items: center;
 // }
-// .dragdrop-main__page__left {
+// .dragdrop-main__canvas__left {
 // 	width: 473px;
 // 	height: 668px;
 // 	object-fit: contain;
@@ -242,7 +339,7 @@ export default {
 // 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
 // 	background-color: $off-white;
 // }
-// .dragdrop-main__page__right {
+// .dragdrop-main__canvas__right {
 // 	width: 473px;
 // 	height: 668px;
 // 	object-fit: contain;

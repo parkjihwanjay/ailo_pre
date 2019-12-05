@@ -1,5 +1,6 @@
 import interact from 'interactjs';
 
+//drag
 function dragMoveListener(event) {
 	let target = event.target;
 	let x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
@@ -24,11 +25,11 @@ function interactDragInit(id, ga) {
 					return interacting ? 'grabbing' : 'grab';
 			}
 		},
-		inertia: {
-			resistance: 30,
-			minSpeed: 200,
-			endSpeed: 100,
-		},
+		// inertia: {
+		// 	resistance: 30,
+		// 	minSpeed: 200,
+		// 	endSpeed: 100,
+		// },
 		modifiers: [
 			interact.modifiers.restrictRect({
 				restriction: 'parent',
@@ -45,6 +46,45 @@ function interactDragInit(id, ga) {
 	});
 }
 
+//drop
+
+function interactDropInit(id) {
+	interact(id).dropzone({
+		overlap: 0.8,
+		ondropactivate: function(event) {
+			console.log('ondropactivate');
+		},
+		ondropdeactivate: function(event) {
+			console.log('ondropdeactivate');
+		},
+		ondragenter: function(event) {
+			console.log('ondragenter');
+		},
+		ondragleave: function(event) {
+			console.log('ondragleave');
+		},
+		// ondropactivate: function(event) {
+		// 	const item = event.relatedTarget;
+		// 	item.classList.add('dragging');
+		// },
+		// ondragenter: function(event) {
+		// 	alert('성공적');
+		// },
+		// ondropactivate: function(evnet) {
+		// 	console.log(id);
+		// 	console.log(event.relatedTarget);
+		// 	alert('성공적');
+		// },
+		// ondrop: function(event) {
+		// 	alert(event.relatedTarget.id + ' was dropped into ' + event.target.id);
+		// },
+	});
+	// .on('dropactivate', function(event) {
+	// 	alert('성공적');
+	// 	// event.target.classList.add('drop-activated');
+	// });
+}
+//resize
 function interactResizeInit(id, ga) {
 	interact(id)
 		.draggable({
@@ -96,4 +136,4 @@ function interactResizeInit(id, ga) {
 		});
 }
 
-export { interactDragInit, interactResizeInit };
+export { interactDragInit, interactResizeInit, interactDropInit };

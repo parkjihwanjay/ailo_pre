@@ -72,7 +72,7 @@ h2 {
 .dragdrop-design-tool__button {
 	padding: 1.6rem 0;
 	width: 50%;
-	color: $off-gray;
+	color: $off-black;
 	border-bottom: 1px solid #ececec;
 	text-align: center;
 	cursor: pointer;
