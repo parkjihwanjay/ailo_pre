@@ -2,16 +2,18 @@
 	<div class="schedule">
 		<h2>schedule</h2>
 		<div class="schedule-top">
-			<p style="color: white">00</p>
-			<p>10</p>
-			<p>20</p>
-			<p>30</p>
-			<p>40</p>
-			<p>50</p>
-			<p style="color: white">60</p>
+			<div style="color:transparent">00</div>
+			<div class="header-time">
+				<p>10</p>
+				<p>20</p>
+				<p>30</p>
+				<p>40</p>
+				<p>50</p>
+			</div>
+			<div style="color:transparent">60</div>
 		</div>
 		<div class="schedule-box" v-for="(time, index) in times" :key="index">
-			<p class="schedule-box__times">{{ time }}</p>
+			<div class="schedule-box__times">{{ time }}</div>
 			<table class="schedule-box__time-table">
 				<tr class="schedule-box__time-table__tr">
 					<td>.</td>
@@ -58,22 +60,28 @@ export default {
 
 <style>
 .schedule-box__time-table__tr > td {
-	color: transparent;
+	color: white;
 }
-p {
-	font-size: 1.1rem;
-}
+
 * {
 	margin: 0;
 }
+.header-time {
+	width: 64.41%;
+	padding-left: 10.4%;
+
+	display: flex;
+	justify-content: space-between;
+}
 /* .schedule {
-	width: 450px;
+	width: 264px;
 } */
 .schedule-top {
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
+	/* flex-direction: row; */
+	/* justify-content: space-between; */
+	/* align-items: center; */
 }
 .schedule-box {
 	width: 100%;
@@ -83,11 +91,12 @@ p {
 	align-items: center;
 }
 .schedule-box__times {
-	font-size: 1.1rem;
-	/* width: 5%; */
+	/* text-align: right; */
+	font-family: 'Avenir', Arial, Helvetica, sans-serif;
+	/* width: 10%; */
 }
 .schedule-box__time-table {
-	width: 95%;
+	width: 90%;
 	border-top: 1px solid gray;
 	border-collapse: collapse;
 }
@@ -96,6 +105,7 @@ p {
 }
 .schedule-box__time-table__tr > td {
 	border-left: 0.5px dotted gray;
+	width: 16.666%;
 }
 .schedule-box__time-table__tr > td:nth-child(1) {
 	border: none;

@@ -160,7 +160,7 @@ export default {
 
 		// ctx.scale(scale, scale);
 		// console.log(window.devicePixelRatio);
-		this.$ga.page('/pre/DragDrop');
+		this.$ga.page('/pre/dragdrop');
 		aws_config();
 	},
 	methods: {
@@ -232,10 +232,10 @@ export default {
 	user-select: none;
 }
 #schedule-big {
-	width: 502px;
+	width: 343px;
 }
 #schedule-small {
-	width: 251px;
+	width: 264px;
 }
 #weather-icon {
 	width: 42mm;
@@ -309,7 +309,7 @@ export default {
 	justify-content: center;
 	object-fit: contain;
 	margin-left: 20px;
-	background-color: $off-purple;
+	background-color: $off-white;
 }
 .dragdrop-main__canvas {
 	width: 142mm;

@@ -7,8 +7,8 @@
 
 		<div :class="`todo-box-${todoV}__container`">
 			<div :class="`todo-box-${todoV}`" v-for="index in todoNum" :key="index">
-				<div :class="`todo-box-${todoV}__left`">☐</div>
-				<div :class="`todo-box-${todoV}__right`"></div>
+				<div class="todo-box__left">☐</div>
+				<div class="todo-box__right"></div>
 			</div>
 			<div :class="`todo-box-${todoV}-add btn`" v-show="editing" v-on:click="adding()">+</div>
 		</div>
@@ -79,10 +79,11 @@ export default {
 	border-bottom: 1px solid white;
 	padding: 5px 0;
 }
-.todo-box-one__left {
+.todo-box__left {
+	text-align: center;
 	width: 15%;
 }
-.todo-box-one__right {
+.todo-box__right {
 	width: 85%;
 }
 
@@ -96,10 +97,10 @@ export default {
 	width: 100%;
 	padding: 5px 0;
 }
-.todo-box-two__left {
+/* .todo-box-two__left {
 	width: 15%;
 }
 .todo-box-two__right {
 	width: 85%;
-}
+} */
 </style>
