@@ -8,7 +8,7 @@
 
 <script>
 import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
+import Footer from './components/FooTer.vue';
 import BaseSpinner from '../src/components/BaseSpinenr.vue';
 export default {
 	name: 'App',
