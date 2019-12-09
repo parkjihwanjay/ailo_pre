@@ -17,10 +17,11 @@ export default {};
 	width: 300px;
 	height: 200px;
 	border-radius: 10px;
-	border: solid 1px $off-brown;
+	// border: solid 1px $off-brown;
 	background-color: $off-gray;
 }
 .header {
+	padding-top: 15px;
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;

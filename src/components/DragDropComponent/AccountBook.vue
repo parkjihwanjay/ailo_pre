@@ -1,8 +1,8 @@
 <template>
-	<div class="account">
+	<div class="account" @mouseover="enterHover()" @mouseout="outHover()">
 		<div class="account-header">
 			<h2>Account Book</h2>
-			<div class="account-delete-btn btn" @click="deleting()" v-show="editing">✕</div>
+			<div class="account-delete-btn btn" @click="deleting()" v-show="hover">✕</div>
 		</div>
 
 		<div class="account__container">
@@ -16,11 +16,11 @@
 					<tr class="account-box__main" v-for="index in accountNum" :key="index">
 						<td>.</td>
 						<td class="table-second-td">.</td>
-						<td>.</td>
+						<td @click="reducing()" :class="{ 'account-td-delete-btn': hover }">x</td>
 					</tr>
 				</table>
 			</div>
-			<div class="account-box-add btn" v-show="editing" @click="adding()">+</div>
+			<div class="account-box-add btn" v-show="hover" @click="adding()">+</div>
 		</div>
 
 		<div class="account-total">
@@ -45,8 +45,9 @@
 </template>
 
 <script>
+import dragdropHover from '../../mixin/DragDropComponentMixins.js';
 export default {
-	props: ['editing'],
+	mixins: [dragdropHover],
 	data() {
 		return {
 			accountNum: 5,
@@ -56,8 +57,8 @@ export default {
 		adding() {
 			return this.accountNum++;
 		},
-		deleting() {
-			this.$emit('accountDelete');
+		reducing() {
+			return this.accountNum--;
 		},
 	},
 };
@@ -80,6 +81,10 @@ export default {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+}
+.account-td-delete-btn {
+	color: black !important;
+	text-align: right;
 }
 .account-delete-btn {
 	background-color: #727272;

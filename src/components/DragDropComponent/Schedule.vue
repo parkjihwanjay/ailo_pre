@@ -1,8 +1,8 @@
 <template>
-	<div class="schedule" v-show="schedule">
+	<div class="schedule" @mouseover="enterHover()" @mouseout="outHover()">
 		<div class="schedule-header">
 			<h2>schedule</h2>
-			<div class="schedule-delete-btn btn" v-on:click="deleting()">✕</div>
+			<div class="schedule-delete-btn btn" v-show="hover" @click="deleting()">✕</div>
 		</div>
 		<div class="schedule-top">
 			<div style="color:transparent">00</div>
@@ -32,10 +32,11 @@
 </template>
 
 <script>
+import dragdropHover from '../../mixin/DragDropComponentMixins.js';
 export default {
+	mixins: [dragdropHover],
 	data() {
 		return {
-			schedule: true,
 			times: [
 				'06',
 				'07',
@@ -59,17 +60,12 @@ export default {
 			],
 		};
 	},
-	methods: {
-		deleting() {
-			return (this.schedule = false);
-		},
-	},
 };
 </script>
 
 <style>
 .schedule-box__time-table__tr > td {
-	color: white;
+	color: transparent;
 }
 
 * {

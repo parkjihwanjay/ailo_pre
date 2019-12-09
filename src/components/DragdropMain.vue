@@ -20,30 +20,51 @@
 						<Dday ref="Dday" />
 						<img id="weather-icon" src="../assets/weather.png" alt="weather" ref="weather" />
 					</div>
-					<div class="dragdrop-main-canvas__body">
-						<daily-record class="drag" ref="dailyrecord" v-show="componentShow[0].checked" />
-						<Memo class="drag" ref="memo" v-show="componentShow[1].checked" />
-						<Schedule class="drag" id="schedule-big" v-show="componentShow[2].checked" />
-						<Schedule class="drag" id="schedule-small" v-show="componentShow[3].checked" />
+					<div
+						ref="dragdropMainCanvasBody"
+						id="dragdrop-main-canvas__body"
+						class="dragdrop-main-canvas__body"
+					>
+						<daily-record
+							id="daily-record"
+							class="drag"
+							ref="dailyrecord"
+							v-show="componentShow[0].checked"
+						/>
+						<Memo class="drag" id="memo" ref="memo" v-show="componentShow[1].checked" />
+						<Schedule
+							class="drag"
+							id="schedule-big"
+							@delete="componentShowDelete(2)"
+							v-show="componentShow[2].checked"
+						/>
+						<Schedule
+							class="drag"
+							id="schedule-small"
+							@delete="componentShowDelete(3)"
+							v-show="componentShow[3].checked"
+						/>
 						<account-book
-							@accountDelete="componentShowDelete(4)"
+							@delete="componentShowDelete(4)"
+							id="account-book"
 							class="drag"
 							v-if="componentShow[4].checked"
-							:editing="editing"
 						></account-book>
 						<!-- todo-list 색깔 있는 버전 -->
 						<todo-list
+							id="todo-list-color"
 							class="drag"
 							todoV="one"
-							@todoDelete="componentShowDelete(5)"
+							@delete="componentShowDelete(5)"
 							:editing="editing"
 							v-if="componentShow[5].checked"
 						></todo-list>
 						<!-- todo-list 색깔 없는 버전 -->
 						<todo-list
+							id="todo-list"
 							class="drag"
 							todoV="two"
-							@todoDelete="componentShowDelete(6)"
+							@delete="componentShowDelete(6)"
 							:editing="editing"
 							v-if="componentShow[6].checked"
 						></todo-list>
@@ -52,7 +73,12 @@
 			</div>
 			<div>
 				<span v-for="(component, index) in componentShow" :key="index">
-					<input type="checkbox" :id="index" v-model="component.checked" />
+					<input
+						@click="checkOverflow(component.id)"
+						type="checkbox"
+						:id="index"
+						v-model="component.checked"
+					/>
 					<label :for="index">{{ component.name }}</label>
 					<br />
 				</span>
@@ -68,6 +94,7 @@
 import jsPDF from 'jspdf';
 import AWS from 'aws-sdk';
 import html2canvas from 'html2canvas';
+import detectElementOverflow from 'detect-element-overflow';
 
 import { aws_config, new_s3, s3_upload } from '../utils/AWS_S3/S3.js';
 import { interactDragInit, interactResizeInit, interactDropInit } from '../utils/interact.js';
@@ -104,30 +131,37 @@ export default {
 			componentShow: [
 				{
 					name: 'Daily Record',
+					id: 'daily-record',
 					checked: false,
 				},
 				{
 					name: 'Memo',
+					id: 'memo',
 					checked: false,
 				},
 				{
 					name: 'Schedule(큰 버전)',
+					id: 'schedule-big',
 					checked: false,
 				},
 				{
 					name: 'Schedule(작은 버전)',
+					id: 'schedule-small',
 					checked: false,
 				},
 				{
 					name: '가계부',
+					id: 'account-book',
 					checked: false,
 				},
 				{
 					name: 'Todo-List(색깔 있음)',
+					id: 'todo-list-color',
 					checked: false,
 				},
 				{
 					name: 'Todo-List(색깔 없음)',
+					id: 'todo-list',
 					checked: false,
 				},
 			],
@@ -135,6 +169,7 @@ export default {
 		};
 	},
 	mounted() {
+		// console.log(this.$refs);
 		//처음 위치 조정
 		const weather = this.$refs.weather;
 		const memo = this.$refs.memo.$el;
@@ -166,6 +201,19 @@ export default {
 		aws_config();
 	},
 	methods: {
+		checkOverflow(id) {
+			// console.log(this.$refs);
+			// const canvas = this.$refs.overflow;
+			// if (canvas.clientHeight >= 721) alert('넘칩니다 ㅜㅜ');
+			// console.log(canvas.scrollHeight, canvas.clientHeight);
+			// console.log(id);
+			const canvas = document.getElementById('dragdrop-main-canvas__body');
+			const child = document.getElementById(id);
+			const isOverflow = detectElementOverflow(child, canvas);
+			// // if () alert('넘치면 안됩니다');
+			console.log(isOverflow);
+			console.log(isOverflow.collidedBottom);
+		},
 		changeEditing() {
 			this.editing = !this.editing;
 		},
@@ -324,6 +372,7 @@ export default {
 	align-items: center;
 }
 .dragdrop-main-canvas__body {
+	overflow: hidden;
 	height: 721.02px;
 }
 .dragdrop-save-button {
