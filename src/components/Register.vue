@@ -42,6 +42,7 @@
 											class="w-100"
 											title="생년월일"
 											placeholder="YYYY - MM - DD"
+											@keyup="keyupBirthday($event)"
 											data-type="date"
 										/>
 									</td>
@@ -80,7 +81,13 @@
 								<th scope="row">휴대폰 번호</th>
 								<td colspan="3">
 									<div class="input-link">
-										<input type="text" class="w-100" title="이름" data-type="phone" />
+										<input
+											type="text"
+											class="w-100"
+											title="이름"
+											data-type="phone"
+											@keyup="keyupPhone($event)"
+										/>
 										<a href="#">인증</a>
 									</div>
 								</td>
@@ -137,7 +144,50 @@
 </template>
 
 <script>
-export default {};
+export default {
+	methods: {
+		keyupBirthday(e) {
+			let value = e.target.value;
+			if (value.length > 10) {
+				value = value.substr(0, 10);
+			}
+			let val = value.replace(/\D/g, '');
+			let original = value.replace(/\D/g, '').length;
+			let conversion = '';
+			for (let i = 0; i < 2; i++) {
+				if (val.length > 4 && i === 0) {
+					conversion += val.substr(0, 4) + '-';
+					val = val.substr(4);
+				} else if (original > 6 && val.length > 2 && i === 1) {
+					conversion += val.substr(0, 2) + '-';
+					val = val.substr(2);
+				}
+			}
+			conversion += val;
+			e.target.value = conversion;
+		},
+		keyupPhone(e) {
+			let value = e.target.value;
+			if (value.length > 13) {
+				value = value.substr(0, 13);
+			}
+			let val = value.replace(/\D/g, '');
+			let original = value.replace(/\D/g, '').length;
+			let conversion = '';
+			for (let i = 0; i < 2; i++) {
+				if (val.length > 3 && i === 0) {
+					conversion += val.substr(0, 3) + '-';
+					val = val.substr(3);
+				} else if (original > 7 && val.length > 4 && i === 1) {
+					conversion += val.substr(0, 4) + '-';
+					val = val.substr(4);
+				}
+			}
+			conversion += val;
+			e.target.value = conversion;
+		},
+	},
+};
 </script>
 
 <style></style>

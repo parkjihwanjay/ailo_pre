@@ -12,7 +12,7 @@
 					<li><a href="javascript:popup('prepare');" title="상점">상점</a></li>
 					<li><a href="#" title="마이페이지">마이페이지</a></li>
 					<li><a href="#" title="고객센터">고객센터</a></li>
-					<li class="button"><router-link to="/login">로그인</router-link></li>
+					<li><router-link to="/login">로그인</router-link></li>
 				</ul>
 			</div>
 		</div>
