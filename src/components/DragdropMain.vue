@@ -20,32 +20,34 @@
 						<Dday ref="Dday" />
 						<img id="weather-icon" src="../assets/weather.png" alt="weather" ref="weather" />
 					</div>
-					<daily-record class="drag" ref="dailyrecord" v-show="componentShow[0].checked" />
-					<Memo class="drag" ref="memo" v-show="componentShow[1].checked" />
-					<Schedule class="drag" id="schedule-big" v-show="componentShow[2].checked" />
-					<Schedule class="drag" id="schedule-small" v-show="componentShow[3].checked" />
-					<account-book
-						@accountDelete="componentShowDelete(4)"
-						class="drag"
-						v-if="componentShow[4].checked"
-						:editing="editing"
-					></account-book>
-					<!-- todo-list 색깔 있는 버전 -->
-					<todo-list
-						class="drag"
-						todoV="one"
-						@todoDelete="componentShowDelete(5)"
-						:editing="editing"
-						v-if="componentShow[5].checked"
-					></todo-list>
-					<!-- todo-list 색깔 없는 버전 -->
-					<todo-list
-						class="drag"
-						todoV="two"
-						@todoDelete="componentShowDelete(6)"
-						:editing="editing"
-						v-if="componentShow[6].checked"
-					></todo-list>
+					<div class="dragdrop-main-canvas__body">
+						<daily-record class="drag" ref="dailyrecord" v-show="componentShow[0].checked" />
+						<Memo class="drag" ref="memo" v-show="componentShow[1].checked" />
+						<Schedule class="drag" id="schedule-big" v-show="componentShow[2].checked" />
+						<Schedule class="drag" id="schedule-small" v-show="componentShow[3].checked" />
+						<account-book
+							@accountDelete="componentShowDelete(4)"
+							class="drag"
+							v-if="componentShow[4].checked"
+							:editing="editing"
+						></account-book>
+						<!-- todo-list 색깔 있는 버전 -->
+						<todo-list
+							class="drag"
+							todoV="one"
+							@todoDelete="componentShowDelete(5)"
+							:editing="editing"
+							v-if="componentShow[5].checked"
+						></todo-list>
+						<!-- todo-list 색깔 없는 버전 -->
+						<todo-list
+							class="drag"
+							todoV="two"
+							@todoDelete="componentShowDelete(6)"
+							:editing="editing"
+							v-if="componentShow[6].checked"
+						></todo-list>
+					</div>
 				</div>
 			</div>
 			<div>
@@ -320,6 +322,9 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+.dragdrop-main-canvas__body {
+	height: 721.02px;
 }
 .dragdrop-save-button {
 	margin: 19.6px 65.5px 19.6px 802px;

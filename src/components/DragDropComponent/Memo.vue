@@ -33,6 +33,7 @@ export default {
 .memo {
 	width: 200px;
 	height: 100px;
+	border: solid 1px #707070;
 	border-radius: 10px;
 	background-color: $off-gray;
 }

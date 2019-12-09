@@ -1,6 +1,9 @@
 <template>
-	<div class="schedule">
-		<h2>schedule</h2>
+	<div class="schedule" v-show="schedule">
+		<div class="schedule-header">
+			<h2>schedule</h2>
+			<div class="schedule-delete-btn btn" v-on:click="deleting()">✕</div>
+		</div>
 		<div class="schedule-top">
 			<div style="color:transparent">00</div>
 			<div class="header-time">
@@ -32,6 +35,7 @@
 export default {
 	data() {
 		return {
+			schedule: true,
 			times: [
 				'06',
 				'07',
@@ -55,6 +59,11 @@ export default {
 			],
 		};
 	},
+	methods: {
+		deleting() {
+			return (this.schedule = false);
+		},
+	},
 };
 </script>
 
@@ -66,6 +75,25 @@ export default {
 * {
 	margin: 0;
 }
+
+.schedule-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.schedule-delete-btn {
+	background-color: #727272;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	color: white;
+	font-size: 12px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .header-time {
 	width: 64.41%;
 	padding-left: 10.4%;
