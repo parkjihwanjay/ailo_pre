@@ -25,7 +25,12 @@
 				<h3 class="blind">SNS목록</h3>
 				<ul>
 					<li>
-						<a href="#" title="아일로 인스타그램 바로가기"><i class="fab fa-instagram"></i></a>
+						<a
+							href="https://www.instagram.com/ailo_diydiary/"
+							target="_blank"
+							title="아일로 인스타그램 바로가기"
+							><i class="fab fa-instagram"></i
+						></a>
 					</li>
 					<li>
 						<a href="#" title="아일로 트위터 바로가기"><i class="fab fa-twitter"></i></a>

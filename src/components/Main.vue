@@ -5,7 +5,7 @@
 				<h2>당신만을 위한 하루</h2>
 				<p>내 손으로 만드는 DIY 다이어리, <img src="img/main/ailo-icon.png" alt="AILO" /></p>
 			</div>
-			<a class="btn btnColor" href="#" title="다이어리 작성">다이어리 작성</a>
+			<a class="btn btnColor" href="/pre/basic" title="다이어리 작성">다이어리 작성</a>
 			<div class="browser-window d-flex justify-content-center align-items-end">
 				<div class="inner"></div>
 			</div>

@@ -1,17 +1,17 @@
 <template>
 	<div>
-		<MainBody />
+		<Main />
 	</div>
 </template>
 
 <script>
-import MainBody from '../components/MainBody.vue';
+import Main from '../components/Main.vue';
 export default {
 	mounted() {
 		document.querySelector('body').className = 'transparent-header';
 	},
 	components: {
-		MainBody,
+		Main,
 	},
 };
 </script>
