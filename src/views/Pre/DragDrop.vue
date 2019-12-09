@@ -5,7 +5,6 @@
 			<dragdrop-main />
 			<dragdrop-design />
 		</div>
-		<Footer />
 	</div>
 </template>
 
