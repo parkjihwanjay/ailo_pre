@@ -362,8 +362,9 @@ export default {
 	background-color: $off-white;
 }
 .dragdrop-main__canvas {
-	width: 142mm;
-	height: 204mm;
+	width: 133mm;
+	height: 195mm;
+	border: 1px dotted $off-purple;
 	// border-radius: 3px;
 }
 .dragdrop-main__header {

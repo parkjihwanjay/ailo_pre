@@ -16,7 +16,11 @@
 					<tr class="account-box__main" v-for="index in accountNum" :key="index">
 						<td>.</td>
 						<td class="table-second-td">.</td>
-						<td @click="reducing()" :class="{ 'account-td-delete-btn': hover }">x</td>
+						<td>
+							<div @click="reducing()" :class="{ 'account-td-delete-btn': hover }">
+								x
+							</div>
+						</td>
 					</tr>
 				</table>
 			</div>
@@ -83,8 +87,10 @@ export default {
 	align-items: center;
 }
 .account-td-delete-btn {
-	color: black !important;
-	text-align: right;
+	color: black;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 7px;
 }
 .account-delete-btn {
 	background-color: #727272;
