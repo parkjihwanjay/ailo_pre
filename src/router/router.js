@@ -1,7 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-const Home = () => import('../views/Home.vue');
+const Header = () => import('../components/Header.vue');
+
+const Login = () => import('../views/LoginView.vue');
+
+const Register = () => import('../views/RegisterView.vue');
+
+const Home = () => import('../views/HomeView.vue');
+
+const Order = () => import('../views/OrderView.vue');
 
 const PreBasic = () => import('../views/Pre/BasicCustom.vue');
 
@@ -21,6 +29,21 @@ const routes = [
     path : '/',
     name : 'Home',
     component : Home,
+  },
+  {
+    path : '/login',
+    name : 'Login',
+    component : Login,
+  },
+  {
+    path : '/signup',
+    name : 'Register',
+    component : Register
+  },
+  {
+    path : '/order',
+    name : 'order',
+    component : Order,
   },
   {
     path: '/pre/basic',

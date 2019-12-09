@@ -13,7 +13,7 @@
 import NavBar from '@/components/NavBar.vue';
 import DragdropMain from '@/components/DragdropMain.vue';
 import DragdropDesign from '@/components/DragdropDesign.vue';
-import Footer from '@/components/FooTer.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
 	components: {

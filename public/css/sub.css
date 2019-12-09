@@ -1,0 +1,115 @@
+body {background-color: #f9fafc;}
+#main.login-bg {height: calc(100% - 159px); min-height: 750px;}
+
+/* Form tilte and progress */
+.form-title {margin: 20px 30px 0 30px;}
+.form-title .form-breadcrumbs {font-size: 14px; color: #747e80; line-height: 28px;text-align: left;}
+.form-title .form-breadcrumbs strong {color: #663399;}
+.form-title .form-info {text-align: left;}
+.form-title .form-info h2 {font-size: 24px; line-height: 50px; color: #303234; font-weight: 300;}
+.form-title .form-progress {width: 493px; padding: 0 16px; height: 50px; position: relative;}
+.form-title .form-progress:before {display: block; content: ""; width: 100%; height: 5px; top: 9px; left: 0; position: absolute; background: #edeef4;}
+.form-title .form-progress li {text-align: center; position: relative; z-index: 1;}
+.form-title .form-progress li span {display: block; margin: 0 auto; width: 17px; height: 17px; border-radius: 100%; border: solid 3px #edeef4; background-image: url(../img/sub/form-navigation-check.png); background-color: #ffffff; background-position: top; background-repeat: no-repeat;}
+.form-title .form-progress li p {font-size: 14px; color: #747e80; line-height: 20px; margin-top: 7px;}
+.form-title .form-progress li.on span {background-color: #663399; background-position: bottom; border: 3px solid #663399;}
+.form-title .form-progress li.on p {color: #663399;}
+
+/* defualt-form */
+.default-form { position: relative; background: white; border-radius: 3px; box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.2); margin-top: 11px; margin-bottom: 11px; padding: 20px 30px; box-sizing: border-box;}
+.default-form .form-title {margin: 0 0 8px 0 !important;}
+.default-form .form-title .form-info {margin-right: 10px;}
+
+/* table */
+.table:not(.table-nostyle) > thead > tr > th {text-align: left; background: #f9fafc; font-size: 14px; color: #747e80; line-height: 22px; padding: 9.5px 30px; font-weight: normal;}
+.table:not(.table-nostyle) > tbody > tr > th, .table:not(.table-nostyle) > tbody > tr > td {text-align: left; border-bottom: 1px solid #edeef4; font-size: 14px; line-height: 24px; padding: 16.5px 30px; color: #464855; font-weight: normal;}
+.table:not(.table-nostyle) > thead > tr > th.text-center, .table:not(.table-nostyle) > thead > tr > td.text-center, .table:not(.table-nostyle) > tbody > tr > th.text-center, .table:not(.table-nostyle) > tbody > tr > td.text-center {padding-left: 20px; padding-right: 20px;}
+.table.table-nostyle > tbody > tr > td {padding: 0 23px 0 17px;}
+.table.table-nostyle > tbody > tr > td:last-child {padding-right: 0;}
+.table caption {display: none;}
+.table.table-center th, .table.table-center td {text-align: center;}
+.table thead.thead-center th, .table thead.thead-center td {text-align: center;}
+.table thead.tbody-center th, .table thead.tbody-center td {text-align: center;}
+.table-outer-caption {font-size: 14px; line-height: 28px; margin-bottom: 7px;}
+.table-vertical-align-middle th, .table-vertical-align-middle td {vertical-align: middle !important;}
+
+/* table transparent style */
+.table.table-transparent > thead > tr > th, .table.table-transparent > tbody > tr > th {color: #a7abbd; font-size: 12px; padding: 10.5px 0; text-align: center; vertical-align: top; background: none; border: none;}
+.table.table-transparent > thead > tr > th:first-child, .table.table-transparent > tbody > tr > th:first-child {text-align: left;}
+.table.table-transparent > tbody > tr > td {padding: 3.5px 0; font-size: 14px; color: #464855; background: none; border: none; line-height: normal; text-align: left;}
+.table.table-transparent > tbody > tr > td > input[type="text"], .table.table-transparent > tbody > tr > td > select {letter-spacing: 2px; color: #464855; font-weight: 300;}
+.table.table-transparent > tbody > tr > td .ui-checkboxradio-label .ui-icon {margin-right: 5px !important;}
+.table.table-transparent > tbody > tr > td .input-link {position: relative;}
+.table.table-transparent > tbody > tr > td .input-link input[type="text"] {padding-right: 100px;}
+.table.table-transparent > tbody > tr > td .input-link a {position: absolute; top: 0; right: 0; bottom: 0; line-height: 43px; margin: auto; padding: 0 17.5px; color: #663399; font-size: 14px;}
+.table.table-transparent > tbody > tr > td .term {width: 100%; height: 160px; padding: 12px 27px; margin-bottom: 8px; font-size: 14px; line-height: 1.21; font-weight: 300; color: #464855; border: 1px solid #edeef4; overflow-y: auto; box-sizing: border-box;}
+.table.table-transparent > tbody > tr > td .term + div {margin-bottom: 12px;}
+.register-form .table.table-transparent > tbody > tr > th {padding: 13.5px 0;}
+.register-form .table.table-transparent > tbody > tr > td {padding: 7px 0;}
+
+/* table reverse strong */
+.table.table-reverse-strong > thead > tr > th, .table.table-reverse-strong > tbody > tr > th {font-weight: normal;}
+.table.table-reverse-strong > thead > tr > td, .table.table-reverse-strong > tbody > tr > td {font-weight: bold;}
+
+/* table inner element */
+.table .thumb {width: 85px; height: 72px; margin-left: auto; margin-right: auto; background: #e6e6e6;}
+.table .title {font-size: 16px; font-weight: 500; line-height: 24px; margin-bottom: 3px;}
+.table .thumb + div {margin-top: 3px;}
+.table .d-flex .thumb + div {margin-left: 15px; margin-top; 0;}
+
+/* login-form */
+.login-form { position: relative; background: white; border-radius: 3px; box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.2); width: 660px; height: 466px; padding: 43px 103px 71px 103px; box-sizing: border-box;}
+.login-form h2 {font-size: 28px; font-weight: 300; color: #303234; line-height: 50px; text-align: center;}
+.login-form p {font-size: 14px; color: #747e80; line-height: 22px; text-align: center;}
+.login-form h2 + p {line-height: 28px;}
+.login-form .btn-wrap {margin-top: 7px; margin-bottom: 15px;}
+.login-form .btn-wrap .btn {margin: 7.5px 0; font-weight: 300; padding-left: 116px; height: 60px; line-height: 60px; border-radius: 100px; text-align: left; border: 0; letter-spacing: 2px; font-weight: normal;}
+.login-form .btn-wrap .btn img {display: block; float: left; margin: 15px 10px 15px 0;}
+.login-form > p > a {color: inherit; font-size: inherit;}
+.login-form > p > a > strong {color: #663399;}
+.login-form a.link-underline {position: absolute; left: 27px; bottom: 17px;}
+
+/* register-form */
+.register-form {background-color: white; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1); margin-top: 11px; margin-bottom: 11px; padding: 40px 0 67px 0;}
+.register-form h2 {font-size: 32px; font-weight: 300; color: #303234; line-height: 50px; text-align: center;}
+.register-form p {font-size: 14px; color: #747e80; line-height: 22px; text-align: center;}
+.register-form .register-wrap {width: 666px; padding: 33px 64px; margin: 0 auto;}
+.register-form .profile {width: 100px; height: 100px; position: relative;}
+.register-form .profile .img {border-radius: 100%; width: 100px; height: 100px; background-size: cover; background-repeat: no-repeat; background-position: center; background-color: black;}
+.register-form .profile a {width: 29px; height: 29px; line-height: 29px; border-radius: 100%; border: solid 1px #edeef4; position: absolute; bottom: 0; right: 0; background: white; text-align: center;}
+.register-form .btn {width: 180px; height: 51px; line-height: 43px; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2);}
+.register-form .ui-checkboxradio-radio-label .ui-icon,
+.register-form .ui-checkboxradio-radio-label:hover .ui-icon,
+.register-form .ui-checkboxradio-radio-label.ui-checkboxradio-checked .ui-icon {margin: 0 17px 0 0 !important;}
+
+/* order-form */
+.order-form {min-height: 708px;}
+.order-form > form > .row {margin: 3.5px -3.5px;}
+.order-form > form > .row > .col-6 {width: calc(50% - 7px);}
+.order-form > form > .row > .col {margin: 3.5px; padding: 22px 25px; border: 1px solid #edeef4; box-sizing: border-box; position: relative;}
+.order-form > form > .row > .col .title {margin-bottom: 15px; height: 28.75px; line-height: 28.75px;}
+.order-form > form > .row > .col .title.title-absolute {position: absolute; top: 22px; left: 25px; right: 25px;}
+.order-form > form > .row > .col .title > h3 {font-size:: 18px; font-weight: 300; margin-right: 5px; line-height: 24px;}
+.order-form > form > .row > .col .title > p {font-size: 14px; color: #747e80;}
+.order-form > form > .row > .col .total-price {font-size: 24px; font-weight: bold; letter-spacing: 0.5px; color: #663399;}
+.order-form > form > .row > .col .table.table-nostyle th {font-size: 14px; font-weight: normal; color: #464855; line-height: 14px; padding: 15px 0 11px 0; width: 125px; text-align: left;}
+.order-form > form > .row > .col .table.table-nostyle td {font-size: 18px; font-weight: bold; color: #464855; line-height: 18px; padding: 11px 0 11px 0; margin-left: 0; text-align: right;}
+.order-form .ui-checkboxradio-radio-label,
+.order-form .ui-checkboxradio-radio-label:hover,
+.order-form .ui-checkboxradio-radio-label.ui-checkboxradio-checked {letter-spacing: 2px; color: #464855;}
+.order-form .btn-wrap {margin: 30px 0 18.5px 0;}
+.order-form .btn-wrap .text-primary {width: 102px; text-align: center; font-weight: normal; letter-spacing: 2px;}
+.order-form .btn-wrap .btn {margin: 0 22px !important; width: 180px; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2);}
+.order-form .table .table th, .order-form .table .table td {padding-top: 5px; padding-bottom: 5px;}
+
+/* success-form */
+.success-form {background-color: white; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1); margin-top: 11px; margin-bottom: 62px; background-image: url(../img/sub/success-bg.png); background-position: bottom left; background-repeat: no-repeat;}
+.success-form .form-title + .form-message {padding: 57px 0 72px 0;}
+.success-form .form-message {padding: 90px 0 59px 0;}
+.success-form .form-message h3 {font-size: 32px; font-weight: 300; color: #303234; line-height: 50px; text-align: center; margin: 19px 0 43px 0;}
+.success-form .form-message .btn {width: 288px; margin: 0 15px; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);}
+
+/* ad-banner */
+.ad-banner {width: 100%; height: 248px; background-image: url(../img/sub/success-ad-bg.png); background-size: cover; background-repeat: no-repeat; background-position: center;}
+.ad-banner h3 {font-size: 32px; font-weight: 500; line-height: 50px; letter-spacing: normal; text-align: center; color: #ffffff; width: 100%; margin-bottom: 12px;}
+.ad-banner p {font-size: 16px; font-weight: 300; line-height: 25px; letter-spacing: normal; text-align: center; color: #ffffff; width: 100%;}
