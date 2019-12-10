@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import axios from 'axios';
+import router from '.';
 
 const Header = () => import('../components/Header.vue');
 
@@ -54,12 +56,18 @@ const routes = [
     path : '/pre/dragdrop',
     name : 'PreDragDrop',
     component : PreDragDrop,
-    beforeEnter : (to, from, next) => {
+    beforeEnter : async (to, from, next) => {
       const id = to.params.id;
+      console.log(id);
       try{
-        await axios.get(`/pre/diary/basics/${id}`)
+        const result = await axios.get(`/pre/diary/${id}`);
+        if(!result){
+          alert('서버 에러입니다. 죄송합니다 ㅜㅜ');
+        }
+        to.params.data = result.data;
+        next();
       }catch(e){
-        `/pre/diary/basics`
+        alert(e);
       }
       console.log(id);
     },

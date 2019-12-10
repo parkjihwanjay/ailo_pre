@@ -171,11 +171,11 @@ export default {
 	mounted() {
 		// console.log(this.$refs);
 		//처음 위치 조정
-		const weather = this.$refs.weather;
-		const memo = this.$refs.memo.$el;
-		const Dday = this.$refs.Dday.$el;
-		const dailyRecord = this.$refs.dailyrecord.$el;
-		const dating = this.$refs.dating.$el;
+		// const weather = this.$refs.weather;
+		// const memo = this.$refs.memo.$el;
+		// const Dday = this.$refs.Dday.$el;
+		// const dailyRecord = this.$refs.dailyrecord.$el;
+		// const dating = this.$refs.dating.$el;
 
 		// this.setPosition(weather, 382, 12);
 		// this.setPosition(memo, 341, 136);

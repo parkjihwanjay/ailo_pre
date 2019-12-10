@@ -15,6 +15,7 @@ export default {
 		DragdropDesign,
 	},
 	mounted() {
+		console.log(this.$route);
 		document.querySelector('body').classList.remove('transparent-header');
 		// document.querySelector('body').className = 'transparent-header';
 	},

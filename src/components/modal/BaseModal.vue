@@ -165,8 +165,8 @@ export default {
 					},
 				],
 				array: '',
-				startDate: '',
-				endDate: '',
+				startDate: '2019-06-01',
+				endDate: '2019-12-12',
 				template: '',
 				basic_component: [
 					{
@@ -222,9 +222,10 @@ export default {
 				if (!result) {
 					alert('서버 에러입니다 ㅜㅜ');
 				}
+				console.log(result);
 				this.$router.push({
 					name: 'PreDragDrop',
-					params: { id: result._id },
+					params: { id: result.data._id },
 				});
 				// console.log(result);
 			} catch (e) {
