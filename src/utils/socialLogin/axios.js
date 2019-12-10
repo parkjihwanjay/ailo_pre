@@ -7,11 +7,12 @@ import router from '../../router/index.js';
 const social_login = async req_body => {
 	try {
 		const res = await axios.post('/users/social/login', req_body);
-		set_localStorage(res);
 		LoginSuccess();
+		set_localStorage(res);
 		router.push({
-			name: 'PreBasic',
+			name: 'Home',
 		});
+		location.reload();
 	} catch (e) {
 		errorHandling(e);
 	}

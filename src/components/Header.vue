@@ -12,7 +12,8 @@
 					<li><a href="javascript:popup('prepare');" title="상점">상점</a></li>
 					<li><a href="#" title="마이페이지">마이페이지</a></li>
 					<li><a href="#" title="고객센터">고객센터</a></li>
-					<li><router-link to="/login">로그인</router-link></li>
+					<li v-if="!isLogin"><router-link to="/login">로그인</router-link></li>
+					<li v-if="isLogin" @click="Logout()"><a>로그아웃</a></li>
 				</ul>
 			</div>
 		</div>
@@ -20,11 +21,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+	created() {
+		if (localStorage.getItem('access_token')) {
+			this.isLogin = true;
+		} else {
+			this.isLogin = false;
+		}
+	},
+	data() {
+		return {
+			isLogin: false,
+		};
+	},
+	methods: {
+		Logout() {
+			localStorage.clear();
+			location.reload();
+		},
+	},
+};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/styles/_variables.scss';
+@import '@/styles/_button.scss';
 a:hover {
 	color: #663399 !important;
+	cursor: pointer;
 }
 </style>

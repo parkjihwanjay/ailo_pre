@@ -207,12 +207,12 @@ export default {
 			// if (canvas.clientHeight >= 721) alert('넘칩니다 ㅜㅜ');
 			// console.log(canvas.scrollHeight, canvas.clientHeight);
 			// console.log(id);
-			const canvas = document.getElementById('dragdrop-main-canvas__body');
-			const child = document.getElementById(id);
-			const isOverflow = detectElementOverflow(child, canvas);
+			// const canvas = document.getElementById('dragdrop-main-canvas__body');
+			// const child = document.getElementById(id);
+			// const isOverflow = detectElementOverflow(child, canvas);
 			// // if () alert('넘치면 안됩니다');
-			console.log(isOverflow);
-			console.log(isOverflow.collidedBottom);
+			// console.log(isOverflow);
+			// console.log(isOverflow.collidedBottom);
 		},
 		changeEditing() {
 			this.editing = !this.editing;
@@ -229,13 +229,14 @@ export default {
 		save() {
 			this.$store.commit('SET_LOADING', true);
 			const s3 = new_s3();
+			// const canvas = this.$refs.canvas;
 			const canvas = document.getElementById('canvas');
 			window.scrollTo(0, 0);
 			html2canvas(canvas, {
 				width: 559.36,
 				height: 793.69,
 			}).then(canvas => {
-				document.body.appendChild(canvas);
+				// document.body.appendChild(canvas);
 				console.log(canvas);
 				const doc = new jsPDF('p', 'mm', 'a5');
 				doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
