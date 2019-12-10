@@ -10,6 +10,9 @@ export default {
 	components: {
 		OrderPage,
 	},
+	mounted() {
+		document.querySelector('body').classList.remove('transparent-header');
+	},
 };
 </script>
 

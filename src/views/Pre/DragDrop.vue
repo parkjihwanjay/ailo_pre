@@ -1,31 +1,27 @@
 <template>
-	<div class="diary-write">
-		<nav-bar />
-		<div class="main-box">
-			<dragdrop-main />
-			<dragdrop-design />
-		</div>
+	<div class="main-box">
+		<dragdrop-main />
+		<dragdrop-design />
 	</div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
-import DragdropMain from '@/components/DragdropMain.vue';
-import DragdropDesign from '@/components/DragdropDesign.vue';
+import DragdropMain from '../../components/DragdropMain.vue';
+import DragdropDesign from '../../components/DragdropDesign.vue';
 
 export default {
 	components: {
-		NavBar,
 		DragdropMain,
 		DragdropDesign,
+	},
+	mounted() {
+		document.querySelector('body').classList.remove('transparent-header');
+		// document.querySelector('body').className = 'transparent-header';
 	},
 };
 </script>
 
 <style scoped>
-* {
-	margin: 0;
-}
 .main-box {
 	display: flex;
 	flex-direction: row;

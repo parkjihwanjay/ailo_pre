@@ -128,10 +128,8 @@
 
 		<template name="마지막 버튼">
 			<div class="basic-button-box--big flex">
-				<input type="button" value="취소" class="big-button" />
-				<router-link to="/pre/dragdrop">
-					<input type="button" value="적용하기" class="big-button" />
-				</router-link>
+				<input type="button" @click="closeModal()" value="취소" class="big-button" />
+				<input type="button" @click="toDragDrop()" value="적용하기" class="big-button" />
 			</div>
 		</template>
 	</div>
@@ -140,11 +138,6 @@
 <script>
 export default {
 	name: 'BaseModal',
-	methods: {
-		template_click(value) {
-			this.basic_customizing.template = value;
-		},
-	},
 	data() {
 		return {
 			basic_customizing: {
@@ -215,6 +208,17 @@ export default {
 			term: '',
 		};
 	},
+	methods: {
+		template_click(value) {
+			this.basic_customizing.template = value;
+		},
+		closeModal() {
+			this.$emit('closeModal');
+		},
+		toDragDrop() {
+			this.$router.push({ name: 'PreDragDrop' });
+		},
+	},
 };
 </script>
 
@@ -235,15 +239,19 @@ export default {
 	color: $off-white;
 }
 .basic-modal {
-	margin: 40px auto;
+	position: absolute;
+	top: 7%;
+	left: 7%;
+	z-index: 9999;
 	width: 1240px;
-	height: 1397px;
+	// height: 1397px;
 	border-radius: 3px;
 	box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
 	background-color: $off-white;
+	transition: opacity 0.3s ease;
 }
 .base-title {
-	width: 187px;
+	width: 190px;
 	height: 50px;
 	font-size: 28px;
 	font-weight: 300;
@@ -333,6 +341,7 @@ export default {
 .basic-button-box--big {
 	margin-top: 80px;
 	margin-left: 813px;
+	margin-bottom: 40px;
 }
 .basic-button-big {
 	width: 180px;

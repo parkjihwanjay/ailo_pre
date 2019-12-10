@@ -10,7 +10,7 @@
 .mSection .section-title {font-size: 32px; color: #303234; text-align: center; font-weight: 300;}
 .mSection .section-descript {line-height: 28px; font-size: 14px; color: #747e80; text-align: center; margin-top: 10px;}
 .mSection .list {margin: 50px 0;}
-.mSection .btn {width: 246px height: 51px;}
+.mSection .btn {width: 246px; height: 51px;}
 
 .best-product {background: #f6f5f5;}
 .best-product .list {margin-top: 33px;}
