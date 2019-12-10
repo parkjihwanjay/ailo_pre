@@ -54,6 +54,15 @@ const routes = [
     path : '/pre/dragdrop',
     name : 'PreDragDrop',
     component : PreDragDrop,
+    beforeEnter : (to, from, next) => {
+      const id = to.params.id;
+      try{
+        await axios.get(`/pre/diary/basics/${id}`)
+      }catch(e){
+        `/pre/diary/basics`
+      }
+      console.log(id);
+    },
   },
   {
     path : '/pre/memo',

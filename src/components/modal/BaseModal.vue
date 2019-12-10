@@ -129,13 +129,14 @@
 		<template name="마지막 버튼">
 			<div class="basic-button-box--big flex">
 				<input type="button" @click="closeModal()" value="취소" class="big-button" />
-				<input type="button" @click="toDragDrop()" value="적용하기" class="big-button" />
+				<input type="button" @click="applyBasic()" value="적용하기" class="big-button" />
 			</div>
 		</template>
 	</div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
 	name: 'BaseModal',
 	data() {
@@ -215,8 +216,20 @@ export default {
 		closeModal() {
 			this.$emit('closeModal');
 		},
-		toDragDrop() {
-			this.$router.push({ name: 'PreDragDrop' });
+		async applyBasic() {
+			try {
+				const result = await axios.post('/pre/diary/basics', this.basic_customizing);
+				if (!result) {
+					alert('서버 에러입니다 ㅜㅜ');
+				}
+				this.$router.push({
+					name: 'PreDragDrop',
+					params: { id: result._id },
+				});
+				// console.log(result);
+			} catch (e) {
+				alert(e);
+			}
 		},
 	},
 };
