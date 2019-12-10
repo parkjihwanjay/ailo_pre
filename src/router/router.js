@@ -53,20 +53,19 @@ const routes = [
     component : PreBasic,
   },
   {
-    path : '/pre/dragdrop',
+    path : '/pre/dragdrop/:id',
     name : 'PreDragDrop',
     component : PreDragDrop,
     beforeEnter : async (to, from, next) => {
       const id = to.params.id;
-      console.log(id);
-      try{
+      try {
         const result = await axios.get(`/pre/diary/${id}`);
-        if(!result){
+        if (!result) {
           alert('서버 에러입니다. 죄송합니다 ㅜㅜ');
         }
         to.params.data = result.data;
         next();
-      }catch(e){
+      } catch (e) {
         alert(e);
       }
       console.log(id);

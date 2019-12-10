@@ -222,12 +222,9 @@ export default {
 				if (!result) {
 					alert('서버 에러입니다 ㅜㅜ');
 				}
-				console.log(result);
 				this.$router.push({
-					name: 'PreDragDrop',
-					params: { id: result.data._id },
+					path: `/pre/dragdrop/${result.data._id}`,
 				});
-				// console.log(result);
 			} catch (e) {
 				alert(e);
 			}

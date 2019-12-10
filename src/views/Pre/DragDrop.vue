@@ -8,7 +8,7 @@
 <script>
 import DragdropMain from '../../components/DragdropMain.vue';
 import DragdropDesign from '../../components/DragdropDesign.vue';
-
+import axios from 'axios';
 export default {
 	components: {
 		DragdropMain,
