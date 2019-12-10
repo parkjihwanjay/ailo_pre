@@ -33,7 +33,7 @@ export default {};
 	// width: 303px;
 	// height: 34px;
 	font-family: $font-nanum;
-	font-size: 1.6rem;
+	font-size: 16px;
 	line-height: 1.17;
 	color: $off-black;
 }

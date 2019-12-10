@@ -16,7 +16,7 @@ html, body {min-width: 1240px;}
 .blind {display: none !important;}
 input {outline: 0;}
 input[type="text"], input[type="password"], select + .ui-selectmenu-button {height: 43px; padding: 10px 20px; box-sizing: border-box; border: 1px solid #edeef4; background: white; border-radius: 4px;}
-.visual, #main.login-bg {background-image: url('https://localhost:8080/src/styles/img/visual-bg_compressed.png');}
+.visual, #main.login-bg {background-image: url(/styles/img/main/visual-bg_compressed.png);}
 
 /* label-btn-form */
 .label-btn-form:after {display: block; content: ""; clear: both;}

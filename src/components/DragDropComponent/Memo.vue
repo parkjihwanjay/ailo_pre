@@ -24,7 +24,7 @@ export default {
 	padding-top: 10px;
 	padding-left: 10px;
 	font-family: BradleyHandITCTT;
-	font-size: 1.6rem;
+	font-size: 16px;
 	font-weight: bold;
 	line-height: 1.26;
 	text-align: left;

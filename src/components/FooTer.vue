@@ -4,7 +4,7 @@
 		<div class="container d-flex align-items-center justify-content-between">
 			<div>
 				<div class="title">
-					<h3><img src="img/common/footer-logo.png" alt="AILO" /></h3>
+					<h3><img src="/img/common/footer-logo.png" alt="AILO" /></h3>
 					<div class="fnb">
 						<h4 class="blind">하단메뉴</h4>
 						<ul>

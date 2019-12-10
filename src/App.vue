@@ -25,6 +25,7 @@ export default {
 };
 </script>
 <style lang="scss">
-// @import '@/styles/_main.scss';
 // @import '@/styles/_common.scss';
+// @import '@/styles/_main.scss';
+// @import '@/styles/_jquery-ui.scss';
 </style>

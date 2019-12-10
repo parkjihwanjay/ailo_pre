@@ -23,7 +23,7 @@ export default {};
 	// height: 44px;
 	margin-left: 12px;
 	font-family: $font-nanum;
-	font-size: 1.6rem;
+	font-size: 16px;
 	line-height: 1.13;
 	color: $off-black;
 }

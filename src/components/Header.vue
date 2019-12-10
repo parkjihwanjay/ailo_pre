@@ -2,7 +2,7 @@
 	<div id="header">
 		<div class="container">
 			<h1>
-				<router-link to="/"><img src="img/common/header-logo.png" alt="AILO"/></router-link>
+				<router-link to="/"><img src="/img/common/header-logo.png" alt="AILO"/></router-link>
 			</h1>
 			<div id="gnb">
 				<h2 class="blind">대표메뉴</h2>

@@ -29,20 +29,20 @@
 							id="daily-record"
 							class="drag"
 							ref="dailyrecord"
-							v-show="componentShow[0].checked"
+							v-if="componentShow[0].checked"
 						/>
 						<Memo class="drag" id="memo" ref="memo" v-show="componentShow[1].checked" />
 						<Schedule
 							class="drag"
 							id="schedule-big"
 							@delete="componentShowDelete(2)"
-							v-show="componentShow[2].checked"
+							v-if="componentShow[2].checked"
 						/>
 						<Schedule
 							class="drag"
 							id="schedule-small"
 							@delete="componentShowDelete(3)"
-							v-show="componentShow[3].checked"
+							v-if="componentShow[3].checked"
 						/>
 						<account-book
 							@delete="componentShowDelete(4)"
@@ -364,7 +364,6 @@ export default {
 .dragdrop-main__canvas {
 	width: 133mm;
 	height: 195mm;
-	border: 0.5px dotted $off-purple;
 	// border-radius: 3px;
 }
 .dragdrop-main__header {
@@ -375,6 +374,8 @@ export default {
 .dragdrop-main-canvas__body {
 	overflow: hidden;
 	height: 721.02px;
+	// display: inline-block;
+	// border: 0.5px dotted $off-purple;
 }
 .dragdrop-save-button {
 	margin: 19.6px 65.5px 19.6px 802px;

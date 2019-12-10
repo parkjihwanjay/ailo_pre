@@ -14,7 +14,7 @@ export default {};
 	width: 163px;
 	height: 50px;
 	font-family: $font-nanum;
-	font-size: 5rem;
+	font-size: 50px;
 	line-height: 1.14;
 	color: $off-brown;
 }
