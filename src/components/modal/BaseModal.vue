@@ -1,137 +1,139 @@
 <template>
-	<div class="basic-modal font-Noto object-contain">
-		<p class="base-title object-contain">다이어리 만들기</p>
-		<div class="base-setting object-contain">기본 설정</div>
-		<div class="base-setting--body">
-			<template name="섹션">
-				<p class="basic--title object-contain">섹션 선택</p>
-				<div class="input-checkbox flex">
-					<div v-for="section in basic_customizing.section" :key="section.name">
+	<div class="modal">
+		<div class="basic-modal font-Noto object-contain">
+			<p class="base-title object-contain">다이어리 만들기</p>
+			<div class="base-setting object-contain">기본 설정</div>
+			<div class="base-setting--body">
+				<template name="섹션">
+					<p class="basic--title object-contain">섹션 선택</p>
+					<div class="input-checkbox flex">
+						<div v-for="section in basic_customizing.section" :key="section.name">
+							<input
+								class="basic-section--body-input"
+								type="checkbox"
+								:name="section.name"
+								v-model="section.checked"
+							/>
+							<label class="basic-section--body-label object-contain" :for="section">{{
+								section.name
+							}}</label>
+						</div>
+					</div>
+				</template>
+
+				<template name="배열">
+					<p class="basic--title basic-array--title">배열</p>
+					<div class="basic-array--descript object-contain">월간 일정과 일간 일정의 배열 순서</div>
+					<div class="basic-array--body">
+						<input type="radio" name="array" v-model="basic_customizing.array" value="M-D-M-D" />
+						<label class="basic-radio object-contain" for="select">M-D-M-D</label>
+						<input type="radio" name="array" v-model="basic_customizing.array" value="MM-DD" />
+						<label class="basic-radio object-contain" for="select">MM-DD</label>
+					</div>
+				</template>
+
+				<template name="기간">
+					<div class="basic--title">기간</div>
+					<div class="flex">
+						<div class="basic-term--body" v-for="label in term_label" :key="label">
+							<input
+								class="basic-term--body-input"
+								:value="label"
+								type="radio"
+								:name="term"
+								v-model="term"
+							/>
+							<label class="basic-radio object-contain" :for="term">{{ label }}</label>
+						</div>
+					</div>
+				</template>
+			</div>
+			<template name="템플릿 선택">
+				<div class="base-setting basic-template--title object-contain">템플릿 선택</div>
+				<div class="base-setting--body">
+					<div class="basic-template--select">
+						<div class="basic-template--book object-contain"></div>
+						<div class="basic--title basic-template--name">심플 다이어리</div>
 						<input
-							class="basic-section--body-input"
-							type="checkbox"
-							:name="section.name"
-							v-model="section.checked"
+							type="button"
+							value="선택"
+							@click="template_click('심플')"
+							class="small-button"
+							:class="{ button_clicked: basic_customizing.template === '심플' }"
 						/>
-						<label class="basic-section--body-label object-contain" :for="section">{{
-							section.name
-						}}</label>
+						<!-- <div class="basic-template--button object-contain flex">
+						<div class="basic-template--button-text">선택</div>
+					</div> -->
 					</div>
 				</div>
 			</template>
 
-			<template name="배열">
-				<p class="basic--title basic-array--title">배열</p>
-				<div class="basic-array--descript object-contain">월간 일정과 일간 일정의 배열 순서</div>
-				<div class="basic-array--body">
-					<input type="radio" name="array" v-model="basic_customizing.array" value="M-D-M-D" />
-					<label class="basic-radio object-contain" for="select">M-D-M-D</label>
-					<input type="radio" name="array" v-model="basic_customizing.array" value="MM-DD" />
-					<label class="basic-radio object-contain" for="select">MM-DD</label>
+			<template name="Daily 설정">
+				<div class="base-setting  object-contain">Daily 설정</div>
+				<div class="base-setting--body">
+					<div class="basic--title">1 페이지 당</div>
+					<div class="basic-daily--body flex">
+						<div class="basic-daily--body-section">
+							<div class="basic--title basic-array--title">1일</div>
+							<div class="basic-array--descript object-contain">최대 6개 구성 선택 가능</div>
+							<input type="button" value="선택" class="small-button" />
+
+							<!-- <div class="basic-template--button object-contain flex">
+							<div class="basic-template--button-text">선택</div>
+						</div> -->
+						</div>
+						<div class="basic-daily--body-section">
+							<div class="basic--title basic-array--title">2일</div>
+							<div class="basic-array--descript object-contain">최대 4개 구성 선택 가능</div>
+							<input type="button" value="선택" class="small-button" />
+
+							<!-- <div class="basic-template--button object-contain flex">
+							<div class="basic-template--button-text">선택</div>
+						</div> -->
+						</div>
+						<div class="basic-daily--body-section">
+							<div class="basic--title basic-array--title">4/3일</div>
+							<div class="basic-array--descript object-contain">최대 2개 구성 선택 가능</div>
+							<input type="button" value="선택" class="small-button" />
+
+							<!-- <div class="basic-template--button object-contain flex">
+							<div class="basic-template--button-text">선택</div>
+						</div> -->
+						</div>
+						<div class="basic-daily--body-section">
+							<div class="basic--title basic-array--title">7일</div>
+							<div class="basic-array--descript object-contain">최대 1개 구성 선택 가능</div>
+							<input type="button" value="선택" class="small-button" />
+
+							<!-- <div class="basic-template--button object-contain flex">
+							<div class="basic-template--button-text">선택</div>
+						</div> -->
+						</div>
+					</div>
+					<div class="basic--title">기본 구성</div>
+					<div class="input-checkbox flex">
+						<div v-for="component in basic_customizing.basic_component" :key="component.label">
+							<input
+								class="basic-section--body-input"
+								type="checkbox"
+								:name="component.label"
+								v-model="component.checked"
+							/>
+							<label class="basic-section--body-label object-contain" :for="component">{{
+								component.label
+							}}</label>
+						</div>
+					</div>
 				</div>
 			</template>
 
-			<template name="기간">
-				<div class="basic--title">기간</div>
-				<div class="flex">
-					<div class="basic-term--body" v-for="label in term_label" :key="label">
-						<input
-							class="basic-term--body-input"
-							:value="label"
-							type="radio"
-							:name="term"
-							v-model="term"
-						/>
-						<label class="basic-radio object-contain" :for="term">{{ label }}</label>
-					</div>
+			<template name="마지막 버튼">
+				<div class="basic-button-box--big flex">
+					<input type="button" @click="closeModal()" value="취소" class="big-button" />
+					<input type="button" @click="applyBasic()" value="적용하기" class="big-button" />
 				</div>
 			</template>
 		</div>
-		<template name="템플릿 선택">
-			<div class="base-setting basic-template--title object-contain">템플릿 선택</div>
-			<div class="base-setting--body">
-				<div class="basic-template--select">
-					<div class="basic-template--book object-contain"></div>
-					<div class="basic--title basic-template--name">심플 다이어리</div>
-					<input
-						type="button"
-						value="선택"
-						@click="template_click('심플')"
-						class="small-button"
-						:class="{ button_clicked: basic_customizing.template === '심플' }"
-					/>
-					<!-- <div class="basic-template--button object-contain flex">
-						<div class="basic-template--button-text">선택</div>
-					</div> -->
-				</div>
-			</div>
-		</template>
-
-		<template name="Daily 설정">
-			<div class="base-setting  object-contain">Daily 설정</div>
-			<div class="base-setting--body">
-				<div class="basic--title">1 페이지 당</div>
-				<div class="basic-daily--body flex">
-					<div class="basic-daily--body-section">
-						<div class="basic--title basic-array--title">1일</div>
-						<div class="basic-array--descript object-contain">최대 6개 구성 선택 가능</div>
-						<input type="button" value="선택" class="small-button" />
-
-						<!-- <div class="basic-template--button object-contain flex">
-							<div class="basic-template--button-text">선택</div>
-						</div> -->
-					</div>
-					<div class="basic-daily--body-section">
-						<div class="basic--title basic-array--title">2일</div>
-						<div class="basic-array--descript object-contain">최대 4개 구성 선택 가능</div>
-						<input type="button" value="선택" class="small-button" />
-
-						<!-- <div class="basic-template--button object-contain flex">
-							<div class="basic-template--button-text">선택</div>
-						</div> -->
-					</div>
-					<div class="basic-daily--body-section">
-						<div class="basic--title basic-array--title">4/3일</div>
-						<div class="basic-array--descript object-contain">최대 2개 구성 선택 가능</div>
-						<input type="button" value="선택" class="small-button" />
-
-						<!-- <div class="basic-template--button object-contain flex">
-							<div class="basic-template--button-text">선택</div>
-						</div> -->
-					</div>
-					<div class="basic-daily--body-section">
-						<div class="basic--title basic-array--title">7일</div>
-						<div class="basic-array--descript object-contain">최대 1개 구성 선택 가능</div>
-						<input type="button" value="선택" class="small-button" />
-
-						<!-- <div class="basic-template--button object-contain flex">
-							<div class="basic-template--button-text">선택</div>
-						</div> -->
-					</div>
-				</div>
-				<div class="basic--title">기본 구성</div>
-				<div class="input-checkbox flex">
-					<div v-for="component in basic_customizing.basic_component" :key="component.label">
-						<input
-							class="basic-section--body-input"
-							type="checkbox"
-							:name="component.label"
-							v-model="component.checked"
-						/>
-						<label class="basic-section--body-label object-contain" :for="component">{{
-							component.label
-						}}</label>
-					</div>
-				</div>
-			</div>
-		</template>
-
-		<template name="마지막 버튼">
-			<div class="basic-button-box--big flex">
-				<input type="button" @click="closeModal()" value="취소" class="big-button" />
-				<input type="button" @click="applyBasic()" value="적용하기" class="big-button" />
-			</div>
-		</template>
 	</div>
 </template>
 
@@ -236,6 +238,15 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
+.modal {
+	// position: fixed;
+	// top: 0;
+	// left: 0;
+	// width: 100%;
+	// height: 100%;
+	// background: rgba(0, 0, 0, 0.4);
+	// z-index: 999999;
+}
 .object-contain {
 	object-fit: contain;
 }
@@ -253,9 +264,11 @@ export default {
 	position: absolute;
 	top: 7%;
 	left: 7%;
+	// top: 50%;
+	// left: 50%;
+	// transform: translate(-50%, -50%);
 	z-index: 9999;
 	width: 1240px;
-	// height: 1397px;
 	border-radius: 3px;
 	box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
 	background-color: $off-white;

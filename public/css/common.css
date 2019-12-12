@@ -9,13 +9,15 @@ body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, p {padding: 0; margin: 0;}
 ul, ol, li {list-style: none;}
 a {text-decoration: none; color: #444; outline: none; border: none;}
 img, fieldset {outline: none; border: none;}
+strong {font-weight: 700;}
 
 /* common */
 * {font-family: 'Noto Sans KR', sans-serif; font-smoothing: antialiased; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -ms-osx-font-smoothing: grayscale; scrollbar-face-color: #444; scrollbar-highlight-color:#444; scrollbar-3dlight-color: #444; scrollbar-track-color: #bbb; scrollbar-shadow-color: #444; scrollbar-darkshadow-color: #444; scrollbar-arrow-color: #fff;}
 html, body {min-width: 1240px;}
 .blind {display: none !important;}
 input {outline: 0;}
-input[type="text"], input[type="password"], select + .ui-selectmenu-button {height: 43px; padding: 10px 20px; box-sizing: border-box; border: 1px solid #edeef4; background: white; border-radius: 4px;}
+input[type="text"], input[type="password"], select + .ui-selectmenu-button, textarea {height: 43px; padding: 10px 20px; box-sizing: border-box; border: 1px solid #edeef4; background: white; border-radius: 4px; color: #464855; font-weight: 300;}
+textarea {height: 355px; resize: none;}
 .visual, #main.login-bg {background-image: url(../img/main/visual-bg.png);}
 
 /* label-btn-form */
@@ -36,14 +38,20 @@ input[type="text"], input[type="password"], select + .ui-selectmenu-button {heig
 .text-primary {font-size: 14px; color: #663399;}
 
 /* button style */
-.btn {display: inline-block; text-align: center; box-sizing: border-box; width: 230px; height: 50px; font-size: 14px; letter-spacing: 1.58px; border: 3px solid #663399; line-height: 44px; border-radius: 25px;}
+.btn {display: inline-block; text-align: center; box-sizing: border-box; width: 230px; height: 50px; font-size: 14px; letter-spacing: 1.58px; border-width: 3px; border-style: solid; border-color: #663399; line-height: 44px; border-radius: 25px;}
 .btnColor {background: #663399; color: white; font-weight: 300;}
+.btnColor.btn-off {background: #747e80 !important; border-color: #747e80 !important;}
 .btnBorder {background: white; color: #663399; font-weight: normal;}
+.btnBorder.btn-off {border-color: #747e80 !important; color: #747e80 !important;}
 .btnCenter {display: block; margin-left: auto !important; margin-right: auto !important;}
-.btnKakaotalk {background: #ffe500; color: black;}
-.btnFacebook {background: #455d98; color: white;}
-.btnGoogle {background: #e43c2f; color: white;}
+.btnKakaotalk {background: #ffe500; color: black; border-width: 0;}
+.btnFacebook {background: #455d98; color: white; border-width: 0;}
+.btnGoogle {background: #e43c2f; color: white; border-width: 0;}
 .container[class*="-form"] .btnBorder {border: 2px solid #663399;}
+.btn-shadow {box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2);}
+.btn-md {width: 108px; height: 34px; line-height: 32px; border-width: 1px; border-radius: 40px; letter-spacing: 1.75px;}
+.btn-sm {width: auto; height: auto; line-height: 26px; padding: 0 8px; border-width: 1px !important; letter-spacing: 0;}
+.btn-xs {}
 
 /* bootstrap align */
 .text-left {text-align: left !important;}
@@ -73,6 +81,35 @@ select.w-100 + .ui-selectmenu-button {width: 100%;}
 .h-50 {height: 50%;}
 .h-75 {height: 75%;}
 .h-100 {height: 100%;}
+
+/* bootstrap max-height */
+.mh-0 {max-height: 0;}
+.mh-25 {max-height: 25%;}
+.mh-50 {max-height: 50%;}
+.mh-75 {max-height: 75%;}
+.mh-100 {max-height: 100%;}
+
+/* bootstrap spacing */
+.mt-0 {margin-top: 0 !important;}
+.mr-0 {margin-right: 0 !important}
+.mb-0 {margin-bottom: 0 !important}
+.ml-0 {margin-left: 0 !important}
+.pt-0 {padding-top: 0 !important;}
+.pr-0 {padding-right: 0 !important}
+.pb-0 {padding-bottom: 0 !important}
+.pl-0 {padding-left: 0 !important}
+
+/* bootstrap vertical-align */
+.align-baseline {vertical-align: baseline !important;}
+.align-top {vertical-align: top !important;}
+.align-middle {vertical-align: middle !important;}
+.align-bottom {vertical-align: bottom !important;}
+.align-text-top {vertical-align: text-top !important;}
+.align-text-bottom {vertical-align: text-bottom !important;}
+
+/* bootstrap font-weight */
+.font-weight-bold {font-weight: 700;}
+.font-weight-normal {font-weight: normal;}
 
 /* bootstrap flex */
 .justify-content-start {-webkit-box-pack: start !important; -ms-flex-pack: start !important; justify-content: flex-start !important;}

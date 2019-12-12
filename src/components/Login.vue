@@ -20,12 +20,12 @@
 					><img src="img/sub/login-google.png" alt="구글" /> 구글 로그인</GoogleLogin
 				>
 			</div>
-			<p class="text-right">
+			<p class="text-right" v-show="false">
 				<router-link to="/signup">
 					아직 아일로 회원이 아니신가요? <strong>회원가입하기</strong>
 				</router-link>
 			</p>
-			<a class="link-underline" href="javascript:popup('admin');">관리자 모드</a>
+			<a class="link-underline" v-show="false" href="javascript:popup('admin');">관리자 모드</a>
 		</div>
 	</div>
 </template>

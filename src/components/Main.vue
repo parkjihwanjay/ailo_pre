@@ -111,7 +111,7 @@
 			</div>
 		</div>
 
-		<div class="mSection how-using">
+		<div class="mSection how-using-main">
 			<div class="container">
 				<h2 class="section-title">이용방법</h2>
 				<p class="section-descript">

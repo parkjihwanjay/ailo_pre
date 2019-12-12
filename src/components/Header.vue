@@ -11,7 +11,9 @@
 					<li><a href="#" title="주문하기">주문하기</a></li>
 					<li><a href="javascript:popup('prepare');" title="상점">상점</a></li>
 					<li><a href="#" title="마이페이지">마이페이지</a></li>
-					<li><a href="#" title="고객센터">고객센터</a></li>
+					<li>
+						<router-link to="/customer">고객센터</router-link>
+					</li>
 					<li v-if="!isLogin"><router-link to="/login">로그인</router-link></li>
 					<li v-if="isLogin" @click="Logout()"><a>로그아웃</a></li>
 				</ul>

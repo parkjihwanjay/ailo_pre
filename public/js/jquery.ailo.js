@@ -69,6 +69,22 @@ $(document).ready(function(){
             }
         }
     })
+
+    $(".table-toggle > tbody > tr").click(function() {
+        if ($(this).find(".toggle").css("display") != "block") {
+            $(".table-toggle > tbody > tr").find(".toggle").slideUp();
+            $(".table-toggle > tbody > tr").find("h3").css("font-weight", "normal");
+            $(".table-toggle > tbody > tr").find(".toggle-arrow").find(">img").removeClass("flip");
+
+            $(this).find(".toggle").slideDown();
+            $(this).find("h3").css("font-weight", "700");
+            $(this).find(".toggle-arrow").find(">img").addClass("flip");
+        } else {
+            $(this).find(".toggle").slideUp();
+            $(this).find("h3").css("font-weight", "normal");
+            $(this).find(".toggle-arrow").find(">img").removeClass("flip");
+        }
+    });
 });
 function popup(name) {
     $("#popup").fadeIn();

@@ -10,14 +10,14 @@
 .mSection .section-title {font-size: 32px; color: #303234; text-align: center; font-weight: 300;}
 .mSection .section-descript {line-height: 28px; font-size: 14px; color: #747e80; text-align: center; margin-top: 10px;}
 .mSection .list {margin: 50px 0;}
-.mSection .btn {width: 246px; height: 51px;}
+.mSection .btn {width: 246px height: 51px;}
 
 .best-product {background: #f6f5f5;}
 .best-product .list {margin-top: 33px;}
 .best-product .list .section-nav {margin-bottom: 30px;}
 .best-product .list .section-nav li {margin: 0 24px;}
 .best-product .list .section-nav li a {padding-bottom: 5px; border-bottom: 4px solid transparent; display: block; }
-.best-product .list .section-nav li.on a {font-weight: bold; color: #663399; border-bottom: 4px solid #663399;}
+.best-product .list .section-nav li.on a {font-weight: 700; color: #663399; border-bottom: 4px solid #663399;}
 .best-product .list .row .col {position: relative; border-radius: 6px; background: white; overflow: hidden;}
 .best-product .list .row .col .thumb {position: relative; width: 218px; height: 181px; overflow: hidden;}
 .best-product .list .row .col .thumb .img {width: 100%; height: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; transition: 0.3s;}
@@ -31,10 +31,10 @@
 .best-product .list .row .col .text h3 {font-size: 16px; font-weight: normal; line-height: 22px; margin-top: 2px;}
 .best-product .list .row .col .text h4 {font-size: 16px; color: #747e80; font-weight: normal; line-height: 28px;}
 
-.how-using .list .row .col .icon {border: 4px solid #747e80; width: 125px; height: 125px; position: relative; overflow: hidden; margin: 0 auto 10px auto; border-radius: 100%;}
-.how-using .list .row .col .icon img {position: absolute; top: -9999px; right: -9999px; bottom: -9999px; left: -9999px; margin: auto;}
-.how-using .list .row .col h3 {font-size: 17px; letter-spacing: 2.13px; color: #2f2f2f; margin-bottom: 10px;}
-.how-using .list .row .col p {font-size: 16px; color: #747e80; line-height: 24px;}
+.how-using-main .list .row .col .icon {border: 4px solid #747e80; width: 125px; height: 125px; position: relative; overflow: hidden; margin: 0 auto 10px auto; border-radius: 100%;}
+.how-using-main .list .row .col .icon img {position: absolute; top: -9999px; right: -9999px; bottom: -9999px; left: -9999px; margin: auto;}
+.how-using-main .list .row .col h3 {font-size: 17px; letter-spacing: 2.13px; color: #2f2f2f; margin-bottom: 10px;}
+.how-using-main .list .row .col p {font-size: 16px; color: #747e80; line-height: 24px;}
 
 .features {margin-bottom: 30px;}
 .features .decoration {width: 64.166%; position: relative;}
@@ -45,7 +45,7 @@
 .features .decoration .package-gray {height: 235px; position: absolute; z-index: 3; bottom: 1.5%; left: 38.5%;}
 .features .text {width: 32%;}
 .features .text dl {margin-bottom: 16px;}
-.features .text dt {font-weight: bold; font-size: 18px; font-weight: bold; color: black; line-height: 27px; margin-bottom: 3px;}
+.features .text dt {font-weight: 700; font-size: 18px; color: black; line-height: 27px; margin-bottom: 3px;}
 .features .text dd {line-height: 25px; padding: 5px 0; font-size: 14px; color: #474747; margin-left: 33px; margin-bottom: 38px;}
 
 .about-us {width: 100%; padding: 0; margin: 30px 0 77px 0;}
