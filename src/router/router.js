@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import axios from 'axios';
 import router from '.';
 
+import IsLogin from './auth.js';
+
 const Header = () => import('../components/Header.vue');
 
 const Login = () => import('../views/LoginView.vue');
@@ -99,6 +101,10 @@ const routes = [
     name : 'PreDragDrop',
     component : PreDragDrop,
     beforeEnter : async (to, from, next) => {
+      if(!IsLogin()){
+        alert('로그인을 먼저 해주세요.');
+        next('/login');
+      }
       const id = to.params.id;
       try {
         const result = await axios.get(`/pre/diary/${id}`);

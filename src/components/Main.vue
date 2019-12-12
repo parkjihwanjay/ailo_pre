@@ -196,8 +196,12 @@
 export default {
 	methods: {
 		showModal() {
-			this.modal = true;
-			this.$emit('showModal');
+			if (!localStorage.getItem('access_token')) {
+				alert('로그인을 먼저 해주세요');
+				this.$router.push({ path: '/login' });
+			} else {
+				this.$emit('showModal');
+			}
 		},
 	},
 };

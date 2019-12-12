@@ -2,12 +2,14 @@
 	<div>
 		<Main @showModal="ModalTrue()" />
 		<base-modal @closeModal="ModalFalse()" v-show="showModal"></base-modal>
+		<!-- <Popup /> -->
 	</div>
 </template>
 
 <script>
 import Main from '../components/Main.vue';
 import BaseModal from '../components/modal/BaseModal.vue';
+// import Popup from '../components/PopUp.vue';
 export default {
 	data() {
 		return {
@@ -20,6 +22,7 @@ export default {
 	components: {
 		Main,
 		BaseModal,
+		// Popup,
 	},
 	methods: {
 		ModalTrue() {
