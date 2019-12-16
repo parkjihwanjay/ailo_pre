@@ -222,6 +222,41 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
+@keyframes bouncy {
+	10% {
+		top: 0em;
+	}
+	20% {
+		top: -0.9em;
+	}
+	23% {
+		top: 0em;
+	}
+	25% {
+		top: -0.4em;
+	}
+	27% {
+		top: 0em;
+	}
+	// 40% {
+	// 	top: 0em;
+	// }
+	// 43% {
+	// 	top: -0.9em;
+	// }
+	// 46% {
+	// 	top: 0em;
+	// }
+	// 48% {
+	// 	top: -0.4em;
+	// }
+	// 50% {
+	// 	top: 0em;
+	// }
+	100% {
+		top: 0em;
+	}
+}
 .big-button {
 	width: 280px;
 	height: 65px;
@@ -234,18 +269,14 @@ export default {
 	word-spacing: 3px;
 	background-color: $off-purple;
 	cursor: pointer;
+	animation: bouncy 3s infinite linear;
+	position: relative;
 }
 .big-button:hover {
-	// width: 300px;
-	// height: 80px;
 	border: solid 3px $off-white;
-	// font-size: 20px;
-	// font-weight: 700;
 	background-color: $off-purple;
 	color: $off-white;
 	transition: 0.5s;
+	animation: none;
 }
-/* a:hover {
-	cursor: pointer;
-} */
 </style>
