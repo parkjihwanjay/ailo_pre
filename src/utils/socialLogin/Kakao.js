@@ -38,7 +38,7 @@ const Kakao = {
 		window.Kakao.Auth.login({
 			scope: 'account_email, gender',
 			success: this.GetMe,
-			fail: LoginFailure(e),
+			fail: LoginFailure,
 			// 팝업 화면에서 확인 받는 영역
 		});
 	},
