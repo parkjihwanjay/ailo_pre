@@ -3,6 +3,7 @@
 		<Header />
 		<router-view></router-view>
 		<Footer />
+		<base-spinner></base-spinner>
 	</div>
 </template>
 
@@ -13,11 +14,7 @@ import BaseSpinner from '../src/components/BaseSpinenr.vue';
 
 export default {
 	name: 'App',
-	computed: {
-		isLoading() {
-			return this.$store.state.isLoading;
-		},
-	},
+
 	components: {
 		BaseSpinner,
 		Header,
@@ -26,15 +23,6 @@ export default {
 };
 </script>
 <style lang="scss">
-.modal-parent {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.4);
-	z-index: 999999;
-}
 // @import '@/styles/_common.scss';
 // @import '@/styles/_main.scss';
 // @import '@/styles/_jquery-ui.scss';

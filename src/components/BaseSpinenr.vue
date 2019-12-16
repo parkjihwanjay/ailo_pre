@@ -1,5 +1,5 @@
 <template>
-	<div class="lds-facebook">
+	<div class="lds-facebook" v-show="isLoading">
 		<div></div>
 		<div></div>
 		<div></div>
@@ -9,14 +9,16 @@
 <script>
 export default {
 	computed: {
-		loading() {
-			return this.$store.state.isloading;
+		isLoading() {
+			return this.$store.state.isLoading;
 		},
 	},
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '@/styles/_variables.scss';
+
 .lds-facebook {
 	display: inline-block;
 	position: fixed;
@@ -31,7 +33,7 @@ export default {
 	position: absolute;
 	left: 6px;
 	width: 13px;
-	background: #42b883;
+	background: $off-purple;
 	animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 .lds-facebook div:nth-child(1) {

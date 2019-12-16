@@ -24,7 +24,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">이름</th>
-                                    <td colspan="3"><input type="text" style="width: 638px;" title="이름"></td>
+                                    <td colspan="3"><input type="text" v-model="name" style="width: 638px;" title="이름"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">생년월일</th>
@@ -32,8 +32,8 @@
                                     <th scope="row">성별</th>
                                     <td>
                                         <div class="d-flex">
-                                            <label class="d-block" style="width: 64px;"><input name="gender" type="radio" title="남성" phoneNum="male" />남</label>
-                                            <label class="d-block" style="width: 64px;"><input name="gender" type="radio" title="여성" phoneNum="female" />여</label>
+                                            <label class="d-block" style="width: 64px;"><input name="gender" type="radio" v-model="gender" value="male" title="남성" phoneNum="male" />남</label>
+                                            <label class="d-block" style="width: 64px;"><input name="gender" type="radio" v-model="gender" value="female" title="여성" phoneNum="female" />여</label>
                                         </div>
                                     </td>
                                 </tr>
@@ -48,7 +48,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">이메일</th>
-                                    <td colspan="3"><input type="text" class="w-100" title="이메일" /></td>
+                                    <td colspan="3"><input type="text" v-model="email" class="w-100" title="이메일" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" rowspan="2">주소</th>
@@ -156,19 +156,38 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data() {
 		return {
-      dateBirth : '',
-      phoneNum : '',
+            name : '',
+            email : '',
+            dateBirth : '',
+            phoneNum : '',
+            gender : '',
 			postcode: '',
 			roadAddress: '',
 			jibunAddress: '',
 			detailAddress: '',
 			extraAddress: '',
-			guide: '',
+			// guide: '',
 		};
-	},
+    },
+    async created(){
+        try{
+            const profile = await axios.get('/users/me');
+
+            this.name = profile.data.name;
+            this.email = profile.data.email;
+            // this.dateBirth = profile.data.birthday;
+            this.phoneNum = profile.data.phoneNum;
+            this.gender = profile.data.gender;
+
+            console.log(profile);
+        }catch(e){
+            console.log(e);
+        }
+    },
 	methods: {
 		findPostCode() {
 			new daum.Postcode({
@@ -178,7 +197,7 @@ export default {
 
 					// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
 					// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-					let roadAddr = data.roadAddress; // 도로명 주소 변수
+					// let roadAddr = data.roadAddress; // 도로명 주소 변수
 					let extraRoadAddr = ''; // 참고 항목 변수
 
 					// 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -197,11 +216,11 @@ export default {
 
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
 					this.postcode = data.zonecode;
-					this.roadAddress = roadAddr;
+					this.roadAddress = data.roadAddress;
 					this.jibunAddress = data.jibunAddress;
 
 					// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-					if (roadAddr !== '') {
+					if (data.roadAddress !== '') {
 						this.extraAddress = extraRoadAddr;
 					} else {
 						this.extraAddress = '';

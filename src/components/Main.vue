@@ -12,7 +12,7 @@
 			</div>
 		</div>
 
-		<div class="mSection best-product">
+		<!-- <div class="mSection best-product">
 			<div class="container">
 				<h2 class="section-title">최신 / 인기상품</h2>
 				<p class="section-descript">
@@ -110,7 +110,7 @@
 				</div>
 				<a class="btn btnBorder btnCenter" href="#" title="상품 더보기">상품 더보기</a>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="mSection how-using-main">
 			<div class="container">

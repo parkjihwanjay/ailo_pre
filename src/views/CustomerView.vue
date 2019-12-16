@@ -10,6 +10,9 @@ export default {
 	components: {
 		CustomerHome,
 	},
+	mounted() {
+		this.$store.commit('SET_LOADING', false);
+	},
 };
 </script>
 

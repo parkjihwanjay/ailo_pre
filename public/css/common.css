@@ -186,7 +186,7 @@ select.w-100 + .ui-selectmenu-button {width: 100%;}
 
 #header #gnb {float: right;}
 #header #gnb > ul:after {display: block; content: ""; clear: both;}
-#header #gnb > ul > li {float: left; line-height: 73px; margin-left: 25px; font-size: 14px;}
+#header #gnb > ul > li {float: left; line-height: 73px; margin-left: 25px; font-size: 15px;}
 #header #gnb > ul > li:last-child a {display: inline-block; width: 100px; height: 37px; line-height: 37px; text-align: center; border: 1px solid black; text-align: center; border-radius: 18.5px;}
 
 /* transparent header */

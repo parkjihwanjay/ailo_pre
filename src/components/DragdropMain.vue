@@ -199,6 +199,7 @@ export default {
 		// console.log(window.devicePixelRatio);
 		this.$ga.page('/pre/dragdrop');
 		aws_config();
+		this.$store.commit('SET_LOADING', false);
 	},
 	methods: {
 		checkOverflow(id) {

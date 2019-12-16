@@ -35,6 +35,8 @@ import GoogleLogin from 'vue-google-login';
 import Facebook from '../utils/socialLogin/Facebook.js';
 import Google from '../utils/socialLogin/Google.js';
 import Kakao from '../utils/socialLogin/Kakao.js';
+
+import { mapMutations } from 'vuex';
 export default {
 	created() {
 		//kako-init
@@ -59,9 +61,11 @@ export default {
 		},
 		//Google
 		GoogleSignout() {
+			this.SET_LOADING(true);
 			Google.Signout();
 		},
 		GoogleLoginSuccess(googleUser) {
+			this.SET_LOADING(true);
 			if (localStorage.getItem('access_token')) return alert('이미 로그인 되어 있습니다.');
 			Google.GoogleLoginSuccess(googleUser);
 		},
@@ -73,17 +77,20 @@ export default {
 			Kakao.Logout();
 		},
 		KakaoLogin() {
+			this.SET_LOADING(true);
 			if (localStorage.getItem('access_token')) return alert('이미 로그인 되어 있습니다.');
 			Kakao.Login();
 		},
 		//Facebook
 		facebookLogin() {
+			this.SET_LOADING(true);
 			if (localStorage.getItem('access_token')) return alert('이미 로그인 되어 있습니다.');
 			Facebook.Login();
 		},
 		facebookLogout() {
 			Facebook.Logout();
 		},
+		...mapMutations(['SET_LOADING']),
 	},
 };
 </script>

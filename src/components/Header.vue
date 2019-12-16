@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { axios_logout } from '../utils/socialLogin/axios.js';
 export default {
 	created() {
 		if (localStorage.getItem('access_token')) {
@@ -38,8 +39,9 @@ export default {
 	},
 	methods: {
 		Logout() {
-			localStorage.clear();
-			location.reload();
+			axios_logout();
+			// localStorage.clear();
+			// location.reload();
 		},
 	},
 };

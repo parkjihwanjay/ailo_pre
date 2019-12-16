@@ -239,6 +239,7 @@ export default {
 			// this.$store.commit('CLOSE_BASE_MODAL');
 		},
 		async applyBasic() {
+			this.$store.commit('SET_LOADING', true);
 			try {
 				const result = await axios.post('/pre/diary/basics', this.basic_customizing);
 				if (!result) {
@@ -265,7 +266,7 @@ export default {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.4);
-	z-index: 999999;
+	z-index: 9999;
 	overflow: auto;
 }
 .object-contain {
