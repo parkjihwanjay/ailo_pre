@@ -2,7 +2,8 @@ const LoginSuccess = () => {
 	alert('로그인 성공');
 };
 
-const LoginFailure = () => {
+const LoginFailure = e => {
+	console.log(e);
 	alert('로그인 오류');
 };
 
