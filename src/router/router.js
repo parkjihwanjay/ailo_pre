@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import axios from 'axios';
 import router from '.';
 
+import store from '../store/store.js';
+
 import checkAuth from './auth.js';
 
 const Header = () => import('../components/Header.vue');
@@ -47,6 +49,10 @@ const routes = [
     path : '/',
     name : 'Home',
     component : Home,
+    beforeEnter : (to, from, next) => {
+      store.commit('SET_LOADING', true);
+      next();
+    }
   },
   {
     path : '/login',

@@ -2,7 +2,6 @@ import routes from './router.js';
 import VueRouter from 'vue-router';
 import axios from 'axios';
 
-import store from '../store/store.js';
 const router = new VueRouter({
 	mode: 'history',
 	scrollBehavior(to, from, savedPosition) {

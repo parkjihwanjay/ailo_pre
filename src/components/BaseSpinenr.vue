@@ -26,7 +26,7 @@ export default {
 	height: 64px;
 	top: 50%;
 	left: 50%;
-	z-index: 9999;
+	z-index: 99999;
 }
 .lds-facebook div {
 	display: inline-block;
