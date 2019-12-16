@@ -12,6 +12,9 @@ img, fieldset {outline: none; border: none;}
 strong {font-weight: 700;}
 
 /* common */
+a:hover {
+	cursor: pointer;
+}
 * {font-family: 'Noto Sans KR', sans-serif; font-smoothing: antialiased; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -ms-osx-font-smoothing: grayscale; scrollbar-face-color: #444; scrollbar-highlight-color:#444; scrollbar-3dlight-color: #444; scrollbar-track-color: #bbb; scrollbar-shadow-color: #444; scrollbar-darkshadow-color: #444; scrollbar-arrow-color: #fff;}
 html, body {min-width: 1240px;}
 .blind {display: none !important;}

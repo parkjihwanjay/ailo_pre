@@ -1,7 +1,7 @@
 <template>
-	<div>
-		<Main @showModal="ModalTrue()" />
-		<base-modal @closeModal="ModalFalse()" v-show="showModal"></base-modal>
+	<div id="main-parent">
+		<Main @showModal="showModal" />
+		<base-modal @closeModal="closeModal" v-if="baseModal"></base-modal>
 		<!-- <Popup /> -->
 	</div>
 </template>
@@ -13,7 +13,7 @@ import BaseModal from '../components/modal/BaseModal.vue';
 export default {
 	data() {
 		return {
-			showModal: false,
+			baseModal: false,
 		};
 	},
 	mounted() {
@@ -25,14 +25,19 @@ export default {
 		// Popup,
 	},
 	methods: {
-		ModalTrue() {
-			this.showModal = true;
+		showModal() {
+			this.baseModal = true;
 		},
-		ModalFalse() {
-			this.showModal = false;
+		closeModal() {
+			this.baseModal = false;
 		},
 	},
 };
 </script>
 
-<style></style>
+<style scoped>
+#main-parent {
+	width: 100%;
+	height: 100%;
+}
+</style>

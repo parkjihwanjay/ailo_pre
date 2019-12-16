@@ -12,9 +12,10 @@
 								class="basic-section--body-input"
 								type="checkbox"
 								:name="section.name"
+								:id="section.name"
 								v-model="section.checked"
 							/>
-							<label class="basic-section--body-label object-contain" :for="section">{{
+							<label class="basic-section--body-label object-contain" :for="section.name">{{
 								section.name
 							}}</label>
 						</div>
@@ -25,10 +26,22 @@
 					<p class="basic--title basic-array--title">배열</p>
 					<div class="basic-array--descript object-contain">월간 일정과 일간 일정의 배열 순서</div>
 					<div class="basic-array--body">
-						<input type="radio" name="array" v-model="basic_customizing.array" value="M-D-M-D" />
-						<label class="basic-radio object-contain" for="select">M-D-M-D</label>
-						<input type="radio" name="array" v-model="basic_customizing.array" value="MM-DD" />
-						<label class="basic-radio object-contain" for="select">MM-DD</label>
+						<input
+							type="radio"
+							id="array1"
+							name="array"
+							v-model="basic_customizing.array"
+							value="M-D-M-D"
+						/>
+						<label class="basic-radio object-contain" for="array1">M-D-M-D</label>
+						<input
+							type="radio"
+							name="array"
+							id="array2"
+							v-model="basic_customizing.array"
+							value="MM-DD"
+						/>
+						<label class="basic-radio object-contain" for="array2">MM-DD</label>
 					</div>
 				</template>
 
@@ -41,9 +54,10 @@
 								:value="label"
 								type="radio"
 								:name="term"
+								:id="label"
 								v-model="term"
 							/>
-							<label class="basic-radio object-contain" :for="term">{{ label }}</label>
+							<label class="basic-radio object-contain" :for="label">{{ label }}</label>
 						</div>
 					</div>
 				</template>
@@ -118,8 +132,9 @@
 								type="checkbox"
 								:name="component.label"
 								v-model="component.checked"
+								:id="component.label"
 							/>
-							<label class="basic-section--body-label object-contain" :for="component">{{
+							<label class="basic-section--body-label object-contain" :for="component.label">{{
 								component.label
 							}}</label>
 						</div>
@@ -141,6 +156,7 @@
 import axios from 'axios';
 export default {
 	name: 'BaseModal',
+	// props: ['showModal'],
 	data() {
 		return {
 			basic_customizing: {
@@ -211,12 +227,16 @@ export default {
 			term: '',
 		};
 	},
+	mounted() {
+		window.scrollTo(0, 0);
+	},
 	methods: {
 		template_click(value) {
 			this.basic_customizing.template = value;
 		},
 		closeModal() {
 			this.$emit('closeModal');
+			// this.$store.commit('CLOSE_BASE_MODAL');
 		},
 		async applyBasic() {
 			try {
@@ -239,13 +259,14 @@ export default {
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
 .modal {
-	// position: fixed;
-	// top: 0;
-	// left: 0;
-	// width: 100%;
-	// height: 100%;
-	// background: rgba(0, 0, 0, 0.4);
-	// z-index: 999999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 999999;
+	overflow: auto;
 }
 .object-contain {
 	object-fit: contain;
@@ -262,17 +283,18 @@ export default {
 }
 .basic-modal {
 	position: absolute;
-	top: 7%;
-	left: 7%;
+	top: 50%;
+	left: 50%;
 	// top: 50%;
 	// left: 50%;
-	// transform: translate(-50%, -50%);
+	transform: translate(-50%, -20%);
 	z-index: 9999;
-	width: 1240px;
+	width: 920px;
 	border-radius: 3px;
 	box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
 	background-color: $off-white;
 	transition: opacity 0.3s ease;
+	margin-bottom: 70px;
 }
 .base-title {
 	width: 190px;
@@ -364,7 +386,7 @@ export default {
 }
 .basic-button-box--big {
 	margin-top: 80px;
-	margin-left: 813px;
+	margin-left: 540px;
 	margin-bottom: 40px;
 }
 .basic-button-big {
