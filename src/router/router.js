@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import axios from 'axios';
 import router from '.';
 
-import IsLogin from './auth.js';
+import checkAuth from './auth.js';
 
 const Header = () => import('../components/Header.vue');
 
@@ -26,6 +26,8 @@ const Register = () => import('../views/RegisterView.vue');
 const Home = () => import('../views/HomeView.vue');
 
 const Order = () => import('../views/OrderView.vue');
+
+const MyPage = () => import('../views/MyPageView.vue');
 
 const PreBasic = () => import('../views/Pre/BasicCustom.vue');
 
@@ -60,6 +62,17 @@ const routes = [
     path : '/order',
     name : 'order',
     component : Order,
+  },
+  {
+    path : '/mypage',
+    name : 'mypage',
+    component : MyPage,
+    beforeEnter : async(to, from, next) => {
+      if (!localStorage.getItem('access_token')) {
+        return alert('로그인을 먼저 해주세요.');
+      }
+      next();
+    },
   },
   {
     path : '/customer',
@@ -101,9 +114,8 @@ const routes = [
     name : 'PreDragDrop',
     component : PreDragDrop,
     beforeEnter : async (to, from, next) => {
-      if(!IsLogin()){
-        alert('로그인을 먼저 해주세요.');
-        next('/login');
+      if (!localStorage.getItem('access_token')) {
+        return alert('로그인을 먼저 해주세요.');
       }
       const id = to.params.id;
       try {
@@ -139,6 +151,13 @@ const routes = [
     name : 'schedule',
     component : Schedule,
   },
+  {
+    path : '*',
+    beforeEnter : (to, from, next) => {
+      alert('요청하신 주소는 없는 주소입니다 ㅜㅜ');
+      next('/')
+    }
+  }
 ]
 
 export default routes;

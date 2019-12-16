@@ -231,6 +231,7 @@ export default {
 			const s3 = new_s3();
 			// const canvas = this.$refs.canvas;
 			const canvas = document.getElementById('canvas');
+			// console.log(canvas);
 			window.scrollTo(0, 0);
 			html2canvas(canvas, {
 				width: 559.36,
@@ -358,7 +359,6 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	object-fit: contain;
 	margin-left: 20px;
 	background-color: $off-white;
 }
@@ -374,9 +374,9 @@ export default {
 }
 .dragdrop-main-canvas__body {
 	overflow: hidden;
-	height: 721.02px;
+	height: 687px;
 	// display: inline-block;
-	// border: 0.5px dotted $off-purple;
+	border: 0.5px dotted $off-purple;
 }
 .dragdrop-save-button {
 	margin: 19.6px 65.5px 19.6px 802px;

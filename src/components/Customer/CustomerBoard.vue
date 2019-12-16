@@ -26,7 +26,7 @@
                         <td class="subject"><a href="customer-board-read.html" title="'[10월 업데이트] 10월 업데이트 샘플 텍스트 0.2버전' 글 보기">[10월 업데이트] 10월 업데이트 샘플 텍스트 0.2버전</a></td>
                         <td class="date">2019-01-01</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="number">2</td>
                         <td class="subject"><a href="customer-board-read.html" title="'[10월 업데이트] 10월 업데이트 샘플 텍스트 0.2버전' 글 보기">[10월 업데이트] 10월 업데이트 샘플 텍스트 0.2버전</a></td>
                         <td class="date">2019-01-01</td>
@@ -80,7 +80,7 @@
                         <td class="number">12</td>
                         <td class="subject"><a href="customer-board-read.html" title="'[10월 업데이트] 10월 업데이트 샘플 텍스트 0.2버전' 글 보기">[10월 업데이트] 10월 업데이트 샘플 텍스트 0.2버전</a></td>
                         <td class="date">2019-01-01</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <div class="pagination-numbering">
@@ -101,7 +101,7 @@
 <script>
 import whiteHeader from '@/mixin/whiteHeader.js';
 export default {
-	mixins: [whiteHeader],
+    mixins: [whiteHeader],
 };
 </script>
 

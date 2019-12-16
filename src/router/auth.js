@@ -1,5 +1,7 @@
-const IsLogin = () => {
-	localStorage.getItem('access_token') ? true : false;
+const checkAuth = next => {
+	if (!localStorage.getItem('access_token')) {
+		alert('로그인을 먼저 해주세요.');
+	}
 };
 
-export default IsLogin;
+export default checkAuth;

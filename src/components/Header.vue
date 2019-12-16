@@ -10,7 +10,7 @@
 					<li><a href="#" title="내 다이어리">내 다이어리</a></li>
 					<li><a href="#" title="주문하기">주문하기</a></li>
 					<li><a href="javascript:popup('prepare');" title="상점">상점</a></li>
-					<li><a href="#" title="마이페이지">마이페이지</a></li>
+					<li><router-link to="/mypage">마이페이지</router-link></li>
 					<li>
 						<router-link to="/customer">고객센터</router-link>
 					</li>
