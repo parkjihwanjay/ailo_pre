@@ -19,15 +19,26 @@ const social_login = async req_body => {
 	} catch (e) {
 		// console.log(e);
 		errorHandling(e);
+		store.commit('SET_LOADING', false);
 	}
 };
 
 const axios_logout = async () => {
-	store.commit('SET_LOADING', false);
-	await axios.post('/users/social/logout');
-	localStorage.clear();
-	LogoutSuccess();
 	store.commit('SET_LOADING', true);
+	const refresh_token = localStorage.getItem('refresh_token');
+
+	axios.defaults.headers.common['Authorization'] = `Bearer ${refresh_token}`;
+
+	try {
+		await axios.post('/users/social/logout');
+		localStorage.clear();
+		LogoutSuccess();
+		store.commit('LOGOUT');
+		store.commit('SET_LOADING', false);
+	} catch (e) {
+		errorHandling(e);
+		store.commit('SET_LOADING', false);
+	}
 };
 
 const social_logout = async () => {

@@ -8,10 +8,19 @@ export default {
 	LOGIN(state) {
 		state.isLogin = true;
 	},
-	// SHOW_BASE_MODAL(state) {
-	// 	state.baseModalChecked = true;
-	// },
-	// CLOSE_BASE_MODAL(state) {
-	// 	state.baseModalChecked = false;
-	// },
+	LOGOUT(state) {
+		state.isLogin = false;
+	},
+	SHOW_BASE_MODAL(state) {
+		state.baseModalChecked = true;
+	},
+	CLOSE_BASE_MODAL(state) {
+		state.baseModalChecked = false;
+	},
+	SHOW_NOT_READY_MODAL(state) {
+		state.NotReadyModalChecked = true;
+	},
+	CLOSE_NOT_READY_MODAL(state) {
+		state.NotReadyModalChecked = false;
+	},
 };

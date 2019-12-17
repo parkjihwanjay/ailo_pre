@@ -11,9 +11,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-	const JWT_token = localStorage.getItem('access_token');
-	if (JWT_token) {
-		axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_token}`;
+	const access_token = localStorage.getItem('access_token');
+	if (access_token) {
+		axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
 		axios.defaults.headers.common['Content-Type'] = 'application/json';
 	}
 	next();

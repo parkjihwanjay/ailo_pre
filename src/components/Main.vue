@@ -140,26 +140,25 @@
 						</li>
 					</ul>
 				</div>
-				<router-link class="btn btnBorder btnCenter" to="/customer/usage"
-					>이용방법 더보기</router-link
-				>
-				<!-- <a class="btn btnBorder btnCenter" href="#" title="이용방법 더보기">이용방법 더보기</a> -->
+				<router-link to="/customer/usage">
+					<input class="xl-button btnBorder btnCenter" type="button" value="이용방법 더보기" />
+				</router-link>
 			</div>
 		</div>
 
 		<div class="features d-flex align-items-center justify-content-between">
 			<h2 class="blind">Features</h2>
 			<div class="decoration">
-				<img class="mockup" src="img/main/diary-mockup.png" alt="데스크톱 시연화면" />
-				<img class="browser" src="img/main/diary-browser.png" alt="브라우저 시연화면" />
+				<img class="mockup" src="/img/main/diary-mockup.png" alt="데스크톱 시연화면" />
+				<img class="browser" src="/img/main/diary-list.png" alt="브라우저 시연화면" />
 				<img
 					class="package-color"
-					src="img/main/diary-package-color.png"
+					src="/img/main/diary-package-color.png"
 					alt="보라색 다이어리 패키지"
 				/>
 				<img
 					class="package-gray"
-					src="img/main/diary-package-gray.png"
+					src="/img/main/diary-package-gray.png"
 					alt="회색 다이어리 패키지"
 				/>
 			</div>
@@ -175,9 +174,12 @@
 					<dd>커스터마이징 후 바로, 또는 기록 후 주문제작해요.</dd>
 				</dl>
 				<!-- <router-link class="btn btnBorder" to="/">다이어리 만들기</router-link> -->
-				<a class="btn btnBorder" href="#" title="다이어리 만들기" @click="showModal()"
-					>다이어리 만들기</a
-				>
+				<input
+					class="xl-button btnBorder btnCenter"
+					type="button"
+					value="다이어리 만들기"
+					@click="showModal()"
+				/>
 			</div>
 		</div>
 
@@ -192,7 +194,9 @@
 					주문제작을 통해 아날로그 다이어리의 불편함을 최대한 극복함으로써<br />
 					‘소비자의 욕구를 진정으로 채워줄 수 있는 다이어리’를 제작해주는 서비스를 만들고자 합니다.
 				</p>
-				<a class="btn btnBorder btnCenter" href="#" title="아일로 이야기">아일로 이야기</a>
+				<router-link to="#">
+					<input class="xl-button btnBorder btnCenter" type="button" value="아일로 이야기" />
+				</router-link>
 			</div>
 			<div class="section-image"></div>
 		</div>
@@ -212,8 +216,8 @@ export default {
 				alert('로그인을 먼저 해주세요');
 				this.$router.push({ path: '/login' });
 			} else {
-				this.$emit('showModal');
-				// this.$store.commit('SHOW_BASE_MODAL');
+				// this.$emit('showModal');
+				this.$store.commit('SHOW_BASE_MODAL');
 			}
 		},
 	},
@@ -222,6 +226,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
+@import '@/styles/_button.scss';
 @keyframes bouncy {
 	10% {
 		top: 0em;
@@ -269,7 +274,7 @@ export default {
 	word-spacing: 3px;
 	background-color: $off-purple;
 	cursor: pointer;
-	animation: bouncy 3s infinite linear;
+	animation: bouncy 2.5s infinite linear;
 	position: relative;
 }
 .big-button:hover {

@@ -1,6 +1,7 @@
 <template>
+	<!-- <transition name="fade"> -->
 	<div class="modal">
-		<div class="basic-modal font-Noto object-contain">
+		<div class="modal-container base-modal object-contain">
 			<p class="base-title object-contain">다이어리 만들기</p>
 			<div class="base-setting object-contain">기본 설정</div>
 			<div class="base-setting--body">
@@ -24,7 +25,9 @@
 
 				<template name="배열">
 					<p class="basic--title basic-array--title">배열</p>
-					<div class="basic-array--descript object-contain">월간 일정과 일간 일정의 배열 순서</div>
+					<div class="basic-array--descript object-contain">
+						월간 일정과 일간 일정의 배열 순서
+					</div>
 					<div class="basic-array--body">
 						<input
 							type="radio"
@@ -144,16 +147,20 @@
 
 			<template name="마지막 버튼">
 				<div class="basic-button-box--big flex">
-					<input type="button" @click="closeModal()" value="취소" class="big-button" />
-					<input type="button" @click="applyBasic()" value="적용하기" class="big-button" />
+					<input type="button" @click="closeModal()" value="취소" class="big-button mr-20" />
+					<input type="button" @click="applyBasic()" value="적용하기" class="big-button mr-20" />
 				</div>
 			</template>
 		</div>
 	</div>
+	<!-- </transition> -->
 </template>
 
 <script>
 import axios from 'axios';
+import { errorHandling } from '@/utils/error.js';
+import { ReApplyBasic } from '@/utils/axios.js';
+import { access } from 'fs';
 export default {
 	name: 'BaseModal',
 	// props: ['showModal'],
@@ -235,21 +242,33 @@ export default {
 			this.basic_customizing.template = value;
 		},
 		closeModal() {
-			this.$emit('closeModal');
-			// this.$store.commit('CLOSE_BASE_MODAL');
+			// this.$emit('closeModal');
+			this.$store.commit('CLOSE_BASE_MODAL');
 		},
 		async applyBasic() {
+			this.$store.commit('CLOSE_BASE_MODAL');
 			this.$store.commit('SET_LOADING', true);
 			try {
 				const result = await axios.post('/pre/diary/basics', this.basic_customizing);
 				if (!result) {
-					alert('서버 에러입니다 ㅜㅜ');
+					return alert('서버 에러입니다 ㅜㅜ');
 				}
 				this.$router.push({
 					path: `/pre/dragdrop/${result.data._id}`,
 				});
 			} catch (e) {
-				alert(e);
+				if (e.response.data.error === 'AccessTokenExpiredError') {
+					const diary = await ReApplyBasic(this.basic_customizing);
+					if (!diary) return alert('서버 에러입니다 ㅜㅜ');
+					console.log(diary);
+					// console.log(result);
+					this.$router.push({
+						path: `/pre/dragdrop/${diary.data._id}`,
+					});
+				} else {
+					errorHandling(e);
+					this.$store.commit('SET_LOADING', false);
+				}
 			}
 		},
 	},
@@ -259,15 +278,14 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
-.modal {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.4);
-	z-index: 9999;
-	overflow: auto;
+@import '@/styles/_modal.scss';
+
+.mr-20 {
+	margin-right: 2rem;
+}
+.base-modal {
+	width: 920px;
+	margin-bottom: 70px;
 }
 .object-contain {
 	object-fit: contain;
@@ -281,21 +299,6 @@ export default {
 .button_clicked {
 	background-color: $off-purple;
 	color: $off-white;
-}
-.basic-modal {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	// top: 50%;
-	// left: 50%;
-	transform: translate(-50%, -20%);
-	z-index: 9999;
-	width: 920px;
-	border-radius: 3px;
-	box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
-	background-color: $off-white;
-	transition: opacity 0.3s ease;
-	margin-bottom: 70px;
 }
 .base-title {
 	width: 190px;

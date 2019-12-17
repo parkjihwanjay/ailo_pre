@@ -1,7 +1,7 @@
 <template>
-	<div id="main-parent">
-		<Main @showModal="showModal" />
-		<base-modal @closeModal="closeModal" v-if="baseModal"></base-modal>
+	<div>
+		<Main />
+		<!-- <base-modal @closeModal="closeModal" v-if="baseModal"></base-modal> -->
 		<!-- <Popup /> -->
 	</div>
 </template>
@@ -26,19 +26,19 @@ export default {
 		// Popup,
 	},
 	methods: {
-		showModal() {
-			this.baseModal = true;
-		},
-		closeModal() {
-			this.baseModal = false;
-		},
+		// showModal() {
+		// 	this.baseModal = true;
+		// },
+		// closeModal() {
+		// 	this.baseModal = false;
+		// },
 	},
 };
 </script>
 
 <style scoped>
-#main-parent {
+/* #main-parent {
 	width: 100%;
 	height: 100%;
-}
+} */
 </style>

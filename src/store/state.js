@@ -1,5 +1,6 @@
 export default {
-	// baseModalChecked: false,
+	baseModalChecked: false,
+	NotReadyModalChecked: false,
 	isLogin: false,
 	isLoading: true,
 	pre_pdf_url: '',

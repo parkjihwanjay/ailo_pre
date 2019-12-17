@@ -174,6 +174,7 @@ export default {
 		};
     },
     async created(){
+        this.$store.commit('SET_LOADING', true);
         try{
             const profile = await axios.get('/users/me');
 
@@ -188,6 +189,9 @@ export default {
             console.log(e);
         }
     },
+    mounted(){
+        this.$store.commit('SET_LOADING', false);
+    },  
 	methods: {
 		findPostCode() {
 			new daum.Postcode({
