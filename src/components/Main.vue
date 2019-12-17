@@ -3,10 +3,10 @@
 		<div class="visual">
 			<div class="container">
 				<h2>당신만을 위한 하루</h2>
-				<p>내 손으로 만드는 DIY 다이어리, <img src="img/main/ailo-icon.png" alt="AILO" /></p>
+				<p>내 손으로 만드는 DIY 다이어리, <img src="/img/main/ailo-icon.png" alt="AILO" /></p>
 			</div>
-			<input type="button" class="big-button" value="다이어리 작성" @click="showModal()" />
-			<!-- <a class="btn btnColor" @click="showModal()" title="다이어리 작성">다이어리 작성</a> -->
+			<input type="button" class="big-button" value="다이어리 작성" @click="showBaseModal()" />
+			<!-- <a class="btn btnColor" @click="showBaseModal()" title="다이어리 작성">다이어리 작성</a> -->
 			<div class="browser-window d-flex justify-content-center align-items-end">
 				<div class="inner"></div>
 			</div>
@@ -122,19 +122,19 @@
 				<div class="list">
 					<ul class="row justify-content-center">
 						<li class="col col-3 text-center">
-							<div class="icon"><img src="img/main/notebook.png" alt="다이어리 만들기" /></div>
+							<div class="icon"><img src="/img/main/notebook.png" alt="다이어리 만들기" /></div>
 							<h3>다이어리 만들기</h3>
 							<p>다이어리의 기본 설정을 <br />결정해주세요</p>
 						</li>
 						<li class="col col-3 text-center">
 							<div class="icon">
-								<img src="img/main/computer-graphic.png" alt="기록 및 꾸미기" />
+								<img src="/img/main/computer-graphic.png" alt="기록 및 꾸미기" />
 							</div>
 							<h3>기록 및 꾸미기</h3>
 							<p>다이어리에 일상을 기록하고 <br />나만의 스타일로 꾸며주세요</p>
 						</li>
 						<li class="col col-3 text-center">
-							<div class="icon"><img src="img/main/product.png" alt="주문하기" /></div>
+							<div class="icon"><img src="/img/main/product.png" alt="주문하기" /></div>
 							<h3>주문하기</h3>
 							<p>마음껏 제작한 다이어리를 <br />실물로 간직하세요</p>
 						</li>
@@ -178,7 +178,7 @@
 					class="xl-button btnBorder btnCenter"
 					type="button"
 					value="다이어리 만들기"
-					@click="showModal()"
+					@click="showBaseModal()"
 				/>
 			</div>
 		</div>
@@ -194,9 +194,14 @@
 					주문제작을 통해 아날로그 다이어리의 불편함을 최대한 극복함으로써<br />
 					‘소비자의 욕구를 진정으로 채워줄 수 있는 다이어리’를 제작해주는 서비스를 만들고자 합니다.
 				</p>
-				<router-link to="#">
-					<input class="xl-button btnBorder btnCenter" type="button" value="아일로 이야기" />
-				</router-link>
+				<!-- <router-link to="#"> -->
+				<input
+					class="xl-button btnBorder btnCenter"
+					@click="showNotReadyModal()"
+					type="button"
+					value="아일로 이야기"
+				/>
+				<!-- </router-link> -->
 			</div>
 			<div class="section-image"></div>
 		</div>
@@ -207,18 +212,21 @@
 export default {
 	// data() {
 	// 	return {
-	// 		showModal: false,
+	// 		showBaseModal: false,
 	// 	};
 	// },
 	methods: {
-		showModal() {
+		showBaseModal() {
 			if (!localStorage.getItem('access_token')) {
 				alert('로그인을 먼저 해주세요');
 				this.$router.push({ path: '/login' });
 			} else {
-				// this.$emit('showModal');
+				// this.$emit('showBaseModal');
 				this.$store.commit('SHOW_BASE_MODAL');
 			}
+		},
+		showNotReadyModal() {
+			this.$store.commit('SHOW_NOT_READY_MODAL');
 		},
 	},
 };

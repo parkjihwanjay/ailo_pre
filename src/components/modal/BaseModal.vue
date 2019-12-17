@@ -234,9 +234,6 @@ export default {
 			term: '',
 		};
 	},
-	mounted() {
-		window.scrollTo(0, 0);
-	},
 	methods: {
 		template_click(value) {
 			this.basic_customizing.template = value;

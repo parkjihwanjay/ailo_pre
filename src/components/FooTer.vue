@@ -8,7 +8,9 @@
 					<div class="fnb">
 						<h4 class="blind">하단메뉴</h4>
 						<ul>
-							<li><a href="#" title="아일로 이야기">아일로 이야기</a></li>
+							<li @click="showNotReadyModal()">
+								<a>아일로 이야기</a>
+							</li>
 							<li><a href="#" title="공지사항">공지사항</a></li>
 							<li><a href="#" title="이용약관">이용약관</a></li>
 							<li><a href="#" title="개인정보처리방침">개인정보처리방침</a></li>
@@ -45,7 +47,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+	methods: {
+		showNotReadyModal() {
+			this.$store.commit('SHOW_NOT_READY_MODAL');
+		},
+	},
+};
 </script>
 
 <style></style>
