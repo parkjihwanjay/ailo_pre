@@ -15,7 +15,7 @@
                     <div>
                         <table class="table table-transparent" width="100%" cellpadding="0" cellspacing="0" border="0" summary="회원정보 입력">
                             <caption>회원정보 수정</caption>
-                            <colgroup>
+                            <colgroup name="userInfo">
                                 <col width="89">
                                 <col width="319">
                                 <col width="89">
@@ -67,7 +67,8 @@
                         </table>
                     </div>
                     <div class="d-flex align-items-end">
-                        <a class="btn btnColor btn-shadow w-100" href="#" title="수정">수정</a>
+                        <input class="big-button btnBorder btnCenter" type="button" value="수정" />
+                        <!-- <a class="btn btnColor btn-shadow w-100" href="#" title="수정">수정</a> -->
                     </div>
                 </div>
             </form>
@@ -157,6 +158,8 @@
 
 <script>
 import axios from 'axios';
+import {GetAndSetNewAccessToken} from '../utils/axios.js';
+import {errorHandling} from '../utils/error.js';
 export default {
     data() {
 		return {
@@ -176,23 +179,29 @@ export default {
     async created(){
         this.$store.commit('SET_LOADING', true);
         try{
-            const profile = await axios.get('/users/me');
-
-            this.name = profile.data.name;
-            this.email = profile.data.email;
-            // this.dateBirth = profile.data.birthday;
-            this.phoneNum = profile.data.phoneNum;
-            this.gender = profile.data.gender;
-
-            console.log(profile);
+            await this.getUserInfo();
         }catch(e){
-            console.log(e);
+            if (e.response.data.error === 'AccessTokenExpiredError') {
+					const token = await GetAndSetNewAccessToken();
+                    if (!token) return this.$store.commit('SET_LOADING', false);
+                    await this.getUserInfo();
+				} else {
+					errorHandling(e);
+					this.$store.commit('SET_LOADING', false);
+				}
         }
     },
     mounted(){
         this.$store.commit('SET_LOADING', false);
     },  
 	methods: {
+        async getUserInfo() {
+            const profile = await axios.get('/users/me');
+            this.name = profile.data.name;
+            this.email = profile.data.email;
+            this.phoneNum = profile.data.phoneNum;
+            this.gender = profile.data.gender;
+        },
 		findPostCode() {
 			new daum.Postcode({
 				oncomplete: data => {
@@ -293,4 +302,7 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import '@/styles/_variables.scss';
+@import '@/styles/_button.scss';
+</style>

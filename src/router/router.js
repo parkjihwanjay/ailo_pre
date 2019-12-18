@@ -7,6 +7,8 @@ import store from '../store/store.js';
 
 import checkAuth from './auth.js';
 
+import {GetAndSetNewAccessToken, getDiaryById} from '../utils/axios.js'
+
 const Header = () => import('../components/Header.vue');
 
 const Login = () => import('../views/LoginView.vue');
@@ -42,6 +44,7 @@ const Dday = () => import('../components/DragDropComponent/Dday.vue');
 const DailyRecord = () => import('../components/DragDropComponent/DailyRecord.vue');
 
 const Schedule = () => import('../components/DragDropComponent/Schedule.vue');
+
 Vue.use(Router);
 
 const routes = [
@@ -74,12 +77,7 @@ const routes = [
     name : 'mypage',
     component : MyPage,
     beforeEnter : async(to, from, next) => {
-      if (!localStorage.getItem('access_token')) {
-        alert('로그인을 먼저 해주세요.');
-        router.push({
-          name : 'Login',
-        })
-      }
+      checkAuth(next);
       next();
     },
   },
@@ -87,6 +85,10 @@ const routes = [
     path : '/customer',
     name : 'customer',
     component : CustomerHome,
+    beforeEnter : (to, from, next) => {
+      store.commit('SET_LOADING', true);
+      next();
+    }
   },
   {
     path : '/customer/board',
@@ -123,21 +125,37 @@ const routes = [
     name : 'PreDragDrop',
     component : PreDragDrop,
     beforeEnter : async (to, from, next) => {
-      if (!localStorage.getItem('access_token')) {
-        return alert('로그인을 먼저 해주세요.');
-      }
+      store.commit('SET_LOADING', true);
+      
+      checkAuth(next);
+
       const id = to.params.id;
+      
       try {
-        const result = await axios.get(`/pre/diary/${id}`);
-        if (!result) {
-          alert('서버 에러입니다. 죄송합니다 ㅜㅜ');
+        const result = await getDiaryById(id);
+        if(result){
+          to.params.data = result.data;
+          next();
+        }else{
+          next('/');
         }
-        to.params.data = result.data;
-        next();
       } catch (e) {
-        alert(e);
+        if (e.response.data.error === 'AccessTokenExpiredError') {
+          const token = await GetAndSetNewAccessToken();
+          if (!token) return store.commit('SET_LOADING', false);
+          
+          const result = await getDiaryById(id);
+
+          if(result){
+            to.params.data = result.data;
+            next();
+          }
+				} else {
+					errorHandling(e);
+          store.commit('SET_LOADING', false);
+          next('/login');
+				}
       }
-      console.log(id);
     },
   },
   {

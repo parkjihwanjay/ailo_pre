@@ -159,7 +159,7 @@
 <script>
 import axios from 'axios';
 import { errorHandling } from '@/utils/error.js';
-import { ReApplyBasic } from '@/utils/axios.js';
+import { GetAndSetNewAccessToken } from '@/utils/axios.js';
 import { access } from 'fs';
 export default {
 	name: 'BaseModal',
@@ -242,26 +242,25 @@ export default {
 			// this.$emit('closeModal');
 			this.$store.commit('CLOSE_BASE_MODAL');
 		},
+		async postBasic() {
+			const result = await axios.post('/pre/diary/basics', this.basic_customizing);
+			if (!result) {
+				return alert('서버 에러입니다 ㅜㅜ');
+			}
+			this.$router.push({
+				path: `/pre/dragdrop/${result.data._id}`,
+			});
+		},
 		async applyBasic() {
 			this.$store.commit('CLOSE_BASE_MODAL');
 			this.$store.commit('SET_LOADING', true);
 			try {
-				const result = await axios.post('/pre/diary/basics', this.basic_customizing);
-				if (!result) {
-					return alert('서버 에러입니다 ㅜㅜ');
-				}
-				this.$router.push({
-					path: `/pre/dragdrop/${result.data._id}`,
-				});
+				await this.postBasic();
 			} catch (e) {
 				if (e.response.data.error === 'AccessTokenExpiredError') {
-					const diary = await ReApplyBasic(this.basic_customizing);
-					if (!diary) return alert('서버 에러입니다 ㅜㅜ');
-					console.log(diary);
-					// console.log(result);
-					this.$router.push({
-						path: `/pre/dragdrop/${diary.data._id}`,
-					});
+					const token = await GetAndSetNewAccessToken();
+					if (!token) return this.$store.commit('SET_LOADING', false);
+					await this.postBasic();
 				} else {
 					errorHandling(e);
 					this.$store.commit('SET_LOADING', false);

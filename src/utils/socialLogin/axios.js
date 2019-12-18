@@ -35,6 +35,7 @@ const axios_logout = async () => {
 		LogoutSuccess();
 		store.commit('LOGOUT');
 		store.commit('SET_LOADING', false);
+		location.reload();
 	} catch (e) {
 		errorHandling(e);
 		store.commit('SET_LOADING', false);

@@ -14,24 +14,8 @@
 					<li>
 						<router-link to="/customer">고객센터</router-link>
 					</li>
-					<li>
-						<input
-							v-show="!isLogin"
-							type="button"
-							value="로그인"
-							class="header-login-button"
-							@click="Login()"
-						/>
-						<input
-							v-show="isLogin"
-							type="button"
-							value="로그아웃"
-							class="header-login-button"
-							@click="Logout()"
-						/>
-					</li>
-					<!-- <li v-if="!isLogin"><router-link to="/login">로그인</router-link></li> -->
-					<!-- <li v-if="isLogin" @click="Logout()"><a>로그아웃</a></li> -->
+					<li v-if="!isLogin"><router-link to="/login">로그인</router-link></li>
+					<li v-if="isLogin" @click="Logout()"><a>로그아웃</a></li>
 				</ul>
 			</div>
 		</div>
