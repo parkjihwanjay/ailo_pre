@@ -30,7 +30,16 @@
 					</dl>
 
 					<div class="mockup">
-						<img src="/img/sub/video-thumb.png" alt="동영상 썸네일" />
+						<iframe
+							width="631"
+							height="428"
+							src="https://www.youtube.com/embed/VcIs0Lvbsj4"
+							frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+
+						<!-- <img src="/img/sub/video-thumb.png" alt="동영상 썸네일" /> -->
 					</div>
 				</div>
 			</div>

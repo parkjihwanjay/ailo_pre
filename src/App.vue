@@ -4,6 +4,7 @@
 		<router-view></router-view>
 		<Footer />
 		<base-spinner></base-spinner>
+		<Snow />
 		<div class="modal-parent" v-show="baseModalChecked || NotReadyModalChecked">
 			<transition name="fade">
 				<base-modal v-if="baseModalChecked"></base-modal>
@@ -21,6 +22,7 @@ import BaseSpinner from '../src/components/BaseSpinenr.vue';
 import BaseModal from './components/modal/BaseModal.vue';
 import NotReady from './components/modal/NotReady.vue';
 
+import Snow from 'vue-niege';
 export default {
 	name: 'App',
 
@@ -30,6 +32,7 @@ export default {
 		Footer,
 		BaseModal,
 		NotReady,
+		Snow,
 	},
 	computed: {
 		baseModalChecked() {

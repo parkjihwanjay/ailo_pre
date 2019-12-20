@@ -6,6 +6,8 @@ import VueAnalytics from 'vue-analytics';
 
 import axios from 'axios';
 
+// import 'normalize.css';
+
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
