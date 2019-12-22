@@ -4,7 +4,7 @@
 		<router-view></router-view>
 		<Footer />
 		<base-spinner></base-spinner>
-		<Snow />
+		<Snow color="#663399" :zIndex="999999" />
 		<div class="modal-parent" v-show="baseModalChecked || NotReadyModalChecked">
 			<transition name="fade">
 				<base-modal v-if="baseModalChecked"></base-modal>

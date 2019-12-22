@@ -66,6 +66,7 @@ export default {
 a:hover {
 	color: #663399 !important;
 	cursor: pointer;
+	font-weight: bold;
 }
 .header-login-button {
 	width: 100px;

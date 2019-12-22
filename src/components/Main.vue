@@ -112,7 +112,7 @@
 			</div>
 		</div> -->
 
-		<div class="mSection how-using-main">
+		<div class="mSection how-using main">
 			<div class="container">
 				<h2 class="section-title">이용방법</h2>
 				<p class="section-descript">
@@ -141,7 +141,11 @@
 					</ul>
 				</div>
 				<router-link to="/customer/usage">
-					<input class="xl-button btnBorder btnCenter" type="button" value="이용방법 더보기" />
+					<input
+						class="xl-button btnBorder btnCenter color-purple"
+						type="button"
+						value="이용방법 더보기"
+					/>
 				</router-link>
 			</div>
 		</div>
@@ -269,6 +273,15 @@ export default {
 	100% {
 		top: 0em;
 	}
+}
+.main {
+	background-image: none;
+}
+.color-purple {
+	color: $off-purple !important;
+}
+.color-purple:hover {
+	color: $off-white !important;
 }
 .big-button {
 	width: 280px;
