@@ -4,11 +4,12 @@
 		<router-view></router-view>
 		<Footer />
 		<base-spinner></base-spinner>
-		<Snow color="#663399" :zIndex="999999" />
-		<div class="modal-parent" v-show="baseModalChecked || NotReadyModalChecked">
+		<Snow color="#663399" />
+		<div class="modal-parent">
 			<transition name="fade">
 				<base-modal v-if="baseModalChecked"></base-modal>
 				<not-ready v-if="NotReadyModalChecked"></not-ready>
+				<pre-view v-if="PreViewModalChecked"></pre-view>
 			</transition>
 		</div>
 	</div>
@@ -21,8 +22,8 @@ import BaseSpinner from '../src/components/BaseSpinenr.vue';
 
 import BaseModal from './components/modal/BaseModal.vue';
 import NotReady from './components/modal/NotReady.vue';
+import PreView from './components/modal/PreView.vue';
 
-import Snow from 'vue-niege';
 export default {
 	name: 'App',
 
@@ -32,7 +33,7 @@ export default {
 		Footer,
 		BaseModal,
 		NotReady,
-		Snow,
+		PreView,
 	},
 	computed: {
 		baseModalChecked() {
@@ -40,6 +41,9 @@ export default {
 		},
 		NotReadyModalChecked() {
 			return this.$store.state.NotReadyModalChecked;
+		},
+		PreViewModalChecked() {
+			return this.$store.state.PreViewModalChecked;
 		},
 	},
 };

@@ -31,7 +31,8 @@ function s3_upload(s3, file, photoKey) {
 			}
 			try {
 				const url = response.Location;
-				await axios.post('/pre/diary/:id/files', url);
+				console.log(url);
+				// await axios.post('/pre/diary/:id/files', url);
 			} catch (e) {
 				console.log(e);
 			}

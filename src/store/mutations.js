@@ -23,4 +23,11 @@ export default {
 	CLOSE_NOT_READY_MODAL(state) {
 		state.NotReadyModalChecked = false;
 	},
+	SHOW_PREVIEW_MODAL(state, previewIMG) {
+		state.previewIMG = previewIMG;
+		state.PreViewModalChecked = true;
+	},
+	CLOSE_PREVIEW_MODAL(state) {
+		state.PreViewModalChecked = false;
+	},
 };

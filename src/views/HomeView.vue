@@ -3,12 +3,16 @@
 		<Main />
 		<!-- <base-modal @closeModal="closeModal" v-if="baseModal"></base-modal> -->
 		<!-- <Popup /> -->
+		<Snow />
 	</div>
 </template>
 
 <script>
 import Main from '../components/Main.vue';
 import BaseModal from '../components/modal/BaseModal.vue';
+
+import Snow from 'vue-niege';
+
 // import Popup from '../components/PopUp.vue';
 export default {
 	data() {
@@ -22,6 +26,7 @@ export default {
 	},
 	components: {
 		Main,
+		Snow,
 		BaseModal,
 		// Popup,
 	},

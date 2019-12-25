@@ -36,5 +36,6 @@ export default {
 	// border: solid 1px #707070;
 	border-radius: 10px;
 	background-color: $off-gray;
+	box-sizing: border-box;
 }
 </style>

@@ -9,7 +9,7 @@
 			<div class="dragdrop-main__buttons__right">
 				<div class="dragdrop-main__button__right" @click="save()">설정</div>
 				<div class="dragdrop-main__button__right" @click="changeEditing()">구성편집</div>
-				<div class="dragdrop-main__button__right">미리보기</div>
+				<div class="dragdrop-main__button__right" @click="preview()">미리보기</div>
 			</div>
 		</div>
 		<div class="dragdrop-main__body">
@@ -24,14 +24,15 @@
 						ref="dragdropMainCanvasBody"
 						id="dragdrop-main-canvas__body"
 						class="dragdrop-main-canvas__body"
+						:class="{ 'border-purple': borderPurple }"
 					>
 						<daily-record
 							id="daily-record"
-							class="drag"
+							class="dragresize"
 							ref="dailyRecord"
 							v-if="componentShow[0].checked"
 						/>
-						<Memo class="drag" id="memo" ref="memo" v-if="componentShow[1].checked" />
+						<Memo class="dragresize" id="memo" ref="memo" v-if="componentShow[1].checked" />
 						<Schedule
 							class="drag"
 							ref="scheduleBig"
@@ -50,14 +51,14 @@
 							ref="accountBook"
 							@delete="componentShowDelete(4)"
 							id="account-book"
-							class="drag"
-							v-show="componentShow[4].checked"
+							class="dragresize"
+							v-if="componentShow[4].checked"
 						></account-book>
 						<!-- todo-list 색깔 있는 버전 -->
 						<todo-list
 							ref="todoListColor"
 							id="todo-list-color"
-							class="drag"
+							class="dragresize"
 							todoV="one"
 							@delete="componentShowDelete(5)"
 							:editing="editing"
@@ -67,7 +68,7 @@
 						<todo-list
 							ref="todoListNonColor"
 							id="todo-list"
-							class="drag"
+							class="dragresize"
 							todoV="two"
 							@delete="componentShowDelete(6)"
 							:editing="editing"
@@ -86,6 +87,10 @@
 					/>
 					<label :for="index">{{ component.name }}</label>
 					<br />
+				</span>
+				<span>
+					<input type="checkbox" name="보조선" v-model="borderPurple" />
+					<label for="보조선">보조선</label>
 				</span>
 			</div>
 			<!-- <input type="button" value="저장" @click="save()" class="big-button dragdrop-save-button" /> -->
@@ -171,6 +176,7 @@ export default {
 				},
 			],
 			editing: false,
+			borderPurple: true,
 		};
 	},
 	mounted() {
@@ -207,6 +213,13 @@ export default {
 		this.$store.commit('SET_LOADING', false);
 	},
 	methods: {
+		async preview() {
+			this.$store.commit('SET_LOADING', true);
+
+			const result = await this.html2canvas();
+			const previewIMG = result.toDataURL('image/png');
+			this.$store.commit('SHOW_PREVIEW_MODAL', previewIMG);
+		},
 		checkOverflow(id) {
 			// console.log(this.$refs);
 			// const canvas = this.$refs.overflow;
@@ -232,42 +245,71 @@ export default {
 		componentShowDelete(index) {
 			this.componentShow[index].checked = false;
 		},
-		save() {
+		async html2canvas() {
+			this.borderPurple = false;
+
+			const canvas = document.getElementById('canvas');
+
+			window.scrollTo(0, 0);
+
+			const result = await html2canvas(canvas, {
+				width: 559.36,
+				height: 793.69,
+			});
+
+			this.borderPurple = true;
+
+			return result;
+		},
+		async save() {
 			this.$store.commit('SET_LOADING', true);
 			const s3 = new_s3();
 			// const canvas = this.$refs.canvas;
-			const canvas = document.getElementById('canvas');
-			// console.log(canvas);
-			window.scrollTo(0, 0);
-			html2canvas(canvas, {
-				width: 559.36,
-				height: 793.69,
-			}).then(canvas => {
-				// document.body.appendChild(canvas);
-				console.log(canvas);
-				const doc = new jsPDF('p', 'mm', 'a5');
-				doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
-				// , 148, 210);
-				doc.save('sample-file.pdf');
-				// const b = document.createElement('b');
-				// b.download = 'asdf';
-				// b.href = doc;
-				// b.click();
+			// const canvas = document.getElementById('canvas');
+			const result = await this.html2canvas();
 
-				// canvas.width = '559.36px';
-				// canvas.height = '793.69px';
+			const doc = new jsPDF('p', 'mm', 'a5');
+			doc.addImage(result.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
 
-				// const a = document.createElement('a');
-				// a.download = 'asdf';
-				// a.href = canvas.toDataURL('image/png');
-				// a.click();
-				//
-				// const file = doc.output('arraybuffer');
-				// const photoKey = `pre-pdf/test/${this.$route.params.id}`;
+			const file = doc.output('arraybuffer');
+			// const photoKey = `pre-pdf/test/${this.$route.params.id}`;
+			const photoKey = `pre-pdf/test`;
 
-				// const result = s3_upload(s3, file, photoKey);
-				// console.log(result);
-			});
+			const upload = s3_upload(s3, file, photoKey);
+			console.log(upload);
+			// doc.save('sample-file.pdf');
+
+			this.$store.commit('SET_LOADING', false);
+
+			// html2canvas(canvas, {
+			// 	width: 559.36,
+			// 	height: 793.69,
+			// }).then(canvas => {
+			// 	// document.body.appendChild(canvas);
+			// 	console.log(canvas);
+			// 	const doc = new jsPDF('p', 'mm', 'a5');
+			// 	doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
+			// 	// , 148, 210);
+			// 	doc.save('sample-file.pdf');
+			// const b = document.createElement('b');
+			// b.download = 'asdf';
+			// b.href = doc;
+			// b.click();
+
+			// canvas.width = '559.36px';
+			// canvas.height = '793.69px';
+
+			// const a = document.createElement('a');
+			// a.download = 'asdf';
+			// a.href = canvas.toDataURL('image/png');
+			// a.click();
+			//
+			// const file = doc.output('arraybuffer');
+			// const photoKey = `pre-pdf/test/${this.$route.params.id}`;
+
+			// const result = s3_upload(s3, file, photoKey);
+			// console.log(result);
+			// });
 		},
 	},
 };
@@ -431,6 +473,8 @@ export default {
 	height: 687px;
 	// display: inline-block;
 	// display: flex;
+}
+.border-purple {
 	border: 0.5px dotted $off-purple;
 }
 .dragdrop-save-button {
