@@ -221,13 +221,15 @@ export default {
 	// },
 	methods: {
 		showBaseModal() {
-			if (!localStorage.getItem('access_token')) {
-				alert('로그인을 먼저 해주세요');
-				this.$router.push({ path: '/login' });
-			} else {
-				// this.$emit('showBaseModal');
-				this.$store.commit('SHOW_BASE_MODAL');
-			}
+			this.$store.commit('SHOW_BASE_MODAL');
+
+			// if (!localStorage.getItem('access_token')) {
+			// 	alert('로그인을 먼저 해주세요');
+			// 	this.$router.push({ path: '/login' });
+			// } else {
+			// 	// this.$emit('showBaseModal');
+			// 	this.$store.commit('SHOW_BASE_MODAL');
+			// }
 		},
 		showNotReadyModal() {
 			this.$store.commit('SHOW_NOT_READY_MODAL');

@@ -121,6 +121,10 @@ const routes = [
     component : PreBasic,
   },
   {
+    path : '/pre/dragdrop',
+    component : PreDragDrop,
+  },
+  {
     path : '/pre/dragdrop/:id',
     name : 'PreDragDrop',
     component : PreDragDrop,

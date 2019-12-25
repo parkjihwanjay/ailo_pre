@@ -28,30 +28,34 @@
 						<daily-record
 							id="daily-record"
 							class="drag"
-							ref="dailyrecord"
+							ref="dailyRecord"
 							v-if="componentShow[0].checked"
 						/>
-						<Memo class="drag" id="memo" ref="memo" v-show="componentShow[1].checked" />
+						<Memo class="drag" id="memo" ref="memo" v-if="componentShow[1].checked" />
 						<Schedule
 							class="drag"
+							ref="scheduleBig"
 							id="schedule-big"
 							@delete="componentShowDelete(2)"
 							v-if="componentShow[2].checked"
 						/>
 						<Schedule
 							class="drag"
+							ref="scheduleSmall"
 							id="schedule-small"
 							@delete="componentShowDelete(3)"
 							v-if="componentShow[3].checked"
 						/>
 						<account-book
+							ref="accountBook"
 							@delete="componentShowDelete(4)"
 							id="account-book"
 							class="drag"
-							v-if="componentShow[4].checked"
+							v-show="componentShow[4].checked"
 						></account-book>
 						<!-- todo-list 색깔 있는 버전 -->
 						<todo-list
+							ref="todoListColor"
 							id="todo-list-color"
 							class="drag"
 							todoV="one"
@@ -61,6 +65,7 @@
 						></todo-list>
 						<!-- todo-list 색깔 없는 버전 -->
 						<todo-list
+							ref="todoListNonColor"
 							id="todo-list"
 							class="drag"
 							todoV="two"
@@ -169,7 +174,7 @@ export default {
 		};
 	},
 	mounted() {
-		// console.log(this.$refs);
+		console.log(this.$refs.memo);
 		//처음 위치 조정
 		// const weather = this.$refs.weather;
 		// const memo = this.$refs.memo.$el;
@@ -272,6 +277,17 @@ export default {
 @import '@/styles/_variables.scss';
 @import '@/styles/_button.scss';
 
+.visible-hidden {
+	visibility: hidden;
+	position: absolute;
+	top: 534px;
+	left: 600px;
+}
+
+.visibile-shown {
+	position: relative;
+}
+
 .dragdrop-page__header {
 	padding-top: 10px;
 	margin: 10px;
@@ -283,12 +299,49 @@ export default {
 	margin-top: 10px;
 	touch-action: none;
 	user-select: none;
+	display: inline-block;
 }
+
+#daily-record {
+	position: absolute;
+	top: 235px;
+	left: 68px;
+}
+
+#memo {
+	position: absolute;
+	top: 235px;
+	left: 342px;
+}
+
 #schedule-big {
 	width: 343px;
+	position: absolute;
+	top: 234px;
+	left: 55px;
+	// height: 445px;
 }
 #schedule-small {
 	width: 264px;
+	position: absolute;
+	top: 234px;
+	left: 262px;
+}
+
+#account-book {
+	position: absolute;
+	top: 400px;
+	left: 95px;
+}
+#todo-list-color {
+	position: absolute;
+	top: 713px;
+	left: 60px;
+}
+#todo-list {
+	position: absolute;
+	top: 713px;
+	left: 305px;
 }
 #weather-icon {
 	width: 42mm;
@@ -377,6 +430,7 @@ export default {
 	overflow: hidden;
 	height: 687px;
 	// display: inline-block;
+	// display: flex;
 	border: 0.5px dotted $off-purple;
 }
 .dragdrop-save-button {

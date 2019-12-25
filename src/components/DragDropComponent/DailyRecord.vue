@@ -14,14 +14,14 @@ export default {};
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 .daily-record {
-	width: 300px;
-	height: 200px;
+	width: 267px;
+	height: 180px;
 	border-radius: 10px;
 	// border: solid 1px $off-brown;
 	background-color: $off-gray;
 }
 .header {
-	padding-top: 15px;
+	padding-top: 4px;
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;
