@@ -264,20 +264,32 @@ export default {
 		async save() {
 			this.$store.commit('SET_LOADING', true);
 			const s3 = new_s3();
+			const id = this.$route.params.id;
 			// const canvas = this.$refs.canvas;
 			// const canvas = document.getElementById('canvas');
 			const result = await this.html2canvas();
 
+			const resultIMG = result.toDataURL('image/png');
+			let img = new FormData();
+			img.append('image', resultIMG);
+
 			const doc = new jsPDF('p', 'mm', 'a5');
-			doc.addImage(result.toDataURL('image/png'), 'PNG', 0, 0, 148, 210);
+			doc.addImage(resultIMG, 'PNG', 0, 0, 148, 210);
+			// doc.save('sample-file.pdf');
 
 			const file = doc.output('arraybuffer');
-			// const photoKey = `pre-pdf/test/${this.$route.params.id}`;
-			const photoKey = `pre-pdf/test`;
+			// const photoKey = `pre-pdf/test/${id}.pdf`;
+			const photoKey = `pre-pdf/test.pdf`;
 
-			const upload = s3_upload(s3, file, photoKey);
+			const S3_IMG_PDF = {
+				s3,
+				file,
+				photoKey,
+				id,
+				img,
+			};
+			const upload = s3_upload(S3_IMG_PDF);
 			console.log(upload);
-			// doc.save('sample-file.pdf');
 
 			this.$store.commit('SET_LOADING', false);
 

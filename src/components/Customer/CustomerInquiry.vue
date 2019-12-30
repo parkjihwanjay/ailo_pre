@@ -16,7 +16,7 @@
                         <form>
                             <div class="input-link input-link-search">
                                 <input type="text" title="검색어" placeholder="검색어 입력" />
-                                <input type="image" src="/img/sub/search-ico.png" title="검색" />
+                                <input type="image" src="/img/sub/search-ico.jpg" title="검색" />
                             </div>
                         </form>
                     </div>

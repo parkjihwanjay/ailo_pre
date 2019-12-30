@@ -9,8 +9,8 @@
             <form>
                 <div class="mypage-profile d-flex jus align-items-stretch">
                     <div class="profile-img-edit">
-                        <div class="img" style="background-image: url(img/sub/profile-sample.png);"></div>
-                        <a href="#" class="프로필 사진 설정하기"><img src="img/sub/register-camera.png" alt="사진설정" /></a>
+                        <div class="img" style="background-image: url(/img/sub/profile-sample.jpg);"></div>
+                        <a href="#" class="프로필 사진 설정하기"><img src="/img/sub/register-camera.jpg" alt="사진설정" /></a>
                     </div>
                     <div>
                         <table class="table table-transparent" width="100%" cellpadding="0" cellspacing="0" border="0" summary="회원정보 입력">

@@ -243,16 +243,19 @@ export default {
 			this.$store.commit('CLOSE_BASE_MODAL');
 		},
 		async postBasic() {
-			// const result = await axios.post('/pre/diary/basics', this.basic_customizing);
-			// if (!result) {
-			// 	return alert('서버 에러입니다 ㅜㅜ');
-			// }
-			this.$router.push({
-				path: '/pre/dragdrop',
-			});
-			// this.$router.push({
-			// 	path: `/pre/dragdrop/${result.data._id}`,
-			// });
+			if (localStorage.getItem('access_token')) {
+				const result = await axios.post('/pre/diary', this.basic_customizing);
+				if (!result) {
+					return alert('서버 에러입니다 ㅜㅜ');
+				}
+				this.$router.push({
+					path: `/pre/dragdrop/${result.data._id}`,
+				});
+			} else {
+				this.$router.push({
+					path: '/pre/dragdrop',
+				});
+			}
 		},
 		async applyBasic() {
 			this.$store.commit('CLOSE_BASE_MODAL');

@@ -31,8 +31,8 @@
                                 <td colspan="3">
                                     <div class="select-updown">
                                         <div>
-                                            <a class="up" href="#" title="위로"><img src="/img/sub/select-up.png" alt="위" /></a>
-                                            <a class="down" href="#" title="아래로"><img src="/img/sub/select-down.png" alt="아래" /></i></a>
+                                            <a class="up" href="#" title="위로"><img src="/img/sub/select-up.jpg" alt="위" /></a>
+                                            <a class="down" href="#" title="아래로"><img src="/img/sub/select-down.jpg" alt="아래" /></i></a>
                                         </div>
                                         <ul>
                                             <li>서비스 개선</li>

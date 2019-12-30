@@ -3,7 +3,7 @@
 		<!-- <div class="popup-close"></div> -->
 		<div class="modal-container not-ready-modal">
 			<div class="modal-inner">
-				<img src="/img/common/popup-warning.png" alt="Warning" />
+				<img src="/img/common/popup-warning.jpg" alt="Warning" />
 				<h2>준비중입니다!</h2>
 				<p>빠른 시일 내에 찾아뵙겠습니다.</p>
 				<input type="button" value="닫기" class="big-button mt-50" @click="closeModal()" />

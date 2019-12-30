@@ -39,7 +39,7 @@
 							allowfullscreen
 						></iframe>
 
-						<!-- <img src="/img/sub/video-thumb.png" alt="동영상 썸네일" /> -->
+						<!-- <img src="/img/sub/video-thumb.jpg" alt="동영상 썸네일" /> -->
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,7 @@
 			<div class="popup-close"></div>
 			<div class="popup-wrap">
 				<div class="inner">
-					<img src="img/common/popup-warning.png" alt="Warning" />
+					<img src="img/common/popup-warning.jpg" alt="Warning" />
 					<h2>준비중입니다!</h2>
 					<p>빠른 시일 내에 찾아뵙겠습니다.</p>
 				</div>
@@ -49,12 +49,12 @@
 							<ol>
 								<li>
 									<a href="#" title="이전으로"
-										><img src="img/common/popup-arrow-left.png" alt="이전"
+										><img src="img/common/popup-arrow-left.jpg" alt="이전"
 									/></a>
 								</li>
 								<li>
 									<a href="#" title="다음으로"
-										><img src="img/common/popup-arrow-right.png" alt="다음"
+										><img src="img/common/popup-arrow-right.jpg" alt="다음"
 									/></a>
 								</li>
 							</ol>

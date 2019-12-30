@@ -31,12 +31,12 @@
 								<div class="icon best"></div>
 								<div
 									class="img"
-									style="background-image: url(img/main/best-product-sample.png);"
+									style="background-image: url(img/main/best-product-sample.jpg);"
 								></div>
 							</div>
 							<div class="text">
 								<a class="like on" title="이 상품을 좋아합니다"
-									><img src="img/main/best-product-like.png" alt="하트"
+									><img src="img/main/best-product-like.jpg" alt="하트"
 								/></a>
 								<h4>테마</h4>
 								<h3>10 Mac Menu Bar Apps You Can’t Live Without</h3>
@@ -47,12 +47,12 @@
 								<div class="icon best"></div>
 								<div
 									class="img"
-									style="background-image: url(img/main/best-product-sample.png);"
+									style="background-image: url(img/main/best-product-sample.jpg);"
 								></div>
 							</div>
 							<div class="text">
 								<a class="like" title="이 상품을 좋아합니다"
-									><img src="img/main/best-product-like.png" alt="하트"
+									><img src="img/main/best-product-like.jpg" alt="하트"
 								/></a>
 								<h4>테마</h4>
 								<h3>10 Mac Menu Bar Apps You Can’t Live Without</h3>
@@ -63,12 +63,12 @@
 								<div class="icon new"></div>
 								<div
 									class="img"
-									style="background-image: url(img/main/best-product-sample.png);"
+									style="background-image: url(img/main/best-product-sample.jpg);"
 								></div>
 							</div>
 							<div class="text">
 								<a class="like" title="이 상품을 좋아합니다"
-									><img src="img/main/best-product-like.png" alt="하트"
+									><img src="img/main/best-product-like.jpg" alt="하트"
 								/></a>
 								<h4>테마</h4>
 								<h3>10 Mac Menu Bar Apps You Can’t Live Without</h3>
@@ -79,12 +79,12 @@
 								<div class="icon new"></div>
 								<div
 									class="img"
-									style="background-image: url(img/main/best-product-sample.png);"
+									style="background-image: url(img/main/best-product-sample.jpg);"
 								></div>
 							</div>
 							<div class="text">
 								<a class="like" title="이 상품을 좋아합니다"
-									><img src="img/main/best-product-like.png" alt="하트"
+									><img src="img/main/best-product-like.jpg" alt="하트"
 								/></a>
 								<h4>테마</h4>
 								<h3>10 Mac Menu Bar Apps You Can’t Live Without</h3>
@@ -95,12 +95,12 @@
 								<div class="icon new"></div>
 								<div
 									class="img"
-									style="background-image: url(img/main/best-product-sample.png);"
+									style="background-image: url(img/main/best-product-sample.jpg);"
 								></div>
 							</div>
 							<div class="text">
 								<a class="like" title="이 상품을 좋아합니다"
-									><img src="img/main/best-product-like.png" alt="하트"
+									><img src="img/main/best-product-like.jpg" alt="하트"
 								/></a>
 								<h4>테마</h4>
 								<h3>10 Mac Menu Bar Apps You Can’t Live Without</h3>
@@ -122,19 +122,19 @@
 				<div class="list">
 					<ul class="row justify-content-center">
 						<li class="col col-3 text-center">
-							<div class="icon"><img src="/img/main/notebook.png" alt="다이어리 만들기" /></div>
+							<div class="icon"><img src="/img/main/notebook.jpg" alt="다이어리 만들기" /></div>
 							<h3>다이어리 만들기</h3>
 							<p>다이어리의 기본 설정을 <br />결정해주세요</p>
 						</li>
 						<li class="col col-3 text-center">
 							<div class="icon">
-								<img src="/img/main/computer-graphic.png" alt="기록 및 꾸미기" />
+								<img src="/img/main/computer-graphic.jpg" alt="기록 및 꾸미기" />
 							</div>
 							<h3>기록 및 꾸미기</h3>
 							<p>다이어리에 일상을 기록하고 <br />나만의 스타일로 꾸며주세요</p>
 						</li>
 						<li class="col col-3 text-center">
-							<div class="icon"><img src="/img/main/product.png" alt="주문하기" /></div>
+							<div class="icon"><img src="/img/main/product.jpg" alt="주문하기" /></div>
 							<h3>주문하기</h3>
 							<p>마음껏 제작한 다이어리를 <br />실물로 간직하세요</p>
 						</li>
@@ -153,16 +153,16 @@
 		<div class="features d-flex align-items-center justify-content-between">
 			<h2 class="blind">Features</h2>
 			<div class="decoration">
-				<img class="mockup" src="/img/main/diary-mockup.png" alt="데스크톱 시연화면" />
-				<img class="browser" src="/img/main/diary-list.png" alt="브라우저 시연화면" />
+				<img class="mockup" src="/img/main/diary-mockup.jpg" alt="데스크톱 시연화면" />
+				<img class="browser" src="/img/main/diary-list.jpg" alt="브라우저 시연화면" />
 				<img
 					class="package-color"
-					src="/img/main/diary-package-color.png"
+					src="/img/main/diary-package-color.jpg"
 					alt="보라색 다이어리 패키지"
 				/>
 				<img
 					class="package-gray"
-					src="/img/main/diary-package-gray.png"
+					src="/img/main/diary-package-gray.jpg"
 					alt="회색 다이어리 패키지"
 				/>
 			</div>

@@ -6,9 +6,9 @@
 			<form>
 				<div class="register-wrap d-flex flex-wrap justify-content-between">
 					<div class="profile">
-						<div class="img" style="background-image: url(img/sub/profile-sample.png);"></div>
+						<div class="img" style="background-image: url(img/sub/profile-sample.jpg);"></div>
 						<a href="#" class="프로필 사진 설정하기"
-							><img src="img/sub/register-camera.png" alt="사진설정"
+							><img src="img/sub/register-camera.jpg" alt="사진설정"
 						/></a>
 					</div>
 					<div style="width: 505px;">

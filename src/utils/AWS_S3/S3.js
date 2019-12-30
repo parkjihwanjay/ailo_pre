@@ -16,7 +16,7 @@ function new_s3() {
 	});
 }
 
-function s3_upload(s3, file, photoKey) {
+function s3_upload({ s3, file, photoKey, id, img }) {
 	s3.upload(
 		{
 			Bucket: process.env.VUE_APP_ALBUMBUCKETNAME,
@@ -32,7 +32,14 @@ function s3_upload(s3, file, photoKey) {
 			try {
 				const url = response.Location;
 				console.log(url);
-				// await axios.post('/pre/diary/:id/files', url);
+				await axios({
+					method: 'post',
+					url: `/pre/diary/${id}/files`,
+					data: {
+						url,
+						img,
+					},
+				});
 			} catch (e) {
 				console.log(e);
 			}

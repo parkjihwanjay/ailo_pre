@@ -31,7 +31,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">2</td>
@@ -39,7 +39,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">3</td>
@@ -47,7 +47,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">4</td>
@@ -55,7 +55,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">5</td>
@@ -63,7 +63,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">6</td>
@@ -71,7 +71,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">7</td>
@@ -79,7 +79,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">8</td>
@@ -87,7 +87,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">9</td>
@@ -95,7 +95,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">10</td>
@@ -103,7 +103,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">11</td>
@@ -111,7 +111,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                     <tr>
                         <td class="number">12</td>
@@ -119,7 +119,7 @@
                             <h3>자주묻는 질문 제목이 들어갈 영역입니다.</h3>
                             <div class="toggle">자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. 자주묻는 질문 답변이 들어갈 영역입니다. </div>
                         </td>
-                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.png" alt="내용펼치기 및 내용접기" /></td>
+                        <td class="toggle-arrow"><img src="/img/sub/toggle-arrow.jpg" alt="내용펼치기 및 내용접기" /></td>
                     </tr>
                 </tbody>
             </table>

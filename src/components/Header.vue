@@ -7,7 +7,7 @@
 			<div id="gnb">
 				<h2 class="blind">대표메뉴</h2>
 				<ul>
-					<li @click="showNotReadyModal()"><a>내 다이어리</a></li>
+					<li @click="getDiary()"><a>내 다이어리</a></li>
 					<li @click="showNotReadyModal()"><a>주문하기</a></li>
 					<li @click="showNotReadyModal()"><a>상점</a></li>
 					<li><router-link to="/mypage">마이페이지</router-link></li>
@@ -24,6 +24,7 @@
 
 <script>
 import { axios_logout } from '../utils/socialLogin/axios.js';
+import axios from 'axios';
 export default {
 	// created() {
 	// 	if (localStorage.getItem('access_token')) {
@@ -55,6 +56,10 @@ export default {
 		},
 		showNotReadyModal() {
 			this.$store.commit('SHOW_NOT_READY_MODAL');
+		},
+		async getDiary() {
+			const diaries = await axios.get('/pre/diary');
+			console.log(diaries);
 		},
 	},
 };
