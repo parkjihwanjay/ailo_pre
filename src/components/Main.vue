@@ -157,12 +157,12 @@
 				<img class="browser" src="/img/main/diary-list.jpg" alt="브라우저 시연화면" />
 				<img
 					class="package-color"
-					src="/img/main/diary-package-color.jpg"
+					src="/img/main/diary-package-color.png"
 					alt="보라색 다이어리 패키지"
 				/>
 				<img
 					class="package-gray"
-					src="/img/main/diary-package-gray.jpg"
+					src="/img/main/diary-package-gray.png"
 					alt="회색 다이어리 패키지"
 				/>
 			</div>
