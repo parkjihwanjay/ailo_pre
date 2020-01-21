@@ -78,7 +78,6 @@ const routes = [
     component : MyPage,
     beforeEnter : async(to, from, next) => {
       checkAuth(next);
-      next();
     },
   },
   {

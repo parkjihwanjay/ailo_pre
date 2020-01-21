@@ -180,7 +180,7 @@ export default {
 		};
 	},
 	mounted() {
-		console.log(this.$refs.memo);
+		console.log(this.$route.params);
 		//처음 위치 조정
 		// const weather = this.$refs.weather;
 		// const memo = this.$refs.memo.$el;

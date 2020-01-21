@@ -5,11 +5,11 @@
 			<p>아일로와 함께 나만의 다이어리를 만들어보세요!</p>
 			<div class="btn-wrap">
 				<a class="btn btnKakaotalk w-100" title="카카오톡으로 로그인" @click="KakaoLogin()">
-					<img src="img/sub/login-kakao.jpg" alt="카카오톡" />
+					<img src="img/sub/login-kakao.png" alt="카카오톡" />
 					카카오톡으로 로그인
 				</a>
 				<a class="btn btnFacebook w-100" title="페이스북으로 로그인" @click="facebookLogin()">
-					<img src="img/sub/login-facebook.jpg" alt="페이스북" />
+					<img src="img/sub/login-facebook.png" alt="페이스북" />
 					페이스북으로 로그인
 				</a>
 				<GoogleLogin
@@ -17,7 +17,7 @@
 					:params="params"
 					:onSuccess="GoogleLoginSuccess"
 					:onFailure="GoogleLoginFailure"
-					><img src="img/sub/login-google.jpg" alt="구글" /> 구글 로그인</GoogleLogin
+					><img src="img/sub/login-google.png" alt="구글" /> 구글 로그인</GoogleLogin
 				>
 			</div>
 			<p class="text-right" v-show="false">

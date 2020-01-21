@@ -11,7 +11,7 @@ body {background-color: #f9fafc;}
 .form-title .form-progress {width: 493px; padding: 0 16px; height: 50px; position: relative;}
 .form-title .form-progress:before {display: block; content: ""; width: 100%; height: 5px; top: 9px; left: 0; position: absolute; background: #edeef4;}
 .form-title .form-progress li {text-align: center; position: relative; z-index: 1;}
-.form-title .form-progress li span {display: block; margin: 0 auto; width: 17px; height: 17px; border-radius: 100%; border: solid 3px #edeef4; background-image: url(../img/sub/form-navigation-check.png); background-color: #ffffff; background-position: top; background-repeat: no-repeat;}
+.form-title .form-progress li span {display: block; margin: 0 auto; width: 17px; height: 17px; border-radius: 100%; border: solid 3px #edeef4; background-image: url(../img/sub/form-navigation-check.jpg); background-color: #ffffff; background-position: top; background-repeat: no-repeat;}
 .form-title .form-progress li p {font-size: 14px; color: #747e80; line-height: 20px; margin-top: 7px;}
 .form-title .form-progress li.on span {background-color: #663399; background-position: bottom; border: 3px solid #663399;}
 .form-title .form-progress li.on p {color: #663399;}
@@ -34,7 +34,7 @@ body {background-color: #f9fafc;}
 .default-form .form-title .form-info {margin-right: 10px;}
 
 /* customer-form */
-.customer-form {background-image: url(../img/sub/customer-bg.png); background-repeat: no-repeat; background-size: contain; background-position: right; padding: 20px 30px 60px 30px;}
+.customer-form {background-image: url(../img/sub/customer-bg.jpg); background-repeat: no-repeat; background-size: contain; background-position: right; padding: 20px 30px 60px 30px;}
 .customer-form .contact {width: 240px; margin: 0 55px 0 40px; text-align: center;}
 .customer-form .contact h3 {font-size: 14px; color: #747e80; line-height: 28px; font-weight: normal;}
 .customer-form .contact p {font-size: 32px; font-weight: 300; color: #303234; line-height: 50px; white-space: nowrap; letter-spacing: -0.5px;}
@@ -61,7 +61,7 @@ body {background-color: #f9fafc;}
 .table:not(.table-nostyle) > thead > tr > th.writer, .table:not(.table-nostyle) > thead > tr > th.date, .table:not(.table-nostyle) > thead > tr > th.answer {text-align: center; padding-left: 0; padding-right: 0;}
 .table:not(.table-nostyle) > tbody > tr > td.number {font-weight: 700; text-align: center !important;}
 .table:not(.table-nostyle) > tbody > tr > td.subject {text-align: left;}
-.table:not(.table-nostyle) > tbody > tr > td.subject.lock {background-image: url(../img/sub/lock-ico.png); background-repeat: no-repeat; background-position: 13px center;}
+.table:not(.table-nostyle) > tbody > tr > td.subject.lock {background-image: url(../img/sub/lock-ico.jpg); background-repeat: no-repeat; background-position: 13px center;}
 .table:not(.table-nostyle) > tbody > tr > td.writer, .table:not(.table-nostyle) > tbody > tr > td.date, .table:not(.table-nostyle) > tbody > tr > td.answer {text-align: center;}
 .table:not(.table-nostyle) > tbody > tr > td.date:last-child {padding-left: 0 !important; padding-right: 0 !important; text-align: center;}
 .table:not(.table-nostyle) > tfoot > tr > th, .table:not(.table-nostyle) > tfoot > tr > td {padding-top: 11px; padding-bottom: 21px;}
@@ -186,7 +186,7 @@ body {background-color: #f9fafc;}
 .register-form .ui-checkboxradio-radio-label.ui-checkboxradio-checked .ui-icon {margin: 0 17px 0 0 !important;}
 
 /* how-using */
-.how-using {background-image: url(../img/sub/how-using-bg.png); background-repeat: no-repeat; background-size: cover; background-position: center; padding: 37px 0 65px 0;}
+.how-using {background-image: url(../img/sub/how-using-bg.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; padding: 37px 0 65px 0;}
 .how-using * {color: white;}
 .how-using .container {width: 1120px; margin-top: 31px;}
 .how-using .title {font-size: 32px; font-weight: 300; text-align: center; line-height: 50px;}
@@ -198,7 +198,7 @@ body {background-color: #f9fafc;}
 .how-using dl dd h3 {font-weight: 700; font-size: 17px; letter-spacing: 2.13px;}
 .how-using dl dd p {font-size: 16px; line-height: 1.5; font-weight: 300;}
 .how-using .mockup {width: 758px; height: 494px; background-image: url(../img/sub/ipad.png); background-repeat: no-repeat; background-position: center; padding: 33px 63px 33px 64px; box-sizing: border-box; position: relative;} /*  cursor: pointer;
-.how-using .mockup:after {position: absolute; top: 50%; left: 50%; display: block; content: ""; border-radius: 100%; width: 68px; height: 68px; margin-top: -34px; margin-left: -34px; background-image: url(../img/sub/play-triangle.png); background-repeat: no-repeat; background-position: center; background-color: #663399; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);}
+.how-using .mockup:after {position: absolute; top: 50%; left: 50%; display: block; content: ""; border-radius: 100%; width: 68px; height: 68px; margin-top: -34px; margin-left: -34px; background-image: url(../img/sub/play-triangle.jpg); background-repeat: no-repeat; background-position: center; background-color: #663399; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);}
 .how-using .mockup img {width: 100%; height: 100%;} */
 
 /* order-form */
@@ -222,13 +222,13 @@ body {background-color: #f9fafc;}
 .order-form .table .table th, .order-form .table .table td {padding-top: 5px; padding-bottom: 5px;}
 
 /* success-form */
-.success-form {background-color: white; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1); margin-top: 11px; margin-bottom: 62px; background-image: url(../img/sub/success-bg.png); background-position: bottom left; background-repeat: no-repeat;}
+.success-form {background-color: white; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1); margin-top: 11px; margin-bottom: 62px; background-image: url(../img/sub/success-bg.jpg); background-position: bottom left; background-repeat: no-repeat;}
 .success-form .form-title + .form-message {padding: 57px 0 72px 0;}
 .success-form .form-message {padding: 90px 0 59px 0;}
 .success-form .form-message h3 {font-size: 32px; font-weight: 300; color: #303234; line-height: 50px; text-align: center; margin: 19px 0 43px 0;}
 .success-form .form-message .btn {width: 288px; margin: 0 15px; box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);}
 
 /* ad-banner */
-.ad-banner {width: 100%; height: 248px; background-image: url(../img/sub/success-ad-bg.png); background-size: cover; background-repeat: no-repeat; background-position: center; margin-top: 40px;}
+.ad-banner {width: 100%; height: 248px; background-image: url(../img/sub/success-ad-bg.jpg); background-size: cover; background-repeat: no-repeat; background-position: center; margin-top: 40px;}
 .ad-banner h3 {font-size: 32px; font-weight: 500; line-height: 50px; letter-spacing: normal; text-align: center; color: #ffffff; width: 100%; margin-bottom: 12px;}
 .ad-banner p {font-size: 16px; font-weight: 300; line-height: 25px; letter-spacing: normal; text-align: center; color: #ffffff; width: 100%;}

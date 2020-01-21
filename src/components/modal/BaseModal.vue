@@ -259,19 +259,22 @@ export default {
 		},
 		async applyBasic() {
 			this.$store.commit('CLOSE_BASE_MODAL');
-			this.$store.commit('SET_LOADING', true);
-			try {
-				await this.postBasic();
-			} catch (e) {
-				if (e.response.data.error === 'AccessTokenExpiredError') {
-					const token = await GetAndSetNewAccessToken();
-					if (!token) return this.$store.commit('SET_LOADING', false);
-					await this.postBasic();
-				} else {
-					errorHandling(e);
-					this.$store.commit('SET_LOADING', false);
-				}
-			}
+			this.$router.push({
+				path: '/pre/dragdrop',
+			});
+			// this.$store.commit('SET_LOADING', true);
+			// try {
+			// 	await this.postBasic();
+			// } catch (e) {
+			// 	if (e.response.data.error === 'AccessTokenExpiredError') {
+			// 		const token = await GetAndSetNewAccessToken();
+			// 		if (!token) return this.$store.commit('SET_LOADING', false);
+			// 		await this.postBasic();
+			// 	} else {
+			// 		errorHandling(e);
+			// 		this.$store.commit('SET_LOADING', false);
+			// 	}
+			// }
 		},
 	},
 };
