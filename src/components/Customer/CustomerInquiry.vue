@@ -12,7 +12,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center" style="width: 404px;">
                         <a class="d-block text-primary link-underline" href="customer-faq-list.html" title="FAQ보기">FAQ보기</a>
-                        <a class="btn btnColor btn-md" href="customer-inquiry-write.html" title="글쓰기"><i class="fas fa-pen"></i> 글쓰기</a>
+                        <a class="btn btnColor btn-md" title="글쓰기" @click="linkToWrite()"><i class="fas fa-pen"></i> 글쓰기</a>
                         <form>
                             <div class="input-link input-link-search">
                                 <input type="text" title="검색어" placeholder="검색어 입력" />
@@ -157,7 +157,14 @@
 <script>
 import whiteHeader from '@/mixin/whiteHeader.js';
 export default {
-	mixins: [whiteHeader],
+    mixins: [whiteHeader],
+    methods : {
+        linkToWrite(){
+            this.$router.push({
+                name : 'CustomerInquiryWrite',
+            })
+        }
+    }
 };
 </script>
 

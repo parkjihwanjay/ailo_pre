@@ -38,7 +38,7 @@ textarea {height: 355px; resize: none;}
 .text-primary {font-size: 14px; color: #663399;}
 
 /* button style */
-.btn {display: inline-block; text-align: center; box-sizing: border-box; width: 230px; height: 50px; font-size: 14px; letter-spacing: 1.58px; border-width: 3px; border-style: solid; border-color: #663399; line-height: 44px; border-radius: 25px;}
+.btn {display: inline-block; text-align: center; box-sizing: border-box; width: 230px; height: 50px; font-size: 14px; letter-spacing: 1.58px; border-width: 3px; border-style: solid; border-color: #663399; line-height: 44px; border-radius: 25px; cursor:pointer;}
 .btnColor {background: #663399; color: white; font-weight: 300;}
 .btnColor.btn-off {background: #747e80 !important; border-color: #747e80 !important;}
 .btnBorder {background: white; color: #663399; font-weight: normal; transition: 0.3s;}

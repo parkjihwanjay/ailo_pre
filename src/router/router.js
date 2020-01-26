@@ -25,6 +25,8 @@ const CustomerFeedback = () => import('../components/Customer/CustomerFeedback.v
 
 const CustomerInquiry = () => import('../components/Customer/CustomerInquiry');
 
+const CustomerInquiryWrite = () => import('../components/Customer/CustomerInquiryWrite');
+
 const Register = () => import('../views/RegisterView.vue');
 
 const Home = () => import('../views/HomeView.vue');
@@ -84,10 +86,6 @@ const routes = [
     path : '/customer',
     name : 'customer',
     component : CustomerHome,
-    beforeEnter : (to, from, next) => {
-      store.commit('SET_LOADING', true);
-      next();
-    }
   },
   {
     path : '/customer/board',
@@ -108,11 +106,24 @@ const routes = [
     path : '/customer/feedback',
     name : 'CustomerFeedback',
     component : CustomerFeedback,
+    beforeEnter : async(to, from, next) => {
+      checkAuth(next);
+      next();
+    }
   },
   {
     path : '/customer/inquiry',
     name : 'CustomerInquiry',
     component : CustomerInquiry,
+  },
+  {
+    path : '/customer/inquiry/write',
+    name : 'CustomerInquiryWrite',
+    component : CustomerInquiryWrite,
+    beforeEnter : async(to, from, next) => {
+      checkAuth(next);
+      next();
+    },
   },
   {
     path: '/pre/basic',
