@@ -17,10 +17,8 @@
 			</div>
 		</div>
 		<div class="dragdrop-design-tool__design" v-show="design">
-			<h2>테마</h2>
-			<div class="dragdrop-design-tool__design__theme" v-for="(num, index) in 5" :key="index">
-				<div class="dragdrop-design-tool__design__theme__templates"></div>
-				<p>테마 {{ num }}</p>
+			<div class="dragdrop-design-tool__design__theme " v-for="(img, index) in imgs" :key="index">
+				<img :src="img.src" alt="속지 요소" :ref="`img${index}`" @click="click(index)" />
 			</div>
 		</div>
 		<div class="dragdrop-design-tool__sticker" v-show="sticker">
@@ -38,6 +36,12 @@ export default {
 			sticker: false,
 		};
 	},
+	props: ['imgs'],
+	// computed: {
+	// 	imgList() {
+	// 		return this.imgs.slice();
+	// 	},
+	// },
 	methods: {
 		clickDesignBtn(value) {
 			if (value === 'design') {
@@ -47,6 +51,12 @@ export default {
 				this.design = false;
 				this.sticker = true;
 			}
+		},
+		click(index) {
+			// this.imgList[index].checked = !this.imgList[index].checked;
+			this.$refs[`img${index}`][0].classList.toggle('click-activate');
+			this.$emit('click', index);
+			// const classList = this.$refs[`img${index}`][0].classList;
 		},
 	},
 };
@@ -59,11 +69,12 @@ h2 {
 	text-align: center;
 }
 .dragdrop-design-tool {
-	width: 393px;
-	height: 860px;
+	width: 280px;
+	height: 920px;
 	object-fit: contain;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 	background-color: $off-white;
+	overflow: scroll;
 }
 .dragdrop-design-tool__buttons {
 	display: flex;
@@ -87,7 +98,7 @@ h2 {
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	grid-template-columns: 50% 50%;
+	grid-template-columns: 100%;
 }
 
 .dragdrop-design-tool__design__theme {
@@ -97,9 +108,15 @@ h2 {
 	align-items: center;
 }
 .dragdrop-design-tool__design__theme__templates {
-	width: 146px;
+	width: 120px;
 	height: 192px;
 	object-fit: contain;
 	background-color: #ececec;
+}
+.click-activate {
+	border: 1px solid greenyellow;
+}
+img {
+	margin-bottom: 50px;
 }
 </style>

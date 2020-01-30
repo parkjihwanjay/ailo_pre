@@ -33,8 +33,8 @@ export default {
 @import '@/styles/_modal.scss';
 
 .preview {
-	width: 700px;
-	height: 918px;
+	width: 1200px;
+	height: 882px;
 	margin-bottom: 30px;
 }
 
@@ -44,10 +44,10 @@ img {
 }
 
 .preview-body {
-	width: 148mm;
-	height: 210mm;
+	width: 1122.52px;
+	height: 793.69px;
 	margin: 0 auto;
-	margin-top: 40px;
+	margin-top: 20px;
 	border: 1px solid black;
 }
 

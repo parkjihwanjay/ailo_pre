@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375.5" height="31" viewBox="0 0 375.5 31">
+  <g id="그룹_260" data-name="그룹 260" transform="translate(-24 -19)">
+    <text id="_2020년_월" data-name="2020년     월" transform="translate(40 27)" font-size="9" font-family="NanumSquareRoundOTFB, NanumSquareRoundOTF" opacity="0.6"><tspan x="0" y="0" xml:space="preserve">2020년     월</tspan></text>
+    <rect id="사각형_457" data-name="사각형 457" width="8" height="31" transform="translate(24 19)" fill="#ebe5ef"/>
+    <line id="선_487" data-name="선 487" x2="292" transform="translate(107.5 46.4)" fill="none" stroke="#e1d6e7" stroke-width="0.8"/>
+    <g id="사각형_734" data-name="사각형 734" transform="translate(40 32)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="50" height="16" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="49" height="15" rx="4.5" fill="none"/>
+    </g>
+  </g>
+</svg>

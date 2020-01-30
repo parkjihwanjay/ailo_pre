@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="181" height="237.9" viewBox="0 0 181 237.9">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="180" height="229.8" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_256" data-name="그룹 256" transform="translate(-219.5 -75)">
+    <line id="선_510" data-name="선 510" x1="178" transform="translate(219.5 86.5)" fill="none" stroke="#907d9f" stroke-width="1" opacity="0.6"/>
+    <g id="반복_그리드_77" data-name="반복 그리드 77" transform="translate(220.5 83.1)" opacity="0.4" clip-path="url(#clip-path)">
+      <g transform="translate(-37.5 -71.1)">
+        <line id="선_60" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 -54.1)">
+        <line id="선_60-2" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 -37.1)">
+        <line id="선_60-3" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 -20.1)">
+        <line id="선_60-4" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 -3.1)">
+        <line id="선_60-5" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 13.9)">
+        <line id="선_60-6" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 30.9)">
+        <line id="선_60-7" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 47.9)">
+        <line id="선_60-8" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 64.9)">
+        <line id="선_60-9" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 81.9)">
+        <line id="선_60-10" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 98.9)">
+        <line id="선_60-11" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 115.9)">
+        <line id="선_60-12" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 132.9)">
+        <line id="선_60-13" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g transform="translate(-37.5 149.9)">
+        <line id="선_60-14" data-name="선 60" x2="176" transform="translate(36.5 91.5)" fill="none" stroke="#907d9f" stroke-width="0.8" opacity="0.4"/>
+      </g>
+    </g>
+    <text id="TO_DO" data-name="TO DO" transform="translate(299 81)" font-size="7" font-family="NanumSquareRoundOTFB, NanumSquareRoundOTF" opacity="0.4"><tspan x="0" y="0">TO DO</tspan></text>
+  </g>
+</svg>

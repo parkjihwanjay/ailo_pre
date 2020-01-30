@@ -12,15 +12,15 @@
 				<div class="dragdrop-main__button__right" @click="preview()">미리보기</div>
 			</div>
 		</div>
-		<div class="dragdrop-main__body">
+		<!-- <div class="dragdrop-main__body"> -->
 			<div id="canvas" class="dragdrop-main__page">
 				<div class="dragdrop-main__canvas" ref="dragdrop">
-					<div class="dragdrop-main__header">
+					<!-- <div class="dragdrop-main__header">
 						<Dating ref="dating" />
 						<Dday ref="Dday" />
 						<img id="weather-icon" src="../assets/weather.png" alt="weather" ref="weather" />
-					</div>
-					<div
+					</div> -->
+					<!-- <div
 						ref="dragdropMainCanvasBody"
 						id="dragdrop-main-canvas__body"
 						class="dragdrop-main-canvas__body"
@@ -53,9 +53,9 @@
 							id="account-book"
 							class="dragresize"
 							v-if="componentShow[4].checked"
-						></account-book>
+						></account-book> -->
 						<!-- todo-list 색깔 있는 버전 -->
-						<todo-list
+						<!-- <todo-list
 							ref="todoListColor"
 							id="todo-list-color"
 							class="dragresize"
@@ -63,9 +63,9 @@
 							@delete="componentShowDelete(5)"
 							:editing="editing"
 							v-if="componentShow[5].checked"
-						></todo-list>
+						></todo-list> -->
 						<!-- todo-list 색깔 없는 버전 -->
-						<todo-list
+						<!-- <todo-list
 							ref="todoListNonColor"
 							id="todo-list"
 							class="dragresize"
@@ -73,12 +73,20 @@
 							@delete="componentShowDelete(6)"
 							:editing="editing"
 							v-if="componentShow[6].checked"
-						></todo-list>
+						></todo-list> -->
+						<div class="dragdrop-main__header">
+							<img src="/img/diaryComponent/그룹 260.svg" alt="날짜">
+						</div>
+						<div class="dragdrop-main__body" >
+							<div class="drag absolute" v-for="(img, index) in imgs" :key="index" :ref="`img${index}`" v-show="img.checked">
+								<img :src="img.src" alt="속지 요소"/>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div>
-				<span v-for="(component, index) in componentShow" :key="index">
+			<!-- <div> -->
+				<!-- <span v-for="(component, index) in componentShow" :key="index">
 					<input
 						@click="checkOverflow(component.id)"
 						type="checkbox"
@@ -91,7 +99,7 @@
 				<span>
 					<input type="checkbox" name="보조선" v-model="borderPurple" />
 					<label for="보조선">보조선</label>
-				</span>
+				</span> -->
 			</div>
 			<!-- <input type="button" value="저장" @click="save()" class="big-button dragdrop-save-button" /> -->
 			<!-- <div class="dragdrop-main__canvas__left"></div>
@@ -107,7 +115,7 @@ import html2canvas from 'html2canvas';
 import detectElementOverflow from 'detect-element-overflow';
 
 import { aws_config, new_s3, s3_upload } from '../utils/AWS_S3/S3.js';
-import { interactDragInit, interactResizeInit, interactDropInit } from '../utils/interact.js';
+import { interactDragInit, interactResizeInit, interactDropInit, interactDragInitNoParent } from '../utils/interact.js';
 
 import Memo from './DragDropComponent/Memo.vue';
 import Dday from './DragDropComponent/Dday.vue';
@@ -131,11 +139,15 @@ export default {
 	created() {
 		//only for drag
 		interactDragInit('.drag', this.$ga);
-		// interactDropInit('.dragdrop-main__canvas');
+
+		interactDragInitNoParent('.drag-no-parent');
+		// only for drop
+		interactDropInit('.dragdrop-main__canvas');
 		//both for drag and resize
 		interactDragInit('.dragresize', this.$ga);
 		interactResizeInit('.dragresize', this.$ga);
 	},
+	props : ['imgs'],
 	data() {
 		return {
 			componentShow: [
@@ -182,6 +194,12 @@ export default {
 	mounted() {
 		console.log(this.$route.params);
 		//처음 위치 조정
+		this.setPosition(this.$refs['img0'][0], 8, -4);
+		this.setPosition(this.$refs['img1'][0], 203, -1);
+		this.setPosition(this.$refs['img2'][0], 209, 260);
+		this.setPosition(this.$refs['img3'][0], 403, 6);
+		this.setPosition(this.$refs['img4'][0], 409, 196);
+
 		// const weather = this.$refs.weather;
 		// const memo = this.$refs.memo.$el;
 		// const Dday = this.$refs.Dday.$el;
@@ -216,7 +234,7 @@ export default {
 		async preview() {
 			this.$store.commit('SET_LOADING', true);
 
-			const result = await this.html2canvas();
+			const result = await this.html2canvas(1122.52, 793.69);
 			const previewIMG = result.toDataURL('image/png');
 			this.$store.commit('SHOW_PREVIEW_MODAL', previewIMG);
 		},
@@ -245,7 +263,7 @@ export default {
 		componentShowDelete(index) {
 			this.componentShow[index].checked = false;
 		},
-		async html2canvas() {
+		async html2canvas(width, height) {
 			this.borderPurple = false;
 
 			const canvas = document.getElementById('canvas');
@@ -253,8 +271,8 @@ export default {
 			window.scrollTo(0, 0);
 
 			const result = await html2canvas(canvas, {
-				width: 559.36,
-				height: 793.69,
+				width,
+				height,
 			});
 
 			this.borderPurple = true;
@@ -267,29 +285,30 @@ export default {
 			const id = this.$route.params.id;
 			// const canvas = this.$refs.canvas;
 			// const canvas = document.getElementById('canvas');
-			const result = await this.html2canvas();
+			const result = await this.html2canvas(1122.52, 793.69);
 
 			const resultIMG = result.toDataURL('image/png');
 			let img = new FormData();
 			img.append('image', resultIMG);
 
-			const doc = new jsPDF('p', 'mm', 'a5');
-			doc.addImage(resultIMG, 'PNG', 0, 0, 148, 210);
+			const doc = await new jsPDF('p', 'mm', 'a4');
+			console.log(doc);
+			doc.addImage(resultIMG, 'PNG', 0, 0, 210, 297);
 			// doc.save('sample-file.pdf');
 
-			const file = doc.output('arraybuffer');
+			// const file = doc.output('arraybuffer');
 			// const photoKey = `pre-pdf/test/${id}.pdf`;
-			const photoKey = `pre-pdf/test.pdf`;
+			// const photoKey = `pre-pdf/test.pdf`;
 
-			const S3_IMG_PDF = {
-				s3,
-				file,
-				photoKey,
-				id,
-				img,
-			};
-			const upload = s3_upload(S3_IMG_PDF);
-			console.log(upload);
+			// const S3_IMG_PDF = {
+			// 	s3,
+			// 	file,
+			// 	photoKey,
+			// 	id,
+			// 	img,
+			// };
+			// const upload = s3_upload(S3_IMG_PDF);
+			// console.log(upload);
 
 			this.$store.commit('SET_LOADING', false);
 
@@ -350,7 +369,6 @@ export default {
 	align-items: center;
 }
 .drag {
-	margin-top: 10px;
 	touch-action: none;
 	user-select: none;
 	display: inline-block;
@@ -402,8 +420,8 @@ export default {
 	height: 5.669mm;
 }
 .dragdrop-main {
-	width: 1023px;
-	height: 860px;
+	width: 1178px;
+	height: 920px;
 	object-fit: contain;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 	background-color: $off-light-white;
@@ -413,10 +431,13 @@ export default {
 	font-size: $s-size;
 }
 .dragdrop-main__body {
-	display: flex;
+	width : 287mm;
+	height: 186mm;
+	margin-top: 5mm;
 }
 .dragdrop-main__buttons {
 	display: flex;
+	margin-bottom: 20px;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
@@ -461,24 +482,23 @@ export default {
 	cursor: pointer;
 }
 .dragdrop-main__page {
-	width: 148mm;
+	width: 297mm;
 	height: 210mm;
+	margin : 0 auto;
 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-left: 20px;
 	background-color: $off-white;
 }
 .dragdrop-main__canvas {
-	width: 133mm;
-	height: 195mm;
+	width: 287mm;
+	height: 200mm;
 	// border-radius: 3px;
 }
 .dragdrop-main__header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	width: 287mm;
+	height: 10mm;
 }
 .dragdrop-main-canvas__body {
 	overflow: hidden;
@@ -491,6 +511,43 @@ export default {
 }
 .dragdrop-save-button {
 	margin: 19.6px 65.5px 19.6px 802px;
+}
+
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+
+.drag-drop {
+  display: inline-block;
+  min-width: 40px;
+  padding: 2em 0.5em;
+
+  color: #fff;
+  background-color: #29e;
+  border: solid 2px #fff;
+
+  touch-action: none;
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+
+  transition: background-color 0.3s;
+}
+
+.drag-drop.can-drop {
+  color: #000;
+  background-color: #4e4;
+}
+.absolute{
+	position : absolute;
+}
+.imgResize{
+	width: 100%;
 }
 // .dragdrop-main__canvas {
 // 	padding-right: 1rem;

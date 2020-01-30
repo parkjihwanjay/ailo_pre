@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="178" height="170" viewBox="0 0 178 170">
+  <g id="그룹_258" data-name="그룹 258" transform="translate(-220 -386)">
+    <rect id="사각형_478" data-name="사각형 478" width="86" height="82" transform="translate(220 386)" fill="rgba(247,247,247,0.5)"/>
+    <rect id="사각형_711" data-name="사각형 711" width="86" height="82" transform="translate(220 474)" fill="rgba(247,247,247,0.5)"/>
+    <rect id="사각형_709" data-name="사각형 709" width="86" height="82" transform="translate(312 386)" fill="rgba(247,247,247,0.5)"/>
+    <rect id="사각형_710" data-name="사각형 710" width="86" height="82" transform="translate(312 474)" fill="rgba(247,247,247,0.5)"/>
+    <text id="아침" transform="translate(224 397)" font-size="7" font-family="NanumSquareRoundOTFB, NanumSquareRoundOTF" opacity="0.4"><tspan x="0" y="0">아침</tspan></text>
+    <text id="저녁" transform="translate(224 484)" font-size="7" font-family="NanumSquareRoundOTFB, NanumSquareRoundOTF" opacity="0.4"><tspan x="0" y="0">저녁</tspan></text>
+    <text id="간식" transform="translate(319 484)" font-size="7" font-family="NanumSquareRoundOTFB, NanumSquareRoundOTF" opacity="0.4"><tspan x="0" y="0">간식</tspan></text>
+    <text id="점심" transform="translate(319 397)" font-size="7" font-family="NanumSquareRoundOTFB, NanumSquareRoundOTF" opacity="0.4"><tspan x="0" y="0">점심</tspan></text>
+  </g>
+</svg>

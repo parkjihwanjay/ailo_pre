@@ -46,22 +46,47 @@ function interactDragInit(id, ga) {
 	});
 }
 
+function interactDragInitNoParent(id) {
+	interact(id).draggable({
+		// enable inertial throwing
+		cursorChecker: (action, interactable, element, interacting) => {
+			switch (action.axis) {
+				case 'x':
+					return 'ew-resize';
+				case 'y':
+					return 'ns-resize';
+				default:
+					return interacting ? 'grabbing' : 'grab';
+			}
+		},
+
+		autoScroll: true,
+
+		onmove: dragMoveListener,
+		onend: function(event) {
+			// ga.event(`${event.target.id}`, 'dragEnd', `${event.target.id}Drag`, 3);
+		},
+	});
+}
+
 //drop
 
 function interactDropInit(id) {
 	interact(id).dropzone({
+		accept: '.droppable',
 		overlap: 0.8,
 		ondropactivate: function(event) {
-			console.log('ondropactivate');
+			event.relatedTarget.classList.add('drop-active');
 		},
 		ondropdeactivate: function(event) {
-			console.log('ondropdeactivate');
+			event.relatedTarget.classList.remove('drop-active');
+			event.relatedTarget.classList.remove('drop-target');
 		},
 		ondragenter: function(event) {
-			console.log('ondragenter');
+			event.relatedTarget.classList.add('drop-target');
 		},
 		ondragleave: function(event) {
-			console.log('ondragleave');
+			event.relatedTarget.classList.remove('drop-target');
 		},
 		// ondropactivate: function(event) {
 		// 	const item = event.relatedTarget;
@@ -136,4 +161,4 @@ function interactResizeInit(id, ga) {
 		});
 }
 
-export { interactDragInit, interactResizeInit, interactDropInit };
+export { interactDragInit, interactResizeInit, interactDropInit, interactDragInitNoParent };

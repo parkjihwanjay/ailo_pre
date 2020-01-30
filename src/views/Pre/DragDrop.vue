@@ -1,7 +1,7 @@
 <template>
 	<div class="main-box">
-		<dragdrop-main />
-		<dragdrop-design />
+		<dragdrop-main :imgs="imgs" />
+		<dragdrop-design @click="clickComponent" :imgs="imgs" />
 	</div>
 </template>
 
@@ -14,9 +14,28 @@ export default {
 		DragdropMain,
 		DragdropDesign,
 	},
+	data() {
+		return {
+			imgs: [],
+		};
+	},
+	created() {
+		for (let i = 0; i < 5; i++) {
+			let img = {
+				src: `/img/diaryComponent/그룹 ${i + 255}.svg`,
+				checked: false,
+			};
+			this.imgs.push(img);
+		}
+	},
 	mounted() {
 		document.querySelector('body').classList.remove('transparent-header');
 		// document.querySelector('body').className = 'transparent-header';
+	},
+	methods: {
+		clickComponent(index) {
+			this.imgs[index].checked = !this.imgs[index].checked;
+		},
 	},
 };
 </script>
