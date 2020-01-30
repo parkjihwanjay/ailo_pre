@@ -34,7 +34,7 @@ export default {
 
 .preview {
 	width: 1200px;
-	height: 882px;
+	height: 900px;
 	margin-bottom: 30px;
 }
 
@@ -47,7 +47,7 @@ img {
 	width: 1122.52px;
 	height: 793.69px;
 	margin: 0 auto;
-	margin-top: 20px;
+	margin-top: 30px;
 	border: 1px solid black;
 }
 
