@@ -8,7 +8,6 @@
 			</div>
 			<div class="dragdrop-main__buttons__right">
 				<div class="dragdrop-main__button__right" @click="save()">설정</div>
-				<div class="dragdrop-main__button__right" @click="changeEditing()">구성편집</div>
 				<div class="dragdrop-main__button__right" @click="preview()">미리보기</div>
 			</div>
 		</div>
@@ -81,6 +80,9 @@
 							<div class="drag absolute" v-for="(img, index) in imgs" :key="index" :ref="`img${index}`" v-show="img.checked">
 								<img :src="img.src" alt="속지 요소"/>
 							</div>
+								<div class="drag sticker-box absolute" v-for="(sticker, index) in stickers" :key="index*10" v-show="sticker.checked">
+									<img :src="sticker.src" alt="스티커">
+								</div>
 						</div>
 					</div>
 				</div>
@@ -147,7 +149,7 @@ export default {
 		interactDragInit('.dragresize', this.$ga);
 		interactResizeInit('.dragresize', this.$ga);
 	},
-	props : ['imgs'],
+	props : ['imgs', 'stickers'],
 	data() {
 		return {
 			componentShow: [
@@ -548,6 +550,9 @@ export default {
 }
 .imgResize{
 	width: 100%;
+}
+.sticker-box{
+	width: 200px;
 }
 // .dragdrop-main__canvas {
 // 	padding-right: 1rem;

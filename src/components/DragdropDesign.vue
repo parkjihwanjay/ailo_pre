@@ -6,7 +6,7 @@
 				class="dragdrop-design-tool__button"
 				@click="clickDesignBtn('design')"
 			>
-				디자인
+				구성
 			</div>
 			<div
 				:class="{ button_click: sticker }"
@@ -18,11 +18,20 @@
 		</div>
 		<div class="dragdrop-design-tool__design" v-show="design">
 			<div class="dragdrop-design-tool__design__theme " v-for="(img, index) in imgs" :key="index">
-				<img :src="img.src" alt="속지 요소" :ref="`img${index}`" @click="click(index)" />
+				<img :src="img.src" alt="속지 요소" :ref="`img${index}`" @click="clickImg(index)" />
 			</div>
 		</div>
 		<div class="dragdrop-design-tool__sticker" v-show="sticker">
-			<h2>스티커</h2>
+			<div class="sticker-list">
+				<img
+					:src="sticker.src"
+					alt="스티커"
+					v-for="(sticker, index) in stickers"
+					:key="index"
+					:ref="`sticker${index}`"
+					@click="clickSticker(index)"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -36,7 +45,7 @@ export default {
 			sticker: false,
 		};
 	},
-	props: ['imgs'],
+	props: ['imgs', 'stickers'],
 	// computed: {
 	// 	imgList() {
 	// 		return this.imgs.slice();
@@ -52,11 +61,15 @@ export default {
 				this.sticker = true;
 			}
 		},
-		click(index) {
+		clickImg(index) {
 			// this.imgList[index].checked = !this.imgList[index].checked;
 			this.$refs[`img${index}`][0].classList.toggle('click-activate');
-			this.$emit('click', index);
+			this.$emit('clickImg', index);
 			// const classList = this.$refs[`img${index}`][0].classList;
+		},
+		clickSticker(index) {
+			this.$refs[`sticker${index}`][0].classList.toggle('click-activate');
+			this.$emit('clickSticker', index);
 		},
 	},
 };
@@ -115,6 +128,10 @@ h2 {
 }
 .click-activate {
 	border: 1px solid greenyellow;
+}
+.sticker-list {
+	width: 200px;
+	margin: 0 auto;
 }
 img {
 	margin-bottom: 50px;

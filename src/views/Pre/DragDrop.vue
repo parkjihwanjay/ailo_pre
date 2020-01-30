@@ -1,7 +1,12 @@
 <template>
 	<div class="main-box">
-		<dragdrop-main :imgs="imgs" />
-		<dragdrop-design @click="clickComponent" :imgs="imgs" />
+		<dragdrop-main :imgs="imgs" :stickers="stickers" />
+		<dragdrop-design
+			@clickImg="clickImg"
+			@clickSticker="clickSticker"
+			:imgs="imgs"
+			:stickers="stickers"
+		/>
 	</div>
 </template>
 
@@ -17,24 +22,41 @@ export default {
 	data() {
 		return {
 			imgs: [],
+			stickers: [],
 		};
 	},
 	created() {
-		for (let i = 0; i < 5; i++) {
-			let img = {
-				src: `/img/diaryComponent/그룹 ${i + 255}.svg`,
-				checked: false,
-			};
-			this.imgs.push(img);
-		}
+		this.initImgs();
+		this.initStickers();
 	},
 	mounted() {
 		document.querySelector('body').classList.remove('transparent-header');
 		// document.querySelector('body').className = 'transparent-header';
 	},
 	methods: {
-		clickComponent(index) {
+		clickImg(index) {
 			this.imgs[index].checked = !this.imgs[index].checked;
+		},
+		clickSticker(index) {
+			this.stickers[index].checked = !this.stickers[index].checked;
+		},
+		initImgs() {
+			for (let i = 0; i < 5; i++) {
+				let img = {
+					src: `/img/diaryComponent/그룹 ${i + 255}.svg`,
+					checked: false,
+				};
+				this.imgs.push(img);
+			}
+		},
+		initStickers() {
+			for (let i = 1; i <= 85; i++) {
+				let sticker = {
+					src: `/img/sticker/자산 ${i}.svg`,
+					checked: false,
+				};
+				this.stickers.push(sticker);
+			}
 		},
 	},
 };
