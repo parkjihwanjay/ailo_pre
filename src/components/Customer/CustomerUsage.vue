@@ -33,7 +33,7 @@
 						<iframe
 							width="631"
 							height="428"
-							src="https://www.youtube.com/embed/VcIs0Lvbsj4"
+							src="/img/사용방법.mp4"
 							frameborder="0"
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen

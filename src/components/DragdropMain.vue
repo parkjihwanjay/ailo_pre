@@ -83,6 +83,7 @@
 								<div class="drag sticker-box absolute" v-for="(sticker, index) in stickers" :key="index*10" v-show="sticker.checked">
 									<img :src="sticker.src" alt="스티커">
 								</div>
+								
 						</div>
 					</div>
 				</div>
