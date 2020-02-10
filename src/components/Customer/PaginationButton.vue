@@ -2,8 +2,8 @@
 	<div class="pagination-numbering">
 		<a class="prev" title="이전" @click="clickPrev()"></a>
 		<ul>
-			<li v-for="(num, index) in paginationLimit" @click="setSkip(index)" ref="li" :key="index">
-				<a :class="{ notClicked: 'font-normal' }">{{ paginationStart + index }}</a>
+			<li v-for="(num, index) in paginationLimit" @click="setSkip(index)" :key="index">
+				<a ref="paginationNum" class="pagination-num">{{ paginationStart + index }}</a>
 			</li>
 		</ul>
 		<a class="next" title="다음" @click="clickNext()"></a>
@@ -28,12 +28,19 @@ export default {
 			}
 		},
 	},
+	mounted() {
+		this.$refs.paginationNum[0].classList.add('font-bold');
+	},
 	methods: {
 		setSkip(index) {
-			this.notClicked = true;
-			console.log(this.$refs.li[index].style.fontWeight);
-			// this.$refs.li[index].style.fontWeight = 'bold';
+			this.fontInit();
+			this.$refs.paginationNum[index].classList.add('font-bold');
 			this.$emit('setSkip', index);
+		},
+		fontInit() {
+			for (let i = 0; i < this.paginationLimit; i++) {
+				this.$refs.paginationNum[i].classList.remove('font-bold');
+			}
 		},
 		clickPrev() {
 			this.$emit('previous');
@@ -51,5 +58,8 @@ a {
 }
 .font-noraml {
 	font-weight: normal;
+}
+.font-bold {
+	font-weight: bold;
 }
 </style>

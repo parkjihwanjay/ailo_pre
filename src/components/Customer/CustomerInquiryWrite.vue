@@ -45,7 +45,7 @@
 										class="w-100"
 										title="이름"
 										placeholder="홍길동"
-										v-model="name"
+										v-model="author"
 									/>
 								</td>
 								<th scope="row">이메일</th>
@@ -68,17 +68,6 @@
 										<option>이용 관련</option>
 										<option>회원정보 관련</option>
 									</select>
-									<!--div class="select-updown">
-                                            <div>
-                                                <a class="up" href="#" title="위로"><img src="img/sub/select-up.png" alt="위" /></a>
-                                                <a class="down" href="#" title="아래로"><img src="img/sub/select-down.png" alt="아래" /></i></a>
-                                            </div>
-                                            <ul>
-                                                <li>주문/배송관련</li>
-                                                <li>이용 관련</li>
-                                                <li>회원정보 관련</li>
-                                            </ul>
-                                        </div-->
 								</td>
 							</tr>
 							<tr>
@@ -126,7 +115,7 @@ export default {
 	data() {
 		return {
 			title: '',
-			name: '',
+			author: '',
 			email: '',
 			category: '',
 			content: '',
@@ -135,14 +124,26 @@ export default {
 	},
 	methods: {
 		async submit() {
-			await axios.post('/service/question', {
-				title: this.title,
-				name: this.name,
-				email: this.email,
-				category: this.category,
-				content: this.content,
-				password: this.password,
-			});
+			try {
+				await axios.post('/service/question', {
+					title: this.title,
+					author: this.author,
+					email: this.email,
+					category: this.category,
+					content: this.content,
+					password: this.password,
+				});
+
+				alert('성공적으로 업로드 됐습니다');
+
+				this.$router.push({
+					name: 'customer',
+				});
+			} catch (e) {
+				if (e.response.status === 400) {
+					alert('모든 내용을 입력해주세요');
+				}
+			}
 		},
 	},
 };

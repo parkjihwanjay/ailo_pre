@@ -23,7 +23,7 @@
                 <tbody>
                     <tr v-for="(notice, index) in list" :key="index">
                         <td class="number">{{index+1}}</td>
-                        <td class="subject"><a :title="notice.title">{{notice.title}}</a></td>
+                        <td class="subject"><a @click="clickTitle(notice, index)" :title="notice.title">{{notice.title}}</a></td>
                         <td class="date">{{notice.createdAt | moment("YYYY-MM-DD")}}</td>
                     </tr>
                 </tbody>
@@ -43,6 +43,14 @@ export default {
         url : '/service/notice',
       }
     },
+    methods : {
+        clickTitle(notice, index){
+            this.$router.push({
+                name : 'CustomerBoardRead',
+                params : { notice, index },
+            })
+        }
+    }
 };
 </script>
 

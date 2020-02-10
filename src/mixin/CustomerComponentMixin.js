@@ -1,5 +1,7 @@
 import axios from 'axios';
-
+import store from '../store/store.js';
+import { errorHandling } from '../utils/error.js';
+import { GetAndSetNewAccessToken } from '../utils/axios.js';
 import PaginationButton from '../components/Customer/PaginationButton.vue';
 
 export default {
@@ -16,14 +18,55 @@ export default {
 		PaginationButton,
 	},
 	async created() {
-		const listTotal = await this.getList(this.url);
-		this.paginationEnd = parseInt(listTotal.length / this.limit) + 1;
-		this.list = await this.getList(this.url, this.skip, this.limit);
+		try {
+			const listTotal = await axios.get(this.url);
+			this.paginationEnd = parseInt(listTotal.data.length / this.limit) + 1;
+			this.list = await this.getList(this.url, this.skip, this.limit);
+		} catch (e) {
+			if (e.response.data.error === 'AccessTokenExpiredError') {
+				const token = await GetAndSetNewAccessToken();
+				const listTotal = await axios.get(this.url);
+				this.paginationEnd = parseInt(listTotal.data.length / this.limit) + 1;
+				this.list = await this.getList(this.url, this.skip, this.limit);
+				if (!result) {
+					alert('로그인을 해주세요');
+					this.$router.push({
+						path: '/login',
+					});
+				}
+			}
+		}
 	},
 
 	methods: {
 		async getList(url, skip, limit) {
-			const result = await axios.get(`${url}?skip=${skip}&limit=${limit}`);
+			let result;
+			// result = await axios.get(`${url}?skip=${skip}&limit=${limit}`);
+			try {
+				if (this.category)
+					result = await axios.get(`${url}?skip=${skip}&limit=${limit}&category=${this.category}`);
+				else result = await axios.get(`${url}?skip=${skip}&limit=${limit}`);
+			} catch (e) {
+				if (e.response.data.error === 'AccessTokenExpiredError') {
+					const token = await GetAndSetNewAccessToken();
+					if (!token) return store.commit('SET_LOADING', false);
+
+					if (this.category)
+						result = await axios.get(
+							`${url}?skip=${skip}&limit=${limit}&category=${this.category}`,
+						);
+					else result = await axios.get(`${url}?skip=${skip}&limit=${limit}`);
+
+					if (!result) {
+						errorHandling(e);
+						store.commit('SET_LOADING', false);
+						this.$router.push({
+							path: '/login',
+						});
+					}
+				}
+			}
+
 			if (!result.data.length) {
 				throw new Error('마지막 페이지입니다.');
 			}

@@ -59,8 +59,8 @@ body {background-color: #f9fafc;}
 .table:not(.table-nostyle) > thead > tr > th.number {text-align: right; font-weight: 700;}
 .table:not(.table-nostyle) > thead > tr > th.subject {color: black; padding-left: 0; font-weight: 700;}
 .table:not(.table-nostyle) > thead > tr > th.writer, .table:not(.table-nostyle) > thead > tr > th.date, .table:not(.table-nostyle) > thead > tr > th.answer {text-align: center; padding-left: 0; padding-right: 0;}
-.table:not(.table-nostyle) > tbody > tr > td.number {font-weight: 700; text-align: center !important;}
-.table:not(.table-nostyle) > tbody > tr > td.subject {text-align: left;}
+.table:not(.table-nostyle) > tbody > tr > td.number {font-weight: 700; text-align: center !important; width:89px;}
+.table:not(.table-nostyle) > tbody > tr > td.subject {text-align: left; }
 .table:not(.table-nostyle) > tbody > tr > td.subject.lock {background-image: url(../img/sub/lock-ico.jpg); background-repeat: no-repeat; background-position: 13px center;}
 .table:not(.table-nostyle) > tbody > tr > td.writer, .table:not(.table-nostyle) > tbody > tr > td.date, .table:not(.table-nostyle) > tbody > tr > td.answer {text-align: center;}
 .table:not(.table-nostyle) > tbody > tr > td.date:last-child {padding-left: 0 !important; padding-right: 0 !important; text-align: center;}

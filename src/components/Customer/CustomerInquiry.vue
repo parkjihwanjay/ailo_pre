@@ -6,9 +6,7 @@
                 <div class="d-flex justify-content-between">
                     <div class="d-flex align-items-center">
                         <div class="form-info"><h2>1:1문의</h2></div>
-                        <a class="btn btnBorder btn-sm" href="#" title="주문/배송 관련">주문/배송 관련</a>
-                        <a class="btn btnBorder btn-sm btn-off" href="#" title="이용 관련">이용 관련</a>
-                        <a class="btn btnBorder btn-sm btn-off" href="#" title="회원정보 관련">회원정보 관련</a>
+                        <a v-for="(cate, index) in categoryList" ref="cate" @click.prevent="clickCate(index)" :key="index" class="btn btnBorder btn-sm btn-off" :title="cate">{{cate}}</a>
                     </div>
                     <div class="d-flex justify-content-between align-items-center" style="width: 404px;">
                         <a class="d-block text-primary link-underline" href="customer-faq-list.html" title="FAQ보기">FAQ보기</a>
@@ -42,128 +40,53 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="number">1</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'배송이 언제쯤 올까요?' 글 보기">배송이 언제쯤 올까요?</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-red">답변대기</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">2</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'디자인 관련 문의드립니다.' 글 보기">디자인 관련 문의드립니다.</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-red">답변대기</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">3</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'배송이 언제쯤 올까요?' 글 보기">배송이 언제쯤 올까요?</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-red">답변대기</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">4</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'디자인 관련 문의드립니다.' 글 보기">디자인 관련 문의드립니다.</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-red">답변대기</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">5</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'배송이 언제쯤 올까요?' 글 보기">배송이 언제쯤 올까요?</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-red">답변대기</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">6</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'디자인 관련 문의드립니다.' 글 보기">디자인 관련 문의드립니다.</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-red">답변대기</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">7</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'배송이 언제쯤 올까요?' 글 보기">배송이 언제쯤 올까요?</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-green">답변완료</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">8</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'디자인 관련 문의드립니다.' 글 보기">디자인 관련 문의드립니다.</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-green">답변완료</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">9</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'배송이 언제쯤 올까요?' 글 보기">배송이 언제쯤 올까요?</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-green">답변완료</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">10</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'디자인 관련 문의드립니다.' 글 보기">디자인 관련 문의드립니다.</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-green">답변완료</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">11</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'배송이 언제쯤 올까요?' 글 보기">배송이 언제쯤 올까요?</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-green">답변완료</span></td>
-                    </tr>
-                    <tr>
-                        <td class="number">12</td>
-                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'디자인 관련 문의드립니다.' 글 보기">디자인 관련 문의드립니다.</a></td>
-                        <td class="writer">유*현</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="date">2019-01-01</td>
-                        <td class="answer"><span class="answer answer-green">답변완료</span></td>
+                    <tr v-for="(inquiry, index) in list" :key="index">
+                        <td class="number">{{index+1}}</td>
+                        <td class="subject lock"><a href="javascript:popup('inquiry');" title="'배송이 언제쯤 올까요?' 글 보기">{{inquiry.title}}</a></td>
+                        <td class="writer">{{inquiry.author}}</td>
+                        <td class="date">{{inquiry.createdAt | moment("YYYY-MM-DD")}}</td>
+                        <td class="date">{{inquiry.updatedAt | moment("YYYY-MM-DD")}}</td>
+
+                        <td class="answer">
+                            <span v-show="!inquiry.status" class="answer answer-red">답변대기</span>
+                            <span v-show="inquiry.status" class="answer answer-green">답변완료</span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="pagination-numbering">
-                <a class="prev" href="#" title="이전"></a>
-                <ul>
-                    <li><a href="#" title="1번 페이지로 이동">1</a></li>
-                    <li><a href="#" title="2번 페이지로 이동">2</a></li>
-                    <li>3</li>
-                    <li><a href="#" title="4번 페이지로 이동">4</a></li>
-                    <li><a href="#" title="5번 페이지로 이동">5</a></li>
-                </ul>
-                <a class="next" href="#" title="다음"></a>
-            </div>
+            <pagination-button :paginationStart="paginationStart" :paginationEnd="paginationEnd" @setSkip="setSkip" @next="next" @previous="previous"></pagination-button>
         </div>
 </template>
 
 <script>
+import CustomerComponentMixin from '@/mixin/CustomerComponentMixin.js';
 import whiteHeader from '@/mixin/whiteHeader.js';
 export default {
-    mixins: [whiteHeader],
+    mixins: [whiteHeader, CustomerComponentMixin],
+    data(){
+        return{
+            url : '/service/question',
+            categoryList : ['카테고리1', '카테고리2', '카테고리3'],
+            category : '카테고리1',
+        }
+    },
+    mounted(){
+        this.$refs.cate[0].classList.remove("btn-off");
+    },
     methods : {
         linkToWrite(){
             this.$router.push({
                 name : 'CustomerInquiryWrite',
             })
-        }
+        },
+        clickCate(index){
+            for(let i=0; i<this.$refs.cate.length; i++){
+                this.$refs.cate[i].classList.add("btn-off");
+            }
+            this.$refs.cate[index].classList.remove("btn-off");
+            this.category = this.categoryList[index];
+            this.getList(this.url, this.skip, this.limit);
+        },
     }
 };
 </script>

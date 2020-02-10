@@ -17,6 +17,8 @@ const CustomerHome = () => import('../views/CustomerView.vue');
 
 const CustomerBoard = () => import('../components/Customer/CustomerBoard.vue');
 
+const CustomerBoardRead = () => import('../components/Customer/CustomerBoardRead.vue');
+
 const CustomerUsage = () => import('../components/Customer/CustomerUsage.vue');
 
 const CustomerFAQ = () => import('../components/Customer/CustomerFAQ.vue');
@@ -93,6 +95,11 @@ const routes = [
     component : CustomerBoard,
   },
   {
+    path : '/customer/board/read',
+    name : 'CustomerBoardRead',
+    component : CustomerBoardRead,
+  },
+  {
     path : '/customer/usage',
     name : 'CustomerUsage',
     component : CustomerUsage,
@@ -115,6 +122,10 @@ const routes = [
     path : '/customer/inquiry',
     name : 'CustomerInquiry',
     component : CustomerInquiry,
+    beforeEnter : async(to, from, next) => {
+      checkAuth(next);
+      next();
+    }
   },
   {
     path : '/customer/inquiry/write',

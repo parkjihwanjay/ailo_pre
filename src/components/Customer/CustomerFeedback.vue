@@ -61,13 +61,6 @@
 									<option>서비스 개선2</option>
 									<option>서비스 개선3</option>
 								</select>
-								<!-- <div>
-                                            <a class="up" href="#" title="위로"><img src="/img/sub/select-up.jpg" alt="위" /></a>
-                                            <a class="down" href="#" title="아래로"><img src="/img/sub/select-down.jpg" alt="아래" /></i></a>
-                                        </div> -->
-								<!-- <ul>
-										<li>서비스 개선</li>
-									</ul> -->
 							</td>
 						</tr>
 						<tr>
@@ -87,9 +80,8 @@
 			<a
 				class="d-block btn btnColor btn-shadow"
 				style="width: 180px;"
-				href="#"
 				title="보내기"
-				@click="submit()"
+				@click.prevent="submit()"
 				>보내기</a
 			>
 		</div>
@@ -113,13 +105,25 @@ export default {
 	mixins: [whiteHeader],
 	methods: {
 		async submit() {
-			await axios.post('/service/feedback', {
-				name: this.name,
-				email: this.email,
-				category: this.category,
-				title: this.title,
-				content: this.content,
-			});
+			try {
+				await axios.post('/service/feedback', {
+					name: this.name,
+					email: this.email,
+					category: this.category,
+					title: this.title,
+					content: this.content,
+				});
+
+				alert('제출 완료');
+
+				this.$router.push({
+					name: 'customer',
+				});
+			} catch (e) {
+				if (e.response.status === 400) {
+					alert('모든 내용을 입력 해주세요');
+				}
+			}
 		},
 	},
 };
