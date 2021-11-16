@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "aws-sdk": "^2.576.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.19.0",
     "core-js": "^3.3.2",
     "detect-element-overflow": "^1.2.0",
